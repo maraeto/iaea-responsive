@@ -608,8 +608,8 @@ h4,
 h5,
 h6 {
   margin: 10px 0;
-  font-family: inherit;
-  font-weight: bold;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: normal;
   line-height: 20px;
   color: #a52a2a;
   text-rendering: optimizelegibility;
