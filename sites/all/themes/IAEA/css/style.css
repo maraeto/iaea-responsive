@@ -6632,3 +6632,12 @@ div.password-suggestions ul {
   position: relative;
   top: 1px;
 }
+.field-banner-image-sidebar {
+  margin-bottom: 20px;
+}
+.doormat .block h2.block-title {
+  font-size: 18px;
+}
+aside .block h2.block-title {
+  font-size: 22px;
+}

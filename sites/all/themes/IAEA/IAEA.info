@@ -13,6 +13,7 @@ regions[content]        = 'Content'
 regions[sidebar_first]  = 'Primary'
 regions[sidebar_second] = 'Secondary'
 regions[footer]         = 'Footer'
+regions[doormat]        = 'Doormat'
 
 ; Stylesheets
 ; stylesheets[all][] = less/style.less
