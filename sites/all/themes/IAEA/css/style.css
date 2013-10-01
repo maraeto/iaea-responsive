@@ -6641,3 +6641,11 @@ div.password-suggestions ul {
 aside .block h2.block-title {
   font-size: 22px;
 }
+.taxonomy-labels ul {
+  list-style: none;
+  margin-left: 0;
+}
+.taxonomy-labels ul li {
+  float: left;
+  padding-right: 10px;
+}
