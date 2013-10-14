@@ -4,8 +4,8 @@
  * @file
  * Set Poster/Thumbnail for Mediaelement Module.
  * Assuming the following fields on node:
- *  field_video_url (type=link)   (display format: MediaElement Video)
- *  field_poster_file (type=file) (display format: hidden) *OR* field_poster_url (type=link) (display format: hidden)
+ *  field_iaea_video (type=link)   (display format: MediaElement Video)
+ *  field_iaea_video_poster (type=file) (display format: hidden) *OR* field_poster_url (type=link) (display format: hidden)
  *
  * Create an image style called 'video_poster' which can be used to scale the image if necessary if using a file,
  * otherwise if using a link, the poster image will be scaled to fit based on width and height of the video.
@@ -16,10 +16,10 @@
  */
 function mediaelement_poster_preprocess_field(&$variables, $hook) {
 
-  if ($variables['element']['#field_name'] == 'field_video_url') {
-    if (!empty($variables['element']['#object']->field_poster_file[$variables['element']['#language']])) {
-      $file_uri = $variables['element']['#object']->field_poster_file[$variables['element']['#language']][0]['uri'];
-      $image_url = image_style_url('video_poster', $file_uri);
+  if ($variables['element']['#field_name'] == 'field_iaea_video') {
+    if (!empty($variables['element']['#object']->field_iaea_video_poster[$variables['element']['#language']])) {
+      $file_uri = $variables['element']['#object']->field_iaea_video_poster[$variables['element']['#language']][0]['uri'];
+      $image_url = image_style_url('iaea_video_poster', $file_uri);
       $variables['items'][0]['#attributes']['poster'] = $image_url;
     } 
     elseif (!empty($variables['element']['#object']->field_poster_url[$variables['element']['#language']])) {
