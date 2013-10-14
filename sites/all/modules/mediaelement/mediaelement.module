@@ -164,9 +164,13 @@ function mediaelement_theme() {
   );
 }
 
-function theme_mediaelement_video($variables) {
+function theme_mediaelement_video($variables) {    
   $output = '<div class="mediaelement-video">';
-  $output .= '<video ' . drupal_attributes($variables['attributes']) . ' ></video>';
+  if(strpos($variables['attributes']['src'],"youtube")) {
+    $output .= '<video width="' . $variables['attributes']['width'] . '" height="' . $variables['attributes']['height'] . '" class="' . $variables['attributes']['class'] . '"><source type="video/youtube" src="' . $variables['attributes']['src'] . '" /></video>';
+  } else {
+  $output .= '<video ' . drupal_attributes($variables['attributes']) . ' ></video>';    
+  }
   if ($variables['settings']['download_link']) {
     $output .= '<div class="mediaelement-download-link"><a href="' . $variables['attributes']['src'] . '">' . filter_xss_admin($variables['settings']['download_text']) . '</a></div>';
   }
