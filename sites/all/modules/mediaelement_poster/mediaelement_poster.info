@@ -1,0 +1,6 @@
+name = MediaElement Poster
+description = "Set Poster/Thumbnail for MediaElement Module"
+core = 7.x
+
+files[] = mediaelement_poster.module
+
