@@ -5,6 +5,7 @@ base theme = bootstrap
 version = 1.0
 
 ; Regions
+
 regions[navigation]     = 'Navigation'
 regions[header]         = 'Top Bar'
 regions[highlighted]    = 'Highlighted'
