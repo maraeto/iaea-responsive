@@ -1,0 +1,27 @@
+<?php
+
+/*
+This function converts alt attribute field from input to textarea and increases the length tfrom 512 to 1024
+In tables field_data_field_photoessay_photos and field_revision_field_photoessay_photos the size of the field field_photoessay_photos_alt was increased from 512 to 1024
+*/
+
+function iaea_photo_essay_caption_field_widget_form_alter(&$element, &$form_state, $context) {
+  // If this is an image field type of instance 'field_photoessay_photos' 
+  if ($context['field']['field_name'] == 'field_photoessay_photos') {
+    // Loop through the element children (there will always be at least one).
+    foreach (element_children($element) as $key => $child) {
+      // Add the new process function to the element
+      //dpm($element);
+      $element[$key]['#process'][] = 'iaea_photo_essay_caption_image_field_widget_process';
+    }
+  }
+}
+
+function iaea_photo_essay_caption_image_field_widget_process($element, &$form_state, $form) {
+  // Change the title field label and description
+  $element['alt']['#type'] = 'textarea';
+  $element['alt']['#maxlength'] = 1024;
+
+  // Return the altered element
+  return $element;
+}

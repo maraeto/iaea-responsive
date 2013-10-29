@@ -1,0 +1,4 @@
+name = "IAEA Photo Essay Caption"
+description = "Manipulates the alt attribute that is used for caption and convert it to the text area"
+package = "Other"
+core = "7.x"
