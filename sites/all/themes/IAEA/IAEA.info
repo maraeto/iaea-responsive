@@ -1,4 +1,4 @@
-name = International Atomic Energy Agency Theme
+name = International Atomic Energy Agency Theme - Bootstrap
 description = A Responsive Drupal Theme based on Bootstrap.
 core = 7.x
 base theme = bootstrap

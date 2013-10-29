@@ -14,7 +14,7 @@ function IAEA_preprocess_page(&$variables) {
 
 			/* add trigger for the tabs on the fornt page */
 			$js_tabs = "jQuery(document).ready(function () {
-				jQuery('#myTab a').click(function (e) {
+				jQuery('#tabs-frontpage a').click(function (e) {
   						e.preventDefault()
   						jQuery(this).tab('show')
 					});
@@ -22,8 +22,6 @@ function IAEA_preprocess_page(&$variables) {
 			drupal_add_js($js_tabs, array('type' => 'inline', 'scope' => 'footer'));
 		}
 }
-
-
 
 
 /* function IAEA_preprocess_node(&$vars) {
