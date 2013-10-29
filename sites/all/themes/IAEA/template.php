@@ -9,8 +9,22 @@
 * e.g. when content is rendered via Context or Views module
 */
 function IAEA_preprocess_page(&$variables) {
-	if (drupal_is_front_page()) { $variables['title']=""; }
+	if (drupal_is_front_page()) { 
+			$variables['title']=""; 
+
+			/* add trigger for the tabs on the fornt page */
+			$js_tabs = "jQuery(document).ready(function () {
+				jQuery('#myTab a').click(function (e) {
+  						e.preventDefault()
+  						jQuery(this).tab('show')
+					});
+				});";
+			drupal_add_js($js_tabs, array('type' => 'inline', 'scope' => 'footer'));
+		}
 }
+
+
+
 
 /* function IAEA_preprocess_node(&$vars) {
   if ($vars['type'] === 'news_story') {

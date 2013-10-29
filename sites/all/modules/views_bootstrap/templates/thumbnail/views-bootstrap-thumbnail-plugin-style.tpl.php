@@ -11,12 +11,12 @@
  */
 ?>
 
-<ul id="views-bootstrap-thumbnail-<?php print $id ?>" class="thumbnails <?php print $classes ?>">
+<div id="views-bootstrap-thumbnail-<?php print $id ?>" class="row <?php print $classes ?>">
   <?php foreach ($rows as $key => $row): ?>
-    <li class="span<?php print $column_type ?>">
+    <div class="col col-lg-<?php print $column_type ?>">
       <div class="thumbnail">
         <?php print $row ?>
       </div>
-    </li>
+    </div>
   <?php endforeach ?>
-</ul>
+</div>

@@ -68,6 +68,20 @@ function views_bootstrap_views_plugins() {
         'uses options' => TRUE,
         'type' => 'normal',
       ),
+      'views_bootstrap_tab_plugin_style' => array(
+        'title' => t('Bootstrap Tab'),
+        'help' => t('Bootstrap Tab Style'),
+        'path' => $module_path . '/plugins/tab',
+        'handler' => 'ViewsBootstrapTabPluginStyle',
+        'parent' => 'default',
+        'theme' => 'views_bootstrap_tab_plugin_style',
+        'theme path' => $module_path . '/templates/tab',
+        'theme file' => 'theme.inc',
+        'uses row plugin' => TRUE,
+        'uses grouping' => TRUE,
+        'uses options' => TRUE,
+        'type' => 'normal',
+      ),
     ),
     'row' => array(
       'views_bootstrap_carousel_plugin_rows' => array(

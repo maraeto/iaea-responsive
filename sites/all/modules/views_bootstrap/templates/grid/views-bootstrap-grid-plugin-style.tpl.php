@@ -15,9 +15,9 @@
 
 <div id="views-bootstrap-grid-<?php print $id ?>" class="<?php print $classes ?>">
   <?php foreach ($columns as $column): ?>
-    <div class="row-fluid">
+    <div class="row">
       <?php foreach ($column as $key => $row): ?>
-        <div class="span<?php print $column_type ?>">
+        <div class="col col-lg-<?php print $column_type ?>">
           <?php print $row ?>
         </div>
       <?php endforeach ?>
