@@ -14,15 +14,27 @@ function IAEA_preprocess_page(&$variables) {
 
 			/* add trigger for the tabs on the fornt page */
 			$js_tabs = "jQuery(document).ready(function () {
-				jQuery('#tabs-frontpage a').click(function (e) {
+				jQuery('.bootstrap-tabs a').click(function (e) {
   						e.preventDefault()
   						jQuery(this).tab('show')
 					});
+					jQuery('.bootstrap-tabs a:first').tab('show');
 				});";
 			drupal_add_js($js_tabs, array('type' => 'inline', 'scope' => 'footer'));
 		}
 }
 
+/**
+ * THEME_preprocess_image_style() is also available.
+ */
+function IAEA_preprocess_image(&$variables) {
+  if(isset($variables['style_name'])) {
+    if($variables['style_name'] == 'thumbnail_front_page_listing') {
+      $variables['attributes']['class'][] = "thumbnail";
+    }
+  }
+  //var_dump($variables);
+}
 
 /* function IAEA_preprocess_node(&$vars) {
   if ($vars['type'] === 'news_story') {

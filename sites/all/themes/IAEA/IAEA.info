@@ -5,7 +5,6 @@ base theme = bootstrap
 version = 1.0
 
 ; Regions
-
 regions[navigation]     = 'Navigation'
 regions[header]         = 'Top Bar'
 regions[highlighted]    = 'Highlighted'
@@ -17,7 +16,6 @@ regions[footer]         = 'Footer'
 regions[doormat]        = 'Doormat'
 
 ; Stylesheets
-; stylesheets[all][] = less/style.less
 stylesheets[all][] = css/style.css
 
 ;**********************************
@@ -25,25 +23,24 @@ stylesheets[all][] = css/style.css
 ;**********************************
 ; 
 ; ; Scripts
-scripts[] = 'bootstrap/js/bootstrap-affix.js'
-scripts[] = 'bootstrap/js/bootstrap-alert.js'
-scripts[] = 'bootstrap/js/bootstrap-button.js'
-scripts[] = 'bootstrap/js/bootstrap-carousel.js'
-scripts[] = 'bootstrap/js/bootstrap-collapse.js'
-scripts[] = 'bootstrap/js/bootstrap-dropdown.js'
-scripts[] = 'bootstrap/js/bootstrap-modal.js'
-scripts[] = 'bootstrap/js/bootstrap-tooltip.js'
-scripts[] = 'bootstrap/js/bootstrap-popover.js'
-scripts[] = 'bootstrap/js/bootstrap-scrollspy.js'
-scripts[] = 'bootstrap/js/bootstrap-transition.js'
-scripts[] = 'bootstrap/js/bootstrap-typeahead.js'
-scripts[] = 'bootstrap/js/bootstrap-tab.js'
 ; 
+scripts[] = 'bootstrap/js/affix.js'
+scripts[] = 'bootstrap/js/alert.js'
+scripts[] = 'bootstrap/js/button.js'
+scripts[] = 'bootstrap/js/carousel.js'
+scripts[] = 'bootstrap/js/collapse.js'
+scripts[] = 'bootstrap/js/dropdown.js'
+scripts[] = 'bootstrap/js/modal.js'
+scripts[] = 'bootstrap/js/tooltip.js'
+scripts[] = 'bootstrap/js/popover.js'
+scripts[] = 'bootstrap/js/scrollspy.js'
+scripts[] = 'bootstrap/js/tab.js'
+scripts[] = 'bootstrap/js/transition.js'
 ; ; Settings inherited by base theme, uncomment to override.
 settings[toggle_name] = 0
 settings[toggle_search] = 1
 ; ; Disable the CDN as we are using our own source files.
-settings[cdn_bootstrap] = 0
+settings[bootstrap_cdn] = 0
 
 
 ;*************************
@@ -54,4 +51,4 @@ settings[cdn_bootstrap] = 0
 ; ;settings[toggle_name] = 0
 ; ;settings[toggle_search] = 1
 ; ;settings[cdn_bootstrap] = 1
-; ;settings[cdn_bootstrap_version] = 2.3.2
+; ;settings[bootstrap_cdn] = 3.0.0
