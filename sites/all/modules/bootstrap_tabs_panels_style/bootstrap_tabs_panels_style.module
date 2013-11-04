@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file Bootstrap Tabs Panels Style for the IAEA front page.
+ *
+ * @author Martin Martinov <martin@mmartinov.com>
+ */
+
+/**
+ * Implementation of hook_ctools_plugin_directory().
+ */
+function bootstrap_tabs_panels_style_ctools_plugin_directory($module, $plugin) {
+  if ($module == 'page_manager' || $module == 'panels') {
+    return 'plugins/' . $plugin;
+  }
+}

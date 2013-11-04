@@ -1,0 +1,6 @@
+name = Bootstrap Tabs Panels style
+description = "A panels style plugin for Bootstrap 3 tabs."
+dependencies[] = panels
+package = "Panels"
+core = 7.x
+version = "7.x-1.0"
