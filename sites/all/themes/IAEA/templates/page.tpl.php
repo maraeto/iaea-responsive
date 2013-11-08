@@ -1,11 +1,34 @@
 <header id="navbar" role="banner" class="<?php print $navbar_classes; ?>">
-  <div class="container">
-    <div class="navbar-header">
+
+  <div class="container col-md-12">
+    <div class="meta-navigation pull-right">
+      <?php if (!empty($page['meta_navigation'])): ?>
+        <?php print render($page['meta_navigation']); ?>
+      <?php endif; ?>
+    </div>
+  </div>
+  
+  <div class="container col-md-12 logo-search site-logo">
+    
+    <div class="col-md-6">
       <?php if ($logo): ?>
       <a class="logo navbar-btn pull-left" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
         <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
       </a>
       <?php endif; ?>
+    </div>
+
+    <div class="col-md-6 pull-right search-box">
+      <?php if (!empty($page['search_box'])): ?>
+        <?php print render($page['search_box']); ?>
+      <?php endif; ?>            
+    </div>
+
+  </div>
+  
+  <div class="container">
+    <div class="navbar-header">
+
 
       <?php if (!empty($site_name)): ?>
       <a class="name navbar-brand" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"><?php print $site_name; ?></a>
@@ -88,13 +111,23 @@
 
   </div>
 </div>
+
+<?php if ($page['doormat']): ?>
+  <div class="doormat container">
+    <?php print render($page['doormat']); ?>
+  </div> <!-- /.doormat -->
+<?php endif; ?>  
+
 <footer class="footer container">
-
-  <?php if ($page['doormat']): ?>
-    <div class="doormat row">
-      <?php print render($page['doormat']); ?>
-    </div> <!-- /.doormat -->
-  <?php endif; ?>
-
   <?php print render($page['footer']); ?>
+  <div class="col-md-4 footer-address">
+      <?php if (!empty($page['footer_address'])): ?>
+        <?php print render($page['footer_address']); ?>
+      <?php endif; ?>
+  </div>
+  <div class="col-md-8 footer-nav">
+      <?php if (!empty($page['footer_nav'])): ?>
+        <?php print render($page['footer_nav']); ?>
+      <?php endif; ?>
+  </div>  
 </footer>
