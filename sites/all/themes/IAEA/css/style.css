@@ -6917,3 +6917,9 @@ td.radio {
   width: 350px;
   float: left;
 }
+.field-newsstory-author {
+  font-style: italic;
+}
+.field-newsstory-photo-caption {
+  font-size: 10px;
+}
