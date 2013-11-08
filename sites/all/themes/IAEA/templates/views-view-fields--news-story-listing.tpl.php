@@ -25,14 +25,12 @@
  */
 ?>
 
-<ul class="media-list">
-  <li class="media"><a class="pull-left" href="<?php print url('node/'.$row->nid); ?>"><?php print $fields['field_newsstory_photo']->content; ?></a>
-    <div class="media-body">
-    	<span><?php print $fields['field_newsstory_date']->content; ?></span>
-    	<h4 class="media-heading"><?php print $fields['title']->content; ?></h4>
-    	<p><?php print $fields['field_newsstory_body']->content; ?></p>
-    	<p><?php print $fields['view_node']->content; ?></p>
-   	</div>
-  </li>
-</ul>
-<hr />
+<div class="media">
+	<a class="pull-left" href="<?php print url('node/'.$row->nid); ?>"><?php print $fields['field_newsstory_photo']->content; ?></a>
+	<div class="media-body">
+		<span><?php print $fields['field_newsstory_date']->content; ?></span>
+		<h4 class="media-heading"><?php print $fields['title']->content; ?></h4>
+    	<?php print $fields['field_newsstory_body']->content; ?>
+    	<?php print $fields['view_node']->content; ?>	
+	</div>
+</div>
