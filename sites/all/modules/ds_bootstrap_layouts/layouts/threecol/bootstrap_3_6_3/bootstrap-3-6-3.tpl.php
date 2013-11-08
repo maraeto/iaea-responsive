@@ -11,13 +11,13 @@
     <?php print render($title_suffix['contextual_links']); ?>
   <?php endif; ?>
   <div class="row-fluid">
-    <<?php print $left_wrapper; ?> class="span3 <?php print $left_classes; ?>">
+    <<?php print $left_wrapper; ?> class="col-lg-3 <?php print $left_classes; ?>">
       <?php print $left; ?>
     </<?php print $left_wrapper; ?>>
-    <<?php print $central_wrapper; ?> class="span6 <?php print $central_classes; ?>">
+    <<?php print $central_wrapper; ?> class="col-lg-6 <?php print $central_classes; ?>">
       <?php print $central; ?>
     </<?php print $central_wrapper; ?>>
-    <<?php print $right_wrapper; ?> class="span3 <?php print $right_classes; ?>">
+    <<?php print $right_wrapper; ?> class="col-lg-3 <?php print $right_classes; ?>">
       <?php print $right; ?>
     </<?php print $right_wrapper; ?>>
   </div>
