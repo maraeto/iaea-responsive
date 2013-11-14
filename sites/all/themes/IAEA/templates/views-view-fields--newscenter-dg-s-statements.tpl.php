@@ -22,13 +22,12 @@
  * - $row: The raw result object from the query, with all data it fetched.
  *
  * @ingroup views_templates
- */	
+ */
 ?>
 <div>
 	<p><?php print $fields['field_dgstatement_date']->content; ?> | <?php print $fields['field_dgstatement_event']->content; ?></p>
 	<h3><?php print $fields['title']->content; ?></h3>
 	<p><?php print $fields['field_dgstatement_body']->content; ?></p>
-	<p><?php print $fields['field_dgstatemet_tags']->content; ?></p>
+	<p><?php print $fields['field_dgstatement_tags']->content; ?></p>
 	<a class="btn btn-default" href="<?php print url('node/'.$row->nid); ?>">Read more &rarr;</a>
 </div>
-<p>test</p>
