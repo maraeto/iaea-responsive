@@ -6872,14 +6872,16 @@ td.radio {
 }
 .taxonomy-labels ul,
 .meta-navigation ul,
-.footer-nav ul {
+.footer-nav ul,
+ul.social-media-icons {
   list-style: none;
   margin-left: 0;
   padding-left: 0;
 }
 .taxonomy-labels ul li,
 .meta-navigation ul li,
-.footer-nav ul li {
+.footer-nav ul li,
+ul.social-media-icons li {
   float: left;
   padding-right: 10px;
 }
@@ -6922,4 +6924,7 @@ td.radio {
 }
 .field-newsstory-photo-caption {
   font-size: 10px;
+}
+.bean-front-page-banner-1140x345 {
+  margin-bottom: 20px;
 }

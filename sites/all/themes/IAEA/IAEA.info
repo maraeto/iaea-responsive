@@ -5,7 +5,7 @@ base theme = bootstrap
 version = 1.0
 
 ; Regions
-regions[meta_navigation]= 'Meta Navigation'
+regions[social_media]	= 'Social Media Icons'
 regions[search_box] 	= 'Search Box'
 regions[navigation]     = 'Navigation'
 regions[header]         = 'Top Bar'
@@ -15,7 +15,7 @@ regions[content]        = 'Content'
 regions[sidebar_first]  = 'Primary'
 regions[sidebar_second] = 'Secondary'
 regions[doormat]        = 'Doormat'
-regions[footer]         = 'Footer'
+; ;regions[footer]      = 'Footer'
 regions[footer_address] = 'Footer Address'
 regions[footer_nav]     = 'Footer Navigation'
 

@@ -1,39 +1,38 @@
-<header id="navbar" role="banner" class="<?php print $navbar_classes; ?>">
-
-  <div class="container col-md-12">
-    <div class="meta-navigation pull-right">
-      <?php if (!empty($page['meta_navigation'])): ?>
-        <?php print render($page['meta_navigation']); ?>
-      <?php endif; ?>
-    </div>
-  </div>
-  
-  <div class="container col-md-12 logo-search site-logo">
-    
-    <div class="col-md-6">
-      <?php if ($logo): ?>
-      <a class="logo navbar-btn pull-left" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
-        <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-      </a>
-      <?php endif; ?>
-    </div>
-
-    <div class="col-md-6 pull-right search-box">
-      <?php if (!empty($page['search_box'])): ?>
-        <?php print render($page['search_box']); ?>
-      <?php endif; ?>            
-    </div>
-
-  </div>
-  
+<header id="navbar" role="banner">
   <div class="container">
-    <div class="navbar-header">
+     <div class="row">
 
+        <div class="col-xs-6">
+          <?php if ($logo): ?>
+            <a class="logo navbar-btn pull-left" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
+              <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+            </a>
+          <?php endif; ?>
+        </div>
+
+        <div class="col-xs-6">
+          <div class="text-right pull-right">
+            <?php if (!empty($page['social_media'])): ?>
+              <?php print render($page['social_media']); ?>
+            <?php endif; ?>
+          </div>
+          <div class="text-right pull-right">
+            <?php if (!empty($page['search_box'])): ?>
+              <?php print render($page['search_box']); ?>
+            <?php endif; ?>
+          </div>
+
+        </div>
+      </div>
+    </div>
+</header>
+
+  <div class="<?php print $navbar_classes; ?>">
+    <div class="navbar-header" role="navigation">
 
       <?php if (!empty($site_name)): ?>
-      <a class="name navbar-brand" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"><?php print $site_name; ?></a>
+        <a class="name navbar-brand" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"><?php print $site_name; ?></a>
       <?php endif; ?>
-
       <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
@@ -58,19 +57,10 @@
         </nav>
       </div>
     <?php endif; ?>
+
   </div>
-</header>
 
 <div class="main-container container">
-
-  <header role="banner" id="page-header">
-    <?php if (!empty($site_slogan)): ?>
-      <p class="lead"><?php print $site_slogan; ?></p>
-    <?php endif; ?>
-
-    <?php print render($page['header']); ?>
-  </header> <!-- /#header -->
-
   <div class="row">
 
     <?php if (!empty($page['sidebar_first'])): ?>
@@ -108,26 +98,30 @@
         <?php print render($page['sidebar_second']); ?>
       </aside>  <!-- /#sidebar-second -->
     <?php endif; ?>
-
   </div>
 </div>
 
-<?php if ($page['doormat']): ?>
-  <div class="doormat container">
-    <?php print render($page['doormat']); ?>
-  </div> <!-- /.doormat -->
-<?php endif; ?>  
 
-<footer class="footer container">
-  <?php print render($page['footer']); ?>
-  <div class="col-md-4 footer-address">
-      <?php if (!empty($page['footer_address'])): ?>
-        <?php print render($page['footer_address']); ?>
-      <?php endif; ?>
-  </div>
-  <div class="col-md-8 footer-nav">
-      <?php if (!empty($page['footer_nav'])): ?>
-        <?php print render($page['footer_nav']); ?>
-      <?php endif; ?>
-  </div>  
+<?php if ($page['doormat']): ?>
+  <div class="doormat">
+    <div class="container">
+      <?php print render($page['doormat']); ?>
+    </div>
+  </div> <!-- /.doormat -->
+<?php endif; ?>
+
+<footer class="footer">
+  <?php #print render($page['footer']); ?>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 footer-address">
+          <?php if (!empty($page['footer_address'])): ?>
+            <?php print render($page['footer_address']); ?>
+          <?php endif; ?>
+        </div>
+        <div class="col-md-8 footer-nav text-right">
+            <?php if (!empty($page['footer_nav'])): ?>
+              <?php print render($page['footer_nav']); ?>
+            <?php endif; ?>
+        </div>
 </footer>
