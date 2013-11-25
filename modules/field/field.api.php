@@ -199,11 +199,8 @@ function hook_field_info_alter(&$info) {
 /**
  * Define the Field API schema for a field structure.
  *
- * This is invoked when a field is created, in order to obtain the database
- * schema from the module that defines the field's type.
- *
- * This hook must be defined in the module's .install file for it to be detected
- * during installation and upgrade.
+ * This hook MUST be defined in .install for it to be detected during
+ * installation and upgrade.
  *
  * @param $field
  *   A field structure.
