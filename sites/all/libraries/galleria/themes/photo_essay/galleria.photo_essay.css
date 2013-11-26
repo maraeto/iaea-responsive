@@ -8,7 +8,7 @@ h1.page-header { font: normal 20px/24px Georgia, serif; color: #4283d6; margin: 
 p#galleria-date { margin: 0 0 0 20px; color:#aaa; display:none }
 #galleria p { margin-top: 0 }
 .addthis_toolbox { bottom: 25px; right: 20px; display: none }
-.content { 
+.content {
     width: 1130px;
     margin: 0 auto;
     backgroung: blue
@@ -40,7 +40,7 @@ p#galleria-date { margin: 0 0 0 20px; color:#aaa; display:none }
 .galleria-carousel .galleria-thumbnails-list {
     margin-left: 30px;
     margin-right: 30px;
-} 
+}
 .galleria-thumbnails .galleria-image {
     height: 30px;
     width: 45px;
@@ -76,7 +76,7 @@ p#galleria-date { margin: 0 0 0 20px; color:#aaa; display:none }
 }
 .galleria-info {
     position: absolute;
-    width: 360px;
+    width: 330px;
     height: 540px;
     top: 0px;
     right: 0;
@@ -106,7 +106,7 @@ galleria-info > *,
     color: #575757;
     float: left;
     /* display: inline-block;
-    display: inline; */    
+    display: inline; */
     padding: 0 7px;
     _height: 29px;
     zoom: 1;

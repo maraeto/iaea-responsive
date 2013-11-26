@@ -31,6 +31,6 @@
 		<span><?php print $fields['field_newsstory_date']->content; ?></span>
 		<h4 class="media-heading"><?php print $fields['title']->content; ?></h4>
     	<?php print $fields['field_newsstory_body']->content; ?>
-    	<?php print $fields['view_node']->content; ?>	
+    	<?php print $fields['view_node']->content; ?>
 	</div>
 </div>

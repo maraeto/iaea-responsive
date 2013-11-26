@@ -25,15 +25,20 @@ function IAEA_preprocess_page(&$variables) {
 }
 
 /**
- * THEME_preprocess_image_style() is also available.
+ * THEME_preprocess_image_style() attach img-responsive class for certain image styles
  */
 function IAEA_preprocess_image(&$variables) {
   if(isset($variables['style_name'])) {
-    if($variables['style_name'] == 'thumbnail_front_page_listing') {
-      $variables['attributes']['class'][] = "thumbnail";
+    switch($variables['style_name']) {
+      case 'banner_6_units_3_2_555px':
+      case 'front_page_banner_12_units_1140x345':
+        $variables['attributes']['class'][] = "img-responsive";
     }
+    /* if($variables['style_name'] == 'banner_6_units_3_2_555px' || $variables['style_name'] = 'front_page_banner_12_units_1140x345') {
+      $variables['attributes']['class'][] = "img-responsive";
+    }*/
   }
-  //var_dump($variables);
+  // var_dump($variables);
 }
 
 /* function IAEA_preprocess_node(&$vars) {
