@@ -25,7 +25,7 @@ function IAEA_preprocess_page(&$variables) {
 }
 
 /**
- * THEME_preprocess_image_style() attach img-responsive class for certain image styles
+ * Add img-responsive class to images based on image style_name
  */
 function IAEA_preprocess_image(&$variables) {
   if(isset($variables['style_name'])) {
@@ -50,3 +50,16 @@ function IAEA_preprocess_image(&$variables) {
     );
   }
 }*/
+
+/* Add img-responsive class to images based on field_name */
+function IAEA_preprocess_field(&$variables) {
+  switch($variables['element']['#field_name']) {
+    case 'field_newsstory_photo':
+    case 'field_basicpage_section_image':
+  // if($variables['element']['#field_name'] == 'field_newsstory_photo'){
+      foreach($variables['items'] as $key => $item){
+        $variables['items'][ $key ]['#item']['attributes']['class'][] = 'img-responsive';
+      }
+    }
+   // }
+}
