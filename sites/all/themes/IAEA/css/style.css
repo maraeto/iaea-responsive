@@ -6841,12 +6841,13 @@ td.radio {
 /* aside .block h2.block-title { font-size:22px; }
 .field-banner-image-sidebar { margin-bottom: 20px } */
 .doormat .block h2.block-title {
-  font-size: 18px;
+  font-size: 16px;
 }
 .taxonomy-labels ul,
 .meta-navigation ul,
 .footer-nav ul,
-ul.social-media-icons {
+ul.social-media-icons,
+.doormat-menu ul {
   list-style: none;
   margin-left: 0;
   padding-left: 0;
@@ -6857,6 +6858,9 @@ ul.social-media-icons {
 ul.social-media-icons li {
   float: left;
   padding-right: 10px;
+}
+.doormat-menu li {
+  font-size: 12px;
 }
 .doormat ul li {
   padding-bottom: 5px;
