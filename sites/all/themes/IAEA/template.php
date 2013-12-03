@@ -57,6 +57,7 @@ function IAEA_preprocess_field(&$variables) {
     case 'field_newsstory_photo':
     case 'field_basicpage_section_image':
     case 'field_focuspage_banner':
+    case 'field_jumbotron_image':
   // if($variables['element']['#field_name'] == 'field_newsstory_photo'){
       foreach($variables['items'] as $key => $item){
         $variables['items'][ $key ]['#item']['attributes']['class'][] = 'img-responsive';
