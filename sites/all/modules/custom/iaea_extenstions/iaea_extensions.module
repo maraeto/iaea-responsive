@@ -1,0 +1,44 @@
+<?php
+
+function iaea_extensions_field_formatter_info() {
+  return array(
+    'link_read_more' => array(
+      'label' => t('Read more →'),
+      'field types' => array('link_field'),
+    ),
+  );
+}
+
+
+function iaea_extensions_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $elements = array();
+  foreach ($items as $delta => $item) {
+    $elements[$delta] = array(
+      '#theme' => 'link_formatter_' . $display['type'],
+      '#element' => $item,
+      '#field' => $instance,
+      '#display' => $display,
+    );
+  }
+  return $elements;
+}
+
+function iaea_extensions_theme() {
+  return array(
+    'link_formatter_link_read_more' => array(
+      'variables' => array('element' => NULL, 'field' => NULL),
+    ),
+  );
+}
+
+
+function theme_link_formatter_link_read_more($vars) {
+  $link_options = $vars['element'];
+  unset($link_options['title']);
+  unset($link_options['url']);
+
+  if (isset($link_options['attributes']['class'])) {
+    $link_options['attributes']['class'] = array($link_options['attributes']['class']);
+  }
+  return '<a href="'.$vars['element']['url'].'" class="btn btn-default">Read More &rarr;</a>';
+}

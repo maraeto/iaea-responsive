@@ -1,0 +1,4 @@
+name = "IAEA Extensions"
+description = "Hooks that extend default functionality"
+package = "Other"
+core = "7.x"
