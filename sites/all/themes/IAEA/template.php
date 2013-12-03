@@ -58,10 +58,18 @@ function IAEA_preprocess_field(&$variables) {
     case 'field_basicpage_section_image':
     case 'field_focuspage_banner':
     case 'field_jumbotron_image':
+    case 'field_mediablock_image':
   // if($variables['element']['#field_name'] == 'field_newsstory_photo'){
       foreach($variables['items'] as $key => $item){
         $variables['items'][ $key ]['#item']['attributes']['class'][] = 'img-responsive';
       }
+    break;
+    case 'field_mediaadvisory_tags':
+      foreach ($variables['items'] as $key => $item) {
+        $variables['items'][$key]['#prefix'] = '<span class="badge">';
+        $variables['items'][$key]['#suffix'] = '</span>';
+      }
+      break;
     }
    // }
 }
