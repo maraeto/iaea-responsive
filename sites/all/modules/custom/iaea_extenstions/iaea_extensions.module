@@ -1,20 +1,26 @@
 <?php
-
+/* defining new filed formatter */
 function iaea_extensions_field_formatter_info() {
   return array(
+    /* read more link */
     'link_read_more' => array(
       'label' => t('Read more →'),
       'field types' => array('link_field'),
     ),
+    /* custom format for the date, for the news story */
+    'date_news_story' => array(
+      'label' => t('News Story BIG Date Format'),
+      'field types' => array('date', 'datestamp', 'datetime'),
+    ),
   );
 }
 
-
+/* defining output of the field formatter */
 function iaea_extensions_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
   $elements = array();
   foreach ($items as $delta => $item) {
     $elements[$delta] = array(
-      '#theme' => 'link_formatter_' . $display['type'],
+      '#theme' => 'iaea_extensions_formatter_' . $display['type'],
       '#element' => $item,
       '#field' => $instance,
       '#display' => $display,
@@ -23,16 +29,20 @@ function iaea_extensions_field_formatter_view($entity_type, $entity, $field, $in
   return $elements;
 }
 
+/* hook theme function, defining new theme function */
 function iaea_extensions_theme() {
   return array(
-    'link_formatter_link_read_more' => array(
+    'iaea_extensions_formatter_link_read_more' => array(
+      'variables' => array('element' => NULL, 'field' => NULL),
+    ),
+    'iaea_extensions_formatter_date_news_story' => array(
       'variables' => array('element' => NULL, 'field' => NULL),
     ),
   );
 }
 
-
-function theme_link_formatter_link_read_more($vars) {
+/* formatting the HTML output of the field formatter */
+function theme_iaea_extensions_formatter_link_read_more($vars) {
   $link_options = $vars['element'];
   unset($link_options['title']);
   unset($link_options['url']);
@@ -41,4 +51,12 @@ function theme_link_formatter_link_read_more($vars) {
     $link_options['attributes']['class'] = array($link_options['attributes']['class']);
   }
   return '<a href="'.$vars['element']['url'].'" class="btn btn-default">Read More &rarr;</a>';
+}
+
+
+/* formatting the HTML output of the date for the news stories */
+function theme_iaea_extensions_formatter_date_news_story($vars) {
+  $date_value = $vars['element']['value'];
+  $date = strtotime($date_value);
+  return '<div class="news-story-date-day">'.date('d', $date).'</div><span class="news-story-date-month">'.date('m', $date).'</span><span class="news-story-date-year">'.date('Y', $date).'</span>';
 }
