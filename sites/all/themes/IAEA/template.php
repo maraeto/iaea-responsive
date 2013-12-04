@@ -34,22 +34,9 @@ function IAEA_preprocess_image(&$variables) {
       case 'front_page_banner_12_units_1140x345':
         $variables['attributes']['class'][] = "img-responsive";
     }
-    /* if($variables['style_name'] == 'banner_6_units_3_2_555px' || $variables['style_name'] = 'front_page_banner_12_units_1140x345') {
-      $variables['attributes']['class'][] = "img-responsive";
-    }*/
   }
   // var_dump($variables);
 }
-
-/* function IAEA_preprocess_node(&$vars) {
-  if ($vars['type'] === 'news_story') {
-    $date = current($vars['content']['field_date']['#items']);
-    $date_ts = strtotime($date['value']);
-    $vars['content']['field_date'][0] = array(
-      '#markup' => '<strong>' . date('d', $date_ts) . '</strong> <em>' . date('F Y', $date_ts) . '</em>',
-    );
-  }
-}*/
 
 /* Add img-responsive class to images based on field_name */
 function IAEA_preprocess_field(&$variables) {
@@ -75,4 +62,19 @@ function IAEA_preprocess_field(&$variables) {
       break;
     }
    // }
+}
+
+/*  */
+function IAEA_preprocess_views_more(&$variables) {
+  switch ($variables['view']->name) {
+    case 'news_story_listing':
+      $variables['more_url'] = url('newscenter/news');
+      break;
+    case 'photo_essay_grid':
+      $variables['more_url'] = url('newscenter/multimedia/photoessays');
+      break;
+    default:
+      # code...
+      break;
+  }
 }
