@@ -38,15 +38,7 @@ function theme_panels_bootstrap_layouts_style_region_render($vars) {
         $settings['column_type'] = 'col-lg';
       }
 
-      if (is_array($settings['column_type'])) {
-        foreach ($settings['column_type'] as $col_type) {
-          $size_suffix = explode('-', $col_type);
-          $class[] = $col_type . '-' . $settings["column_size_{$size_suffix[1]}"];
-        }
-      }
-      else {
-        $class[] = $settings['column_type'] . '-' . $settings['column_size'];
-      }
+      $class[] = $settings['column_type'] . '-' . $settings['column_size'];
     }
 
     if ($settings['offset_type'] && $settings['offset_size']) {
@@ -67,55 +59,25 @@ function panels_bootstrap_layouts_style_region_settings_form($style_settings, $d
   $options = range(0, 12);
   $options[0] = t('-- None --');
 
-  $col_type_opts = array(
-    'col-xs' => t('Extra small devices'),
-    'col-sm' => t('Small devices'),
-    'col-md' => t('Medium devices'),
-    'col-lg' => t('Large devices'),
-  );
-
   $form['column_type'] = array(
     '#type' => 'select',
     '#title' => t('Сolumn type'),
-    '#options' => $col_type_opts,
+    '#options' => array(
+      'col' => t('Tiny devices'),
+      'col-sm' => t('Small & medium devices'),
+      'col-lg' => t('Large devices'),
+    ),
     '#default_value' => isset($style_settings['column_type'])
-      ? $style_settings['column_type'] : 'col-lg',
-    '#multiple' => TRUE,
+      ? $style_settings['column_type']
+      : 'col-lg',
   );
 
-  $form['column_size_xs'] = array(
+  $form['column_size'] = array(
     '#type' => 'select',
-    '#title' => t('Сolumn size XS'),
+    '#title' => t('Сolumn size'),
     '#options' => $options,
-    '#default_value' => isset($style_settings['column_size_xs'])
-      ? $style_settings['column_size_xs']
-      : _panels_bootstrap_layouts_get_default_column_size($display->layout, $pid),
-  );
-
-  $form['column_size_sm'] = array(
-    '#type' => 'select',
-    '#title' => t('Сolumn size SM'),
-    '#options' => $options,
-    '#default_value' => isset($style_settings['column_size_sm'])
-      ? $style_settings['column_size_sm']
-      : _panels_bootstrap_layouts_get_default_column_size($display->layout, $pid),
-  );
-
-  $form['column_size_md'] = array(
-    '#type' => 'select',
-    '#title' => t('Сolumn size MD'),
-    '#options' => $options,
-    '#default_value' => isset($style_settings['column_size_md'])
-      ? $style_settings['column_size_md']
-      : _panels_bootstrap_layouts_get_default_column_size($display->layout, $pid),
-  );
-
-  $form['column_size_lg'] = array(
-    '#type' => 'select',
-    '#title' => t('Сolumn size LG'),
-    '#options' => $options,
-    '#default_value' => isset($style_settings['column_size_lg'])
-      ? $style_settings['column_size_lg']
+    '#default_value' => isset($style_settings['column_size'])
+      ? $style_settings['column_size']
       : _panels_bootstrap_layouts_get_default_column_size($display->layout, $pid),
   );
 
