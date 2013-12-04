@@ -19,3 +19,20 @@
 .press-release-item span, .press-release-item p {margin: 0;}
 .field-jumbotron-image { float:left; margin-right: 30px; margin-bottom: 50px }
 .field-jumbotron-body { margin-bottom: 30px; font-size: 20px; }
+.label a { color: @gray-lighter; font-weight: normal}
+.label:hover { background-color: @brand-primary; color: #fff}
+.label a:hover {text-decoration: none;}
+
+.news-story-date {
+	text-align: center;
+	color: #fff;
+	min-height: 20px;
+  	padding: 19px;
+  	margin-bottom: 20px;
+  	background-color: lighten(@brand-primary, 10%);
+  	border: 1px solid darken(@well-bg, 40%);
+  	border-radius: @border-radius-large;
+  	.box-shadow(inset 0 1px 1px rgba(0,0,0,.05));
+}
+
+.news-story-date-day {font-size: 56px; font-weight: @headings-font-weight; }

@@ -69,7 +69,7 @@ function IAEA_preprocess_field(&$variables) {
     case 'field_newsstory_tags':
     case 'field_pressrelease_tags':
       foreach ($variables['items'] as $key => $item) {
-        $variables['items'][$key]['#prefix'] = '<span class="badge">';
+        $variables['items'][$key]['#prefix'] = '<span class="label label-default">';
         $variables['items'][$key]['#suffix'] = '</span>';
       }
       break;
