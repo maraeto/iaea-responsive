@@ -67,9 +67,6 @@ function IAEA_preprocess_field(&$variables) {
 /*  */
 function IAEA_preprocess_views_more(&$variables) {
   switch ($variables['view']->name) {
-    case 'news_story_listing':
-      $variables['more_url'] = url('newscenter/news');
-      break;
     case 'photo_essay_grid':
       $variables['more_url'] = url('newscenter/multimedia/photoessays');
       break;
