@@ -24,6 +24,7 @@ function iaea_extensions_field_formatter_view($entity_type, $entity, $field, $in
       '#element' => $item,
       '#field' => $instance,
       '#display' => $display,
+      '#display_more' => isset($entity->field_mediablock_display_more) ? $entity->field_mediablock_display_more : NULL,
     );
   }
   return $elements;
@@ -33,7 +34,7 @@ function iaea_extensions_field_formatter_view($entity_type, $entity, $field, $in
 function iaea_extensions_theme() {
   return array(
     'iaea_extensions_formatter_link_read_more' => array(
-      'variables' => array('element' => NULL, 'field' => NULL),
+      'variables' => array('element' => NULL, 'field' => NULL, 'display_more' => NULL),
     ),
     'iaea_extensions_formatter_date_news_story' => array(
       'variables' => array('element' => NULL, 'field' => NULL),
@@ -43,9 +44,14 @@ function iaea_extensions_theme() {
 
 /* formatting the HTML output of the field formatter */
 function theme_iaea_extensions_formatter_link_read_more($vars) {
+
   $link_options = $vars['element'];
   unset($link_options['title']);
   unset($link_options['url']);
+
+  if (empty($vars['display_more']) or $vars['display_more'][LANGUAGE_NONE][0]['value'] == 0) {
+    return '';
+  }
 
   if (isset($link_options['attributes']['class'])) {
     $link_options['attributes']['class'] = array($link_options['attributes']['class']);
