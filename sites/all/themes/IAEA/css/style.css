@@ -6950,3 +6950,7 @@ ul.social-media-icons li {
 .bean-media-block {
   margin-bottom: 20px;
 }
+li.active > a {
+  background-color: #428bca;
+  color: #ffffff;
+}
