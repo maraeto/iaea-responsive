@@ -27,7 +27,7 @@ function IAEA_preprocess_page(&$variables) {
 /**
  * Add img-responsive class to images based on image style_name
  */
-function IAEA_preprocess_image(&$variables) {
+/* function IAEA_preprocess_image(&$variables) {
   if(isset($variables['style_name'])) {
     switch($variables['style_name']) {
       case 'banner_6_units_3_2_555px':
@@ -35,22 +35,26 @@ function IAEA_preprocess_image(&$variables) {
         $variables['attributes']['class'][] = "img-responsive";
     }
   }
-  // var_dump($variables);
+} */
+
+/* applies "img-responsive" class to ever image */
+function IAEA_preprocess_image(&$variables) {
+  $variables['attributes']['class'][] = "img-responsive";
 }
 
-/* Add img-responsive class to images based on field_name */
+/* Add label class to tags based on field name */
 function IAEA_preprocess_field(&$variables) {
-  switch($variables['element']['#field_name']) {
+    switch ($variables['element']['#field_name']) {
+    /* case 'field_fp_banner_image':
     case 'field_newsstory_photo':
     case 'field_basicpage_section_image':
     case 'field_focuspage_banner':
     case 'field_jumbotron_image':
     case 'field_mediablock_image':
-  // if($variables['element']['#field_name'] == 'field_newsstory_photo'){
-      foreach($variables['items'] as $key => $item){
+      foreach ($variables['items'] as $key => $item) {
         $variables['items'][ $key ]['#item']['attributes']['class'][] = 'img-responsive';
       }
-    break;
+    break; */
     case 'field_mediaadvisory_tags':
     case 'field_dgstatement_tags':
     case 'field_newsstory_tags':
@@ -61,17 +65,4 @@ function IAEA_preprocess_field(&$variables) {
       }
       break;
     }
-   // }
-}
-
-/*  */
-function IAEA_preprocess_views_more(&$variables) {
-  switch ($variables['view']->name) {
-    case 'photo_essay_grid':
-      $variables['more_url'] = url('newscenter/multimedia/photoessays');
-      break;
-    default:
-      # code...
-      break;
-  }
 }
