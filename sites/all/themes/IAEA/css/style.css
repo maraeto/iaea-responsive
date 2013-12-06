@@ -6950,3 +6950,6 @@ ul.social-media-icons li {
 .bean-media-block {
   margin-bottom: 20px;
 }
+.dropdown-header {
+  text-transform: uppercase;
+}
