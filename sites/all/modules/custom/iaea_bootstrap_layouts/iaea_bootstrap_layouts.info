@@ -1,0 +1,6 @@
+name = IAEA Panels Bootstrap Layouts
+description = Panel's layouts using twitter bootstrap 3 layout system as base.
+package = Panels
+dependencies[] = panels_bootstrap_layouts
+core = 7.x
+version = 7.x-0.1
