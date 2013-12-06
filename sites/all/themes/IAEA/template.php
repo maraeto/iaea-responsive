@@ -66,3 +66,10 @@ function IAEA_preprocess_field(&$variables) {
       break;
     }
 }
+
+/**
+ * Overrides theme_menu_tree(). Classes nav-pills & nav-stacked added for styling of active list item
+ */
+function IAEA_menu_tree(&$variables) {
+  return '<ul class="menu nav nav-pills nav-stacked">' . $variables['tree'] . '</ul>';
+}
