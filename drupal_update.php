@@ -1,5 +1,7 @@
 <?php
 
+// known issues: does not update an object if just child objects got changed.
+
 /*
 // +--------------------------------------------------------+
 // | Implemented 2013/10 by Martin Thaller                  |
@@ -10,6 +12,8 @@
 
     Field_Collection handling: http://audiblecode.com/blog/programmatically-create-and-update-field-collection-item-node-entity-api
                            and http://devblog.com.au/programmatically-create-field-collections-in-drupal
+
+    updateFieldCollection: http://stackoverflow.com/questions/17731629/modifying-a-field-collection-programmatically-missing-hostentity-fields
 
 // +--------------------------------------------------------+
 // | run: drush php-script drupal_update.php                |
@@ -23,6 +27,33 @@
 
 */
 
+
+function updateFieldCollection($node, $collection, $fields = Array(), $index = 0) {
+
+    if ($node && $collection && !empty($fields)) {
+
+        // Get the field collection ID
+        $eid = $node->{$collection}[LANGUAGE_NONE][$index]['value'];
+
+        // Load the field collection with the ID from above
+        $entity = entity_load_single('field_collection_item', $eid);
+
+        // Wrap the loaded field collection which makes setting/getting much easier
+        $node_wrapper = entity_metadata_wrapper('field_collection_item', $entity);
+
+        // Loop through our fields and set the values
+        foreach ($fields as $field => $data) {
+            $node_wrapper->{$field}->set($data);
+        }
+
+        // Once we have added all the values we wish to change then we need to
+        // save. This will modify the node and does not require node_save() so
+        // at this point be sure it is all correct as this will save directly
+        // to a published node
+        $node_wrapper->save(true);
+    }
+}
+
 function update_migrated_objects() {
 
     $PossibleContentTypes = array("news_story",
@@ -33,8 +64,8 @@ function update_migrated_objects() {
                                   // shall be exended after building additional content types
 
     // the following section is used for testing purposes
-    $cids = array();
-    $cids[]= 6269; // news_story
+//    $cids = array();
+//    $cids[]= 6269; // news_story
 //    $cids[]=  4499; // media_advisory
 //    $cids[]=  6917; // press_release
 //    $cids[]=  11266; // dg_statement
@@ -127,7 +158,8 @@ function update_migrated_objects() {
                 break;
 
                 case "photo_essay":
-                    if ($node->field_photoessay_teaser[$node->language][0]['value'] != $body)
+
+                    if ($body!="" && $node->field_photoessay_teaser[$node->language][0]['value'] != $body)
                     {
                         $node->field_photoessay_teaser[$node->language][0]['value'] = $body;
                         $node->field_photoessay_teaser[$node->language][0]['format'] = 'filtered_html';
@@ -146,61 +178,62 @@ function update_migrated_objects() {
     // IMAGE HANDLING FOR PHOTO ESSAYS
     // no cover image at the moment, no teaser text at the moment
 
-                    $img_query = "SELECT * FROM mtcm.mt_migrated_image WHERE CID = ".$row->CID." AND (Imported = 0 OR LastImported < LastModified) AND ImageStatus < '400' ORDER BY RID";
+                    $img_query = "SELECT * FROM mtcm.mt_migrated_image WHERE CID = ".$row->CID." AND ImageStatus < '400' ORDER BY RID";
                     $img_result = db_query($img_query);
 
                     $cnt = 0;
                     foreach ($img_result as $img_row) {
 
-                        //grab the file for this node based on the "schema" from the old website...
-                        $remote_url = ($img_row->CorrOldURL!="" ? $img_row->CorrOldURL : $img_row->OldURL);
-                        $file_path = sys_get_temp_dir().substr($remote_url, strrpos($remote_url, "/"));
-
-                        $fcont="";
-                        $handle = @fopen($remote_url, "r");
-                        if ($handle)
+                        if ($img_row->Imported == 0 || $img_row->LastImported < $img_row->LastModified)
                         {
-                           while (!feof($handle)) $fcont.= fgets($handle, 4096);
-                           fclose($handle);
+                            //grab the file for this node based on the "schema" from the old website...
+                            $remote_url = ($img_row->CorrOldURL!="" ? $img_row->CorrOldURL : $img_row->OldURL);
+                            $file_path = sys_get_temp_dir().substr($remote_url, max(strrpos($remote_url, "/"),strrpos($remote_url, "\\")));
 
-                            $fd = fopen ($file_path, "wb");
-                            fwrite($fd, $fcont);
-                            fclose($fd);
+                            $fcont="";
+                            $handle = @fopen($remote_url, "r");
+                            if ($handle)
+                            {
+                               while (!feof($handle)) $fcont.= fgets($handle, 4096);
+                               fclose($handle);
+
+                                $fd = fopen ($file_path, "wb");
+                                fwrite($fd, $fcont);
+                                fclose($fd);
+                            }
+
+                            if (file_exists($file_path)) {
+
+                                $file = (object) array(
+                                'uid' => $uid ,
+                                'uri' => $file_path,
+                                'filemime' => file_get_mimetype($file_path),
+                                'status' => 1,
+                                'alt' => substr($img_row->ImageText,0,1023),
+                                'width' => $img_row->Width,
+                                'height' => $img_row->Height
+                                );
+                                $file = file_copy($file, "public://");
+                                $node->{$imgprop}[$node->language][$cnt] = (array)$file;
+
+                                chmod(drupal_realpath($file->uri), 0777);
+
+                                $newurl = substr(drupal_realpath($file->uri),strlen($_SERVER["PWD"]));
+
+                                $img_upd_query = "UPDATE mtcm.mt_migrated_image SET NewURL='".$newurl."', LastImported='".strftime("%Y-%m-%d %H:%M:%S")."', Imported=1  WHERE CID = '".$img_row->CID."' AND RID = '".$img_row->RID."'";
+                                $img_upd_result = db_query($img_upd_query);
+                            }
                         }
 
-                        if (file_exists($file_path)) {
-
-                            $file = (object) array(
-                            'uid' => $uid ,
-                            'uri' => $file_path,
-                            'filemime' => file_get_mimetype($file_path),
-                            'status' => 1,
-                            'alt' => substr($img_row->ImageText,0,1023),
-                            'width' => $img_row->Width,
-                            'height' => $img_row->Height
-                            );
-                            $file = file_copy($file, "public://");
-                            $node->{$imgprop}[$node->language][$cnt] = (array)$file;
-
-                            chmod(drupal_realpath($file->uri), 0777);
-
-                            $newurl = substr(drupal_realpath($file->uri),strlen($_SERVER["PWD"]));
-
-                            $img_upd_query = "UPDATE mtcm.mt_migrated_image SET NewURL='".$newurl."', LastImported='".strftime("%Y-%m-%d %H:%M:%S")."', Imported=1  WHERE CID = '".$img_row->CID."' AND RID = '".$img_row->RID."'";
-                            $img_upd_result = db_query($img_upd_query);
-
-                            $cnt++;
-                        }
-
+                        $cnt++;
                         $addtmetadata.= $img_row->ImageText." ";
                     }
-
 
                 break;
 
                 case "dg_statement":
 
-                    if ($node->field_dgstatement_body[$node->language][0]['value'] != $body)
+                    if ($body!="" && $node->field_dgstatement_body[$node->language][0]['value'] != $body)
                     {
                         $node->field_dgstatement_body[$node->language][0]['value'] = $body;
                         $node->field_dgstatement_body[$node->language][0]['format'] = 'full_html';
@@ -247,7 +280,7 @@ function update_migrated_objects() {
                         drush_print("updated subtitle");
                     }
 
-                    if ($node->field_mediaadvisory_body[$node->language][0]['value'] != $body)
+                    if ($body!="" && $node->field_mediaadvisory_body[$node->language][0]['value'] != $body)
                     {
                         $node->field_mediaadvisory_body[$node->language][0]['value'] = $body;
                         $node->field_mediaadvisory_body[$node->language][0]['format'] = 'full_html';
@@ -294,7 +327,7 @@ function update_migrated_objects() {
                         drush_print("updated subtitle");
                     }
 
-                    if ($node->field_newsstory_body[$node->language][0]['value'] != $body)
+                    if ($body!="" && $node->field_newsstory_body[$node->language][0]['value'] != $body)
                     {
                         $node->field_newsstory_body[$node->language][0]['value'] = $body;
                         $node->field_newsstory_body[$node->language][0]['format'] = 'full_html';
@@ -331,7 +364,7 @@ function update_migrated_objects() {
                         drush_print("updated subtitle");
                     }
 
-                    if ($node->field_pressrelease_body[$node->language][0]['value'] != $body)
+                    if ($body!="" && $node->field_pressrelease_body[$node->language][0]['value'] != $body)
                     {
                         $node->field_pressrelease_body[$node->language][0]['value'] = $body;
                         $node->field_pressrelease_body[$node->language][0]['format'] = 'full_html';
@@ -381,46 +414,55 @@ function update_migrated_objects() {
                 $cnt = 0;
                 foreach ($img_result as $img_row) {
 
-                    //grab the file for this node based on the "schema" from the old website...
-                    $remote_url = ($img_row->CorrOldURL!="" ? $img_row->CorrOldURL : $img_row->OldURL);
-                    $file_path = sys_get_temp_dir().substr($remote_url, strrpos($remote_url, "/"));
-
-                    $fcont="";
-                    $handle = @fopen($remote_url, "r");
-                    if ($handle)
+                    if (!strpos($img_row->OldURL, "youtube.com"))
                     {
-                       while (!feof($handle)) $fcont.= fgets($handle, 4096);
-                       fclose($handle);
+                        //grab the file for this node based on the "schema" from the old website...
+                        $remote_url = ($img_row->CorrOldURL!="" ? $img_row->CorrOldURL : $img_row->OldURL);
+                        $file_path = sys_get_temp_dir().substr($remote_url, max(strrpos($remote_url, "/"),strrpos($remote_url, "\\")));
 
-                        $fd = fopen ($file_path, "wb");
-                        fwrite($fd, $fcont);
-                        fclose($fd);
-                    }
-
-                    if (file_exists($file_path)) {
-
-                        $file = (object) array(
-                        'uid' => $uid ,
-                        'uri' => $file_path,
-                        'filemime' => file_get_mimetype($file_path),
-                        'status' => 1,
-                        'alt' => $img_row->AltText
-                        );
-                        $file = file_copy($file, "public://");
-                        $node->{$imgprop}[$node->language][$cnt] = (array)$file;
-                        if ($imgcapprop!="")
+                        $fcont="";
+                        $handle = @fopen($remote_url, "r");
+                        if ($handle)
                         {
-                            $node->{$imgcapprop}[$node->language][$cnt]['value'] = $img_row->ImageText;
-                            $node->{$imgcapprop}[$node->language][$cnt]['format'] = 'filtered_html';
+                           while (!feof($handle)) $fcont.= fgets($handle, 4096);
+                           fclose($handle);
+
+                            $fd = fopen ($file_path, "wb");
+                            fwrite($fd, $fcont);
+                            fclose($fd);
                         }
 
-                        chmod(drupal_realpath($file->uri), 0777);
+                        if (file_exists($file_path)) {
 
-                        $newurl = substr(drupal_realpath($file->uri),strlen($_SERVER["PWD"]));
+                            $file = (object) array(
+                            'uid' => $uid ,
+                            'uri' => $file_path,
+                            'filemime' => file_get_mimetype($file_path),
+                            'status' => 1,
+                            'alt' => $img_row->AltText
+                            );
+                            $file = file_copy($file, "public://");
+                            $node->{$imgprop}[$node->language][$cnt] = (array)$file;
+                            if ($imgcapprop!="")
+                            {
+                                $node->{$imgcapprop}[$node->language][$cnt]['value'] = $img_row->ImageText;
+                                $node->{$imgcapprop}[$node->language][$cnt]['format'] = 'filtered_html';
+                            }
 
-                        $img_upd_query = "UPDATE mtcm.mt_migrated_image SET NewURL='".$newurl."', LastImported='".strftime("%Y-%m-%d %H:%M:%S")."', Imported=1  WHERE CID = '".$img_row->CID."' AND RID = '".$img_row->RID."'";
-                        $img_upd_result = db_query($img_upd_query);
+                            chmod(drupal_realpath($file->uri), 0777);
 
+                            $newurl = substr(drupal_realpath($file->uri),strlen($_SERVER["PWD"]));
+
+                            $img_upd_query = "UPDATE mtcm.mt_migrated_image SET NewURL='".$newurl."', LastImported='".strftime("%Y-%m-%d %H:%M:%S")."', Imported=1  WHERE CID = '".$img_row->CID."' AND RID = '".$img_row->RID."'";
+                            $img_upd_result = db_query($img_upd_query);
+
+                            $cnt++;
+                        }
+                    }
+                    else
+                    {
+                        // youtube video found!
+                        drush_print("youtube video found!");
                         $cnt++;
                     }
 
@@ -431,29 +473,41 @@ function update_migrated_objects() {
 
 
             // RESOURCES HANDLING
-            $res_query = "SELECT * FROM mtcm.mt_migrated_link WHERE CID = ".$row->CID." AND (Imported = 0 OR LastImported < LastModified)";
+            $res_query = "SELECT * FROM mtcm.mt_migrated_link WHERE CID = ".$row->CID;
             $res_result = db_query($res_query);
 
             $cnt = 0;
             foreach ($res_result as $res_row) {
 
-                $field_collection_item = entity_create('field_collection_item', array('field_name' => $resprop));
 
-                // Attach to the node
+                if ($res_row->Imported == 0 || $res_row->LastImported < $res_row->LastModified)
+                {
+                    $attributes = array();
+                    if ($res_row->LinkOnClick!="")  $attributes['onclick'] = $res_row->LinkOnClick;
+                    if ($res_row->LinkTarget!="")   $attributes['target']  = $res_row->LinkTarget;
+                    if ($res_row->LinkTitle!="")    $attributes['title']   = $res_row->LinkTitle;
+                    if ($res_row->LinkClass!="")    $attributes['class']   = $res_row->LinkClass;
 
-                $field_collection_item->setHostEntity('node', $node);
+                    $props = array();
 
-                $field_collection_item->{$reslnkprop}[$node->language][$cnt]['url'] = ($res_row->CorrOldURL!="" ? $res_row->CorrOldURL : $res_row->OldURL);
-                $field_collection_item->{$reslnkprop}[$node->language][$cnt]['title'] = $res_row->LinkCaption;
-                $field_collection_item->{$reslnkprop}[$node->language][$cnt]['attributes'] = array('onclick'  =>  $res_row->LinkOnClick,
-                                                                                                   'target'   =>  $res_row->LinkTarget,
-                                                                                                   'title'    =>  $res_row->LinkTitle,
-                                                                                                   'class'    =>  $res_row->LinkClass);
+                    $props["url"] = ($res_row->CorrOldURL!="" ? $res_row->CorrOldURL : $res_row->OldURL);
+                    if ($res_row->LinkCaption!="") $props["title"]      = $res_row->LinkCaption;
+                    if (sizeOf($attributes) > 0)   $props["attributes"] = $attributes;
+
+                    updateFieldCollection(
+                        $node,
+                        $resprop,
+                        array ($reslnkprop => $props),
+                        $cnt
+                    );
+
+                    drush_print("need to update related resource #".($cnt+1));
+                }
 
                 $addtmetadata.= $res_row->LinkCaption." ";
 
                 // Save field-collection item.
-                $field_collection_item->save(true);
+  //              $field_collection_item->save(true);
 
                 $res_upd_query = "UPDATE mtcm.mt_migrated_link SET LastImported='".strftime("%Y-%m-%d %H:%M:%S")."', Imported=1 WHERE CID = '".$res_row->CID."' AND RID = '".$res_row->RID."'";
                 $res_upd_result = db_query($res_upd_query);

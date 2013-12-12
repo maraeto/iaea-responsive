@@ -122,6 +122,7 @@ function import_migrated_objects() {
             case "photo_essay":
                 $node->field_photoessay_teaser[$node->language][0]['value'] = $body;
                 $node->field_photoessay_teaser[$node->language][0]['format'] = 'filtered_html';
+
                 if ($row->PublishingDate!="") $node->field_photoessay_date[$node->language][0]['value'] = $row->PublishingDate;
 
                 $txprop = "field_photoessay_tags";
@@ -138,7 +139,7 @@ function import_migrated_objects() {
 
                     //grab the file for this node based on the "schema" from the old website...
                     $remote_url = ($img_row->CorrOldURL!="" ? $img_row->CorrOldURL : $img_row->OldURL);
-                    $file_path = sys_get_temp_dir().substr($remote_url, strrpos($remote_url, "/"));
+                    $file_path = sys_get_temp_dir().substr($remote_url,max(strrpos($remote_url, "/"),strrpos($remote_url, "\\")));
 
                     $fcont="";
                     $handle = @fopen($remote_url, "r");
@@ -186,11 +187,24 @@ function import_migrated_objects() {
 
                 $node->field_dgstatement_body[$node->language][0]['value'] = $body;
                 $node->field_dgstatement_body[$node->language][0]['format'] = 'full_html';
+
                 if ($row->PublishingDate!="") $node->field_dgstatement_date[$node->language][0]['value'] = $row->PublishingDate;
-                $node->field_dgstatement_author[$node->language][0]['value'] = substr($row->Author,0,127);
+
+                if ($row->Author!="")
+                {
+                    $node->field_dgstatement_author[$node->language][0]['value'] = substr($row->Author,0,127);
+                    $node->field_dgstatement_author[$node->language][0]['format'] = 'filtered_html';
+                }
+
                 // EVENT, LOCATION
+
                 $node->field_dgstatement_event[$node->language][0]['title'] = $row->Event;
-                $node->field_dgstatement_location[$node->language][0]['value'] = $row->EventLocation;
+
+                if ($row->EventLocation!="")
+                {
+                    $node->field_dgstatement_location[$node->language][0]['value'] = $row->EventLocation;
+                    $node->field_dgstatement_location[$node->language][0]['format'] = 'filtered_html';
+                }
 
                 $txprop = "field_dgstatement_tags";
                 $resprop = "field_dgstatement_resources";
@@ -205,13 +219,27 @@ function import_migrated_objects() {
                     $node->field_mediaadvisory_subtitle[$node->language][0]['value'] = strip_tags($row->SubHeadline);
                     $node->field_mediaadvisory_subtitle[$node->language][0]['format'] = 'filtered_html';
                 }
+
                 $node->field_mediaadvisory_body[$node->language][0]['value'] = $body;
                 $node->field_mediaadvisory_body[$node->language][0]['format'] = 'full_html';
+
                 if ($row->PublishingDate!="") $node->field_mediaadvisory_date[$node->language][0]['value'] = $row->PublishingDate;
+
                 // NUMBER, EVENT, LOCATION
-                $node->field_mediaadvisory_number[$node->language][0]['value'] = $row->ReferenceNumber;
+
+                if ($row->ReferenceNumber!="")
+                {
+                    $node->field_mediaadvisory_number[$node->language][0]['value'] = $row->ReferenceNumber;
+                    $node->field_mediaadvisory_number[$node->language][0]['format'] = 'filtered_html';
+                }
+
                 $node->field_mediaadvisory_event[$node->language][0]['title'] = $row->Event;
-                $node->field_mediaadvisory_location[$node->language][0]['value'] = $row->EventLocation;
+
+                if ($row->EventLocation!="")
+                {
+                    $node->field_mediaadvisory_location[$node->language][0]['value'] = $row->EventLocation;
+                    $node->field_mediaadvisory_location[$node->language][0]['format'] = 'filtered_html';
+                }
 
                 $txprop = "field_mediaadvisory_tags";
                 $resprop = "field_mediaadvisory_resources";
@@ -229,8 +257,14 @@ function import_migrated_objects() {
 
                 $node->field_newsstory_body[$node->language][0]['value'] = $body;
                 $node->field_newsstory_body[$node->language][0]['format'] = 'full_html';
+
                 if ($row->PublishingDate!="") $node->field_newsstory_date[$node->language][0]['value'] = $row->PublishingDate;
-                $node->field_newsstory_author[$node->language][0]['value'] = substr($row->Author,0,127);
+
+                if ($row->Author!="")
+                {
+                    $node->field_newsstory_author[$node->language][0]['value'] = substr($row->Author,0,127);
+                    $node->field_newsstory_author[$node->language][0]['format'] = 'filtered_html';
+                }
 
                 $txprop = "field_newsstory_tags";
                 $imgprop = "field_newsstory_photo";
@@ -251,11 +285,24 @@ function import_migrated_objects() {
 
                 $node->field_pressrelease_body[$node->language][0]['value'] = $body;
                 $node->field_pressrelease_body[$node->language][0]['format'] = 'full_html';
+
                 if ($row->PublishingDate!="") $node->field_pressrelease_date[$node->language][0]['value'] = $row->PublishingDate;
+
                 // NUMBER, EVENT, LOCATION
-                $node->field_pressrelease_number[$node->language][0]['value'] = $row->ReferenceNumber;
+
+                if ($row->ReferenceNumber!="")
+                {
+                    $node->field_pressrelease_number[$node->language][0]['value'] = $row->ReferenceNumber;
+                    $node->field_pressrelease_number[$node->language][0]['format'] = 'filtered_html';
+                }
+
                 $node->field_pressrelease_event[$node->language][0]['title'] = $row->Event;
-                $node->field_pressrelease_location[$node->language][0]['value'] = $row->EventLocation;
+
+                if ($row->EventLocation!="")
+                {
+                    $node->field_pressrelease_location[$node->language][0]['value'] = $row->EventLocation;
+                    $node->field_pressrelease_location[$node->language][0]['format'] = 'filtered_html';
+                }
 
                 $txprop = "field_pressrelease_tags";
                 $resprop = "field_pressrelease_resources";
@@ -276,7 +323,7 @@ function import_migrated_objects() {
 
                 //grab the file for this node based on the "schema" from the old website...
                 $remote_url = ($img_row->CorrOldURL!="" ? $img_row->CorrOldURL : $img_row->OldURL);
-                $file_path = sys_get_temp_dir().substr($remote_url, strrpos($remote_url, "/"));
+                $file_path = sys_get_temp_dir().substr($remote_url, max(strrpos($remote_url, "/"),strrpos($remote_url, "\\")));
 
                 $fcont="";
                 $handle = @fopen($remote_url, "r");
@@ -301,6 +348,7 @@ function import_migrated_objects() {
                     );
                     $file = file_copy($file, "public://");
                     $node->{$imgprop}[$node->language][$cnt] = (array)$file;
+
                     if ($imgcapprop!="")
                     {
                         $node->{$imgcapprop}[$node->language][$cnt]['value'] = $img_row->ImageText;
@@ -336,12 +384,16 @@ function import_migrated_objects() {
 
             $field_collection_item->setHostEntity('node', $node);
 
+            $attributes = array();
+            if ($res_row->LinkOnClick!="")  $attributes['onclick'] = $res_row->LinkOnClick;
+            if ($res_row->LinkTarget!="")   $attributes['target']  = $res_row->LinkTarget;
+            if ($res_row->LinkTitle!="")    $attributes['title']   = $res_row->LinkTitle;
+            if ($res_row->LinkClass!="")    $attributes['class']   = $res_row->LinkClass;
+
+
             $field_collection_item->{$reslnkprop}[$node->language][$cnt]['url'] = ($res_row->CorrOldURL!="" ? $res_row->CorrOldURL : $res_row->OldURL);
             $field_collection_item->{$reslnkprop}[$node->language][$cnt]['title'] = $res_row->LinkCaption;
-            $field_collection_item->{$reslnkprop}[$node->language][$cnt]['attributes'] = array('onclick'  =>  $res_row->LinkOnClick,
-                                                                                               'target'   =>  $res_row->LinkTarget,
-                                                                                               'title'    =>  $res_row->LinkTitle,
-                                                                                               'class'    =>  $res_row->LinkClass);
+            $field_collection_item->{$reslnkprop}[$node->language][$cnt]['attributes'] = $attributes;
 
             $addtmetadata.= $res_row->LinkCaption." ";
 
