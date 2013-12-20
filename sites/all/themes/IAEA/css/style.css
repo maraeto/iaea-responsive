@@ -6834,8 +6834,7 @@ ul.social-media-icons li {
   margin-bottom: 20px;
 }
 .group-story-aside {
-  width: 350px;
-  float: left;
+  width: 390px;
 }
 .field-newsstory-author {
   font-style: italic;
@@ -6898,4 +6897,10 @@ ul.social-media-icons li {
   text-transform: uppercase;
   font-size: 13px;
   letter-spacing: 2px;
+}
+.media {
+  margin-bottom: 25px;
+}
+.search-field {
+  padding-top: 20px;
 }
