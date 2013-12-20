@@ -1,29 +1,28 @@
 <header id="navbar" role="banner">
-  <div class="container">
-     <div class="row">
-
-        <div class="col-xs-6">
-          <?php if ($logo): ?>
-            <a class="logo navbar-btn pull-left" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
-              <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-            </a>
-          <?php endif; ?>
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-8 column">
+              <?php if ($logo): ?>
+                <a class="logo navbar-btn pull-left" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
+                  <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+                </a>
+              <?php endif; ?>
+            </div>
+            <div class="col-md-4 column">
+                <div class="row pull-right clearfix">
+                    <div class="col-md-12 column">
+                        <?php if (!empty($page['social_media'])): ?>
+                          <?php print render($page['social_media']); ?>
+                        <?php endif; ?>
+                    </div>
+                </div>
+                <div class="text-right pull-right search-field">
+                    <?php if (!empty($page['search_box'])): ?>
+                      <?php print render($page['search_box']); ?>
+                    <?php endif; ?>
+                </div>
+            </div>
         </div>
-
-        <div class="col-xs-6">
-          <div class="text-right pull-right">
-            <?php if (!empty($page['social_media'])): ?>
-              <?php print render($page['social_media']); ?>
-            <?php endif; ?>
-          </div>
-          <div class="text-right pull-right">
-            <?php if (!empty($page['search_box'])): ?>
-              <?php print render($page['search_box']); ?>
-            <?php endif; ?>
-          </div>
-
-        </div>
-      </div>
     </div>
 </header>
 
@@ -63,6 +62,11 @@
 <div class="main-container container">
   <div class="row">
 
+  <?php if (!empty($breadcrumb)): ?>
+    <div class="col-md-12">
+      <?php print $breadcrumb; endif;?>
+    </div>
+
     <?php if (!empty($page['sidebar_first'])): ?>
       <aside class="col-sm-3" role="complementary">
         <?php print render($page['sidebar_first']); ?>
@@ -73,7 +77,6 @@
       <?php if (!empty($page['highlighted'])): ?>
         <div class="highlighted hero-unit"><?php print render($page['highlighted']); ?></div>
       <?php endif; ?>
-      <?php if (!empty($breadcrumb)): print $breadcrumb; endif;?>
       <a id="main-content"></a>
       <?php print render($title_prefix); ?>
       <?php if (!empty($title)): ?>
