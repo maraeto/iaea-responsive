@@ -1,0 +1,4 @@
+name = "IAEA Admin defaults"
+description = "handles default values in the admin interface"
+package = "Other"
+core = "7.x"

@@ -1,0 +1,42 @@
+<?php
+
+function iaea_admin_defaults_node_update($node) {
+
+    $dat = "";
+    $lng = $node->language;
+
+    switch($node->type)
+    {
+        case "news_story":
+            $dat = $node->field_newsstory_date[$lng][0]["value"];
+        break;
+
+        case "media_advisory":
+            $dat = $node->field_mediaadvisory_date[$lng][0]["value"];
+        break;
+
+        case "press_release":
+            $dat = $node->field_pressrelease_date[$lng][0]["value"];
+        break;
+
+        case "dg_statement":
+            $dat = $node->field_dgstatement_date[$lng][0]["value"];
+        break;
+
+        case "photo_essay":
+            $dat = $node->field_photoessay_date[$lng][0]["value"];
+        break;
+    }
+
+    if ($dat != "")
+    {
+        $dateTime = new DateTime($dat);
+
+        db_update('node')
+            ->fields(array('created' => $dateTime->format('U')))
+            ->condition('nid', $node->nid)
+            ->execute();
+    }
+}
+
+?>
