@@ -1,0 +1,11 @@
+name = jQuery AJAX Load Node
+description = Loads nodes under JQuery AJAX load view mode.
+package = jQuery Load
+dependencies[] = jquery_ajax_load
+core = 7.x
+; Information added by  packaging script on 2013-11-28
+version = "7.x-1.0"
+core = "7.x"
+project = "jquery_ajax_load"
+datestamp = "1385653411"
+

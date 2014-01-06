@@ -45,26 +45,19 @@ function IAEA_preprocess_image(&$variables) {
 /* Add label class to tags based on field name */
 function IAEA_preprocess_field(&$variables) {
     switch ($variables['element']['#field_name']) {
-    /* case 'field_fp_banner_image':
-    case 'field_newsstory_photo':
-    case 'field_basicpage_section_image':
-    case 'field_focuspage_banner':
-    case 'field_jumbotron_image':
-    case 'field_mediablock_image':
-      foreach ($variables['items'] as $key => $item) {
-        $variables['items'][ $key ]['#item']['attributes']['class'][] = 'img-responsive';
+      case 'field_mediaadvisory_tags':
+      case 'field_dgstatement_tags':
+      case 'field_newsstory_tags':
+      case 'field_pressrelease_tags':
+        foreach ($variables['items'] as $key => $item) {
+          $variables['items'][$key]['#prefix'] = '<span class="label label-default">';
+          $variables['items'][$key]['#suffix'] = '</span>';
+        }
+        break;
+      case 'field_basicpage_section':
+        $variables['attributes']['class'][] = 'clearfix';
+        break;
       }
-    break; */
-    case 'field_mediaadvisory_tags':
-    case 'field_dgstatement_tags':
-    case 'field_newsstory_tags':
-    case 'field_pressrelease_tags':
-      foreach ($variables['items'] as $key => $item) {
-        $variables['items'][$key]['#prefix'] = '<span class="label label-default">';
-        $variables['items'][$key]['#suffix'] = '</span>';
-      }
-      break;
-    }
 }
 
 /**
