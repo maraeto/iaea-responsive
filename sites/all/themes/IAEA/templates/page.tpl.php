@@ -128,3 +128,17 @@
             <?php endif; ?>
         </div>
 </footer>
+<script>
+/* drop down menu on hover */
+  jQuery(document).ready(function(){
+    jQuery('ul.nav li.dropdown').hover(function() {
+      jQuery(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(200);
+    }, function() {
+      jQuery(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(200);
+    });
+/* follow the link on click */
+    jQuery('ul.nav li.dropdown').click( function(e) {
+      e.stopPropagation();
+} );
+});
+</script>
