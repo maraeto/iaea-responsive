@@ -13,10 +13,12 @@
 function twitter_bootstrap_modal_init() {
   $module_path = drupal_get_path('module', 'twitter_bootstrap_modal');
   $tb_trigger = jquery_ajax_load_get_triggers('jquery_ajax_load_trigger_TB', '.twitter_bootstrap_modal');
+  $tb_modal_trigger = jquery_ajax_load_get_triggers('jquery_ajax_load_trigger_modal_TB', '.bs_modal');
   $site_name = variable_get('site_name', "Default site name");
   drupal_add_js(array(
     'jquery_ajax_load' => array(
       'TBtrigger' => $tb_trigger,
+      'TBmodaltrigger' => $tb_modal_trigger,
       'TBmodule' => $module_path,
       'TBname' => $site_name,
     ),
@@ -30,13 +32,17 @@ function twitter_bootstrap_modal_init() {
 */
 function twitter_bootstrap_modal_menu() {
   // Admin settings.
-  $items['admin/config/development/jquery_ajax_load/TB'] = array(
+  $items['admin/config/development/twitter_bootstrap_modal'] = array(
     'title' => 'Twitter Bootstrap Modal',
     'description' => 'Shows any page on a Twitter Boostrap AJAX Modal',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('twitter_bootstrap_modal_admin'),
     'access arguments' => array('administer site configuration'),
-    'type' => MENU_LOCAL_TASK,
+  );
+  // Only to generate a TAB
+  $items['admin/config/development/twitter_bootstrap_modal/config'] = array(
+    'title' => 'Twitter Bootstrap Modal',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
   );
   // Prefix for AJAX requests, modal markup added
   $items['bs_modal/jquery_ajax_load/get'] = array(
@@ -59,6 +65,12 @@ function twitter_bootstrap_modal_admin() {
     '#title' => t('Valid jQuery Classes/IDs to trigger TB Modal via Ajax (One per line)'),
     '#default_value' => variable_get('jquery_ajax_load_trigger_TB', '.twitter_bootstrap_modal' . "\n"),
     '#description' => t('Specify the class/ID of links to convert that link TB Modal, one per line. For example by providing ".twitter_bootstrap_modal" will convert any link with class="twitter_bootstrap_modal"'),
+  );
+  $form['jquery_ajax_load_trigger_modal_TB'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Valid jQuery Classes/IDs to tell TB Modal to load with full modal code (One per line)'),
+    '#default_value' => variable_get('jquery_ajax_load_trigger_modal_TB', '.tb_modal' . "\n"),
+    '#description' => t('Specify the class/ID of links to load TB Modal with full modal HTML wrapper, one per line. For example by providing ".tb_modal" will load full modal HTML in any link with class="tb_modal". If not defined remote call must return modal HTML code.'),
   );
 
   return system_settings_form($form);
