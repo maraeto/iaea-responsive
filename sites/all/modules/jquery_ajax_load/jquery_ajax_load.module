@@ -44,7 +44,7 @@ function jquery_ajax_load_menu() {
   );
   // Only to generate a TAB
   $items['admin/config/development/jquery_ajax_load/link'] = array(
-    'title' => 'Link',
+    'title' => 'JQuery AJAX Load',
     'type' => MENU_DEFAULT_LOCAL_TASK,
   );
   // Prefix for AJAX requests
@@ -64,7 +64,7 @@ function jquery_ajax_load_admin() {
   // This module will not work if used in overlay paths such as 
   // admin/* , node/add etc if user has overlay access.
   if ( user_access('access overlay') ) {
-    $message = t("Overlay module is not compatible with jQuery Ajax Load links API module. To ajaxify admin paths, please check README.txt");
+    $message = t("Overlay module is not compatible with jQuery Ajax Load links API module.");
     drupal_set_message($message, 'warning', FALSE);
   }
   $form['jquery_ajax_load_trigger'] = array(
@@ -97,7 +97,7 @@ function jquery_ajax_load_admin() {
 }
 
 /**
- * Returns only content part of page for Delibery Callback function.
+ * Returns only content part of page for Delivery Callback function.
  */
 
 function jquery_ajax_load_delivery_callback($page_callback_result) {
@@ -128,12 +128,16 @@ function jquery_ajax_load_delivery_callback($page_callback_result) {
       case MENU_SITE_OFFLINE:
         print t('Site under maintenance');
         break;
+
+      default:
+        print t('Unknown error');
+        break;
     }
   }
   elseif (isset($page_callback_result)) {
-    
-    print drupal_render($page_callback_result);
-    // Perform end-of-request tasks.
+    $html = is_string($page_callback_result) ? $page_callback_result : drupal_render($page_callback_result);
+
+    print $html;
     drupal_page_footer();
   }
 }
@@ -152,7 +156,9 @@ function jquery_ajax_load_callback() {
   // Verify is language prefix present and take out of URL
   if (module_exists('i18n')) {
     $languages = language_list('enabled');
-    if ( in_array($args[0], $languages) ) {
+    // Take only enabled
+    $languages = $languages[1];
+    if ( array_key_exists($args[0], $languages) ) {
       $language = $args[0];
       unset($args[0]);
     }
@@ -174,8 +180,6 @@ function jquery_ajax_load_callback() {
   } 
   else {
     $render_string = menu_execute_active_handler($normal_path, FALSE);
-    drupal_get_js();
-    drupal_get_css();
   }
   return $render_string;
 }

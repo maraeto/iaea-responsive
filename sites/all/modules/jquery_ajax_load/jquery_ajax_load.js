@@ -6,7 +6,7 @@
 */
 
 (function ($) {
-  Drupal.behaviors.exampleModule = {
+  Drupal.behaviors.jquery_ajax_load = {
     attach: function (context, settings) {
       jQuery.ajaxSetup ({
       // Disable caching of AJAX responses
@@ -16,7 +16,7 @@
       var trigger = Drupal.settings.jquery_ajax_load.trigger;
       var target = Drupal.settings.jquery_ajax_load.target;
       // Puede ser más de un valor, hay que usar foreach()
-      $(trigger).each(function() {
+      $(trigger).once(function() {
         var html_string = $(this).attr( 'href' );
         // Hay que validar si la ruta trae la URL del sitio
         $(this).attr( 'href' , target );
@@ -27,7 +27,8 @@
         else {
           data_target = '#' + data_target;
         }
-        $(this).click(function() {
+        $(this).click(function(evt) {
+          evt.preventDefault();
           jquery_ajax_load_load($(this), data_target, html_string);
         });
       });
@@ -53,18 +54,24 @@
     }
     else {
       var loading_html = Drupal.t('Loading'); 
-      loading_html += '... <img src="';
+      loading_html += '... <img src="/';
       loading_html += module_path;
       loading_html += '/jquery_ajax_load_loading.gif">';
       $(target).html(loading_html);
-//  jQuery(target).load(url);
-      $(target).load('/jquery_ajax_load/get' + url, function() {
-      if ( animation ) {
-        $(target).hide();
-        $(target).show('slow')
-      }
-      $(el).addClass( "jquery_ajax_load_open" );
+      $(target).load('/jquery_ajax_load/get' + url, function( response, status, xhr ) {
+        if ( status == "error" ) {
+          var msg = "Sorry but there was an error: ";
+          $(target).html( msg + xhr.status + " " + xhr.statusText );
+        }
+        else {
+          if ( animation ) {
+            $(target).hide();
+            $(target).show('slow')
+          }
+//        Drupal.attachBehaviors(target);
+        }
       });
+      $(el).addClass( "jquery_ajax_load_open" );
     }
   }
 }(jQuery));
