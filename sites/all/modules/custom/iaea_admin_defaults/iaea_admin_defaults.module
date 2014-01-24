@@ -27,6 +27,10 @@ function iaea_admin_defaults_node_update($node) {
             $dat = $node->field_photoessay_date[$lng][0]["value"];
         break;
 
+        case "photo_gallery":
+            $dat = $node->field_photogallery_date[$lng][0]["value"];
+        break;
+
         case "information_circular":
             $dat = $node->field_infcirc_date[$lng][0]["value"];
         break;
