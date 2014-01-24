@@ -1,4 +1,4 @@
-name = "IAEA Admin defaults"
-description = "handles default values in the admin interface"
+name = "IAEA Date Synchronisation"
+description = "Syncs (rewrites) the Drupal's default post date with content type date"
 package = "Other"
 core = "7.x"
