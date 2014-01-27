@@ -1,0 +1,13 @@
+name = IAEA Feeds Vimeo Importer
+description = Import videos from a Vimeo account to the IAEA video content type.
+core = 7.x
+package = Feeds
+version = 7.x-1.0
+project = iaea_feeds_vimeo_importer
+dependencies[] = ctools
+dependencies[] = feeds
+dependencies[] = feeds_vimeo
+features[ctools][] = feeds:feeds_importer_default:1
+features[features_api][] = api:2
+features[feeds_importer][] = iaea_vimeo_import
+project path = sites/all/modules/custom/features

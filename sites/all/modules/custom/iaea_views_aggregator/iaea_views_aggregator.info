@@ -1,0 +1,15 @@
+name = IAEA Views Aggregator
+description = Views listing content aggregated with the core aggregator module.
+core = 7.x
+package = Views
+version = 7.x-1.0
+project = iaea_views_aggregator
+dependencies[] = aggregator
+dependencies[] = ctools
+dependencies[] = semanticviews
+dependencies[] = views
+dependencies[] = views_content
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = aggregator
+project path = sites/all/modules/custom
