@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the IAEA Views Aggregator feature.
+ */
+
+include_once 'iaea_views_aggregator.features.inc';
