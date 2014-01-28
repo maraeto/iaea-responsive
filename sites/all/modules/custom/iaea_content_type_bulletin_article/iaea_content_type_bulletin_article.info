@@ -22,7 +22,6 @@ features[field_base][] = field_bulletin_file_ru
 features[field_base][] = field_bulletin_file_sp
 features[field_base][] = field_bulletin_number
 features[field_base][] = field_bulletin_subject
-features[field_instance][] = node-bulletin_article-body
 features[field_instance][] = node-bulletin_article-field_bulletin_author
 features[field_instance][] = node-bulletin_article-field_bulletin_date
 features[field_instance][] = node-bulletin_article-field_bulletin_description

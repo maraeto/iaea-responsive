@@ -242,7 +242,7 @@ function iaea_content_type_bulletin_article_field_default_field_bases() {
   // Exported field_base: 'field_bulletin_file_fr'
   $field_bases['field_bulletin_file_fr'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_bulletin_file_fr',
@@ -276,7 +276,7 @@ function iaea_content_type_bulletin_article_field_default_field_bases() {
   // Exported field_base: 'field_bulletin_file_ru'
   $field_bases['field_bulletin_file_ru'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_bulletin_file_ru',
@@ -310,7 +310,7 @@ function iaea_content_type_bulletin_article_field_default_field_bases() {
   // Exported field_base: 'field_bulletin_file_sp'
   $field_bases['field_bulletin_file_sp'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_bulletin_file_sp',
