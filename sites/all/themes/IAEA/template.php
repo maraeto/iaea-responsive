@@ -22,6 +22,7 @@ function IAEA_preprocess_page(&$variables) {
 				});";
 			drupal_add_js($js_tabs, array('type' => 'inline', 'scope' => 'footer'));
 		}
+    drupal_add_js(path_to_theme() . '/js/page-global.js', array( 'scope' => 'footer'));
 }
 
 /**
@@ -55,7 +56,7 @@ function IAEA_preprocess_field(&$variables) {
         }
         break;
       case 'field_basicpage_section':
-        $variables['attributes']['class'][] = 'clearfix';
+        $variables['classes_array'][] = 'clearfix';
         break;
       }
 }
