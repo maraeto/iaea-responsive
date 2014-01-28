@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the IAEA Content Type Bulletin Article feature.
+ */
+
+include_once 'iaea_content_type_bulletin_article.features.inc';
