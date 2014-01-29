@@ -70,6 +70,11 @@ function taxonomy_feeds_processor_targets_alter(&$targets, $entity_type, $bundle
       );
     }
   }
+  if ($entity_type == 'taxonomy_term') {
+    $targets['tid']['name'] = t('Term id');
+    $targets['tid']['description'] = t('The tid of the taxonomy term. NOTE: use this feature with care, node ids are usually assigned by Drupal.');
+    unset($targets['vocabulary']);
+  }
 }
 
 /**
@@ -143,7 +148,7 @@ function taxonomy_feeds_set_target($source, $entity, $target, $terms, $mapping =
           if ($tids = $name_query->propertyCondition('name', $term)->execute()) {
             $tid = key($tids['taxonomy_term']);
           }
-          elseif ($mapping['autocreate']) {
+          elseif ($mapping['autocreate'] && strlen(trim($term))) {
             $term = (object) array(
               'name' => $term,
               'vid' => key($cache['allowed_vocabularies'][$target]),
