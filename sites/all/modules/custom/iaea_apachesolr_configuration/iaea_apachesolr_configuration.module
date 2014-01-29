@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the iaea_apachesolr_configuration feature.
+ */
+
+include_once 'iaea_apachesolr_configuration.features.inc';
