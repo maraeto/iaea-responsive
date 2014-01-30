@@ -75,7 +75,9 @@ function theme_bootstrap_tabs_render_region($vars) {
   if (empty($content)) {
     return;
   }
-
+  drupal_add_js(drupal_get_path('module', 'bootstrap_tabs_panels_style') .  '/plugins/js/bootstrap_tabs_panels_style.js', array(
+    'scope' => 'footer',
+  ));
   return theme('bootstrap_tabs_theme_region', array('content' => $content, 'tabs' => $tabs));
 }
 
