@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the IAEA Information circulars feature.
+ */
+
+include_once 'iaea_content_type_information_circulars.features.inc';
