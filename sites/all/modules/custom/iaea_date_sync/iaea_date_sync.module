@@ -1,6 +1,6 @@
 <?php
 
-function iaea_admin_defaults_node_update($node) {
+function iaea_date_sync_node_update($node) {
 
     $dat = "";
     $lng = $node->language;
