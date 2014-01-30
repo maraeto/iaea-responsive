@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * iaea_information_circulars.features.field_instance.inc
+ * iaea_content_type_information_circulars.features.field_instance.inc
  */
 
 /**
  * Implements hook_field_default_field_instances().
  */
-function iaea_information_circulars_field_default_field_instances() {
+function iaea_content_type_information_circulars_field_default_field_instances() {
   $field_instances = array();
 
   // Exported field_instance: 'node-information_circular-field_infcirc_author'

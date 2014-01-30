@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * iaea_information_circulars.features.taxonomy.inc
+ * iaea_content_type_information_circulars.features.taxonomy.inc
  */
 
 /**
  * Implements hook_taxonomy_default_vocabularies().
  */
-function iaea_information_circulars_taxonomy_default_vocabularies() {
+function iaea_content_type_information_circulars_taxonomy_default_vocabularies() {
   return array(
     'country' => array(
       'name' => 'Country',

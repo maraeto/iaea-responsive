@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * iaea_information_circulars.features.field_base.inc
+ * iaea_content_type_information_circulars.features.field_base.inc
  */
 
 /**
  * Implements hook_field_default_field_bases().
  */
-function iaea_information_circulars_field_default_field_bases() {
+function iaea_content_type_information_circulars_field_default_field_bases() {
   $field_bases = array();
 
   // Exported field_base: 'field_infcirc_author'

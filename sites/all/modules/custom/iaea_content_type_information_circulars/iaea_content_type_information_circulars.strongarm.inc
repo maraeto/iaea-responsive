@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * iaea_information_circulars.strongarm.inc
+ * iaea_content_type_information_circulars.strongarm.inc
  */
 
 /**
  * Implements hook_strongarm().
  */
-function iaea_information_circulars_strongarm() {
+function iaea_content_type_information_circulars_strongarm() {
   $export = array();
 
   $strongarm = new stdClass();

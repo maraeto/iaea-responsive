@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * iaea_information_circulars.features.inc
+ * iaea_content_type_information_circulars.features.inc
  */
 
 /**
  * Implements hook_ctools_plugin_api().
  */
-function iaea_information_circulars_ctools_plugin_api($module = NULL, $api = NULL) {
+function iaea_content_type_information_circulars_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
@@ -16,7 +16,7 @@ function iaea_information_circulars_ctools_plugin_api($module = NULL, $api = NUL
 /**
  * Implements hook_node_info().
  */
-function iaea_information_circulars_node_info() {
+function iaea_content_type_information_circulars_node_info() {
   $items = array(
     'information_circular' => array(
       'name' => t('Information Circular'),
