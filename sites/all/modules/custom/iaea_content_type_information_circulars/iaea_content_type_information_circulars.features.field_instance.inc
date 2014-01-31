@@ -547,50 +547,6 @@ function iaea_content_type_information_circulars_field_default_field_instances()
     ),
   );
 
-  // Exported field_instance: 'node-information_circular-field_infcirc_language'
-  $field_instances['node-information_circular-field_infcirc_language'] = array(
-    'bundle' => 'information_circular',
-    'default_value' => array(
-      0 => array(
-        'tid' => 288,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'inline',
-        'module' => 'taxonomy',
-        'settings' => array(
-          'field_formatter_class' => '',
-        ),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 2,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'fences_wrapper' => 'div',
-    'field_name' => 'field_infcirc_language',
-    'label' => 'Infcirc Language',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 5,
-    ),
-  );
-
   // Exported field_instance: 'node-information_circular-field_infcirc_number'
   $field_instances['node-information_circular-field_infcirc_number'] = array(
     'bundle' => 'information_circular',
@@ -771,7 +727,6 @@ function iaea_content_type_information_circulars_field_default_field_instances()
   t('Infcirc Document');
   t('Infcirc Document language');
   t('Infcirc File');
-  t('Infcirc Language');
   t('Infcirc Number');
   t('Infcirc Related');
   t('Infcirc Revision Date');
