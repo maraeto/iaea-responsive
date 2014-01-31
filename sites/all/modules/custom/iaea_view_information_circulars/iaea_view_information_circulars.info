@@ -1,0 +1,12 @@
+name = IAEA View Information Circulars
+core = 7.x
+package = Views
+version = 7.x-1.0
+project = iaea_view_information_circulars
+dependencies[] = iaea_content_type_information_circulars
+dependencies[] = views
+dependencies[] = views_content
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = information_circulars
+features_exclude[dependencies][ctools] = ctools
