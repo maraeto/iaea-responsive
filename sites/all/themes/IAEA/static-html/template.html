@@ -12,11 +12,17 @@
 
     <!-- Bootstrap core CSS -->
     <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400|Merriweather' rel='stylesheet' type='text/css'>
 </head>
 <style>
-    body { background: url(img/bgr-body.png) top center repeat-y; }
+    body { background: url(img/bgr-body.png) top center repeat-y; font-family: "Source Sans Pro" }
+    .navi a, .doormat a, .footer a {color:#fff;}
+    h1, h2, h3, h4, h5, h6 {font-family: Merriweather; }
+    .hero { background: url(img/bgr-hero.png) top center repeat-y; padding: 50px 0; }
     .logo { background: url(img/bgr-logo.png) top center repeat-y; height: 69px; }
-    .navi { background: url(img/bgr-navi.png) top center repeat-y; height: 52px; }
+    .navi { background: url(img/bgr-navi.png) top center repeat-y; }
+    .doormat { background: url(img/bgr-doormat.png) top center repeat-y; }
+    .footer { height: 120px; background: url(img/bgr-footer.png) top center repeat-y; }
 
     /* div {border: 1px solid #f90;} */
     /* .color {background-color: #dadada}
@@ -49,17 +55,210 @@
 </div>
 
 <div class="navi">
-    <div class="container">navi</div>
-</div>
-
-<div class="container">
-    <div class="row clearfix">
-        <div class="col-md-6"></div>
-        <div class="col-md-6"></div>
+    <div class="container">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#" class="glyphicon glyphicon-home"> </a>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About Us <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">The Secretariat</a></li>
+                    <li><a href="#">Policy Bodies</a></li>
+                    <li><a href="#">Employment</a></li>
+                    <li><a href="#">Meetings</a></li>
+                    <li><a href="#">The Secretariat</a></li>
+                    <li><a href="#">The Director General</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Our Work <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Overview</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">IAEA Departments</li>
+                    <li><a href="#">Nuclear Applications</a></li>
+                    <li><a href="#">Nuclear Energy</a></li>
+                    <li><a href="#">Safety &amp; Security</a></li>
+                    <li><a href="#">Safeguards</a></li>
+                    <li><a href="#">Technical Cooperation</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Newscenter <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Overview</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Top Stories and Features</a></li>
+                    <li><a href="#">Topics in Focus</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Multimedia</li>
+                    <li><a href="#">Photo Essays</a></li>
+                    <li><a href="#">Videos</a></li>
+                    <li><a href="#">Podcast</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Press Centre</li>
+                    <li><a href="#">DG Statements</a></li>
+                    <li><a href="#">Press Releases</a></li>
+                    <li><a href="#">Media Advisories</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Publications <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Overview</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Books</a></li>
+                    <li><a href="#">Standards/Guides</a></li>
+                    <li><a href="#">The IAEA Bulletin</a></li>
+                    <li><a href="#">Factsheets</a></li>
+                    <li><a href="#">Topical Booklets</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Nucleus</a>
+            </li>
+        </ul>
     </div>
 </div>
+<div class="hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>IAEA Delivers Final Report on Remediation in Fukushima to Japan</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12">
+            <h1>IAEA Delivers Final Report on Remediation in Fukushima to Japan</h1>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-4">
+            <h3>Lorem ipsum dolor sit amet</h3>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, quis, mollitia, fugit, id nesciunt quibusdam in repudiandae itaque pariatur vel obcaecati aut ex unde perferendis ipsam praesentium enim hic nisi. <a href="#">Read more &rarr;</a>
+        </div>
+        <div class="col-md-4">
+            <h3>Consectetur Adipisicing Elit</h3>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, magnam, minus voluptatum quasi laborum repellendus possimus doloremque ea eaque tenetur alias nihil sequi ullam nostrum dignissimos debitis dolor neque officia.
+        </div>
+        <div class="col-md-4">
+            <h3>Fugiat, placeat!</h3>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, reprehenderit quas quam hic. Sapiente, vero, sint, eveniet repellendus numquam libero reprehenderit officiis eum ipsam error porro repudiandae esse recusandae temporibus.
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-3">
+            <h4>Lorem ipsum dolor sit amet</h4>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, quis, mollitia, fugit, id nesciunt quibusdam in repudiandae itaque pariatur vel obcaecati aut ex unde perferendis ipsam praesentium enim hic nisi. <a href="#">Read more &rarr;</a>
+        </div>
+        <div class="col-md-3">
+            <h4>Consectetur Adipisicing Elit</h4>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, magnam, minus voluptatum quasi laborum repellendus possimus doloremque ea eaque tenetur alias nihil sequi ullam nostrum dignissimos debitis dolor neque officia.
+        </div>
+        <div class="col-md-3">
+            <h4>Fugiat, placeat!</h4>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, reprehenderit quas quam hic. Sapiente, vero, sint, eveniet repellendus numquam libero reprehenderit officiis eum ipsam error porro repudiandae esse recusandae temporibus.
+        </div>
+        <div class="col-md-3">
+            <h4>Consectetur Adipisicing Elit</h4>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, magnam, minus voluptatum quasi laborum repellendus possimus doloremque ea eaque tenetur alias nihil sequi ullam nostrum dignissimos debitis dolor neque officia.
+        </div>
+    </div>
+</div>
+<div class="doormat">
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-lg-2 col-md-4 col-sm-4">
+                <h4>More on the IAEA</h4>
+                <ul>
+                    <li><a href="/About/staff.html">Secretariat</a></li>
+                    <li><a href="/About/Jobs/">Employment</a></li>
+                    <li><a href="http://www-pub.iaea.org/MTCD/Meetings/Meetings.asp">Meetings</a></li>
+                    <li><a href="/Publications/">Publications</a></li>
+                    <li><a href="/About/statute.html">Statute of the IAEA</a></li>
+                    <li><a href="/About/mission.html">Mission Statement</a></li>
+                    <li><a href="/About/Business/index.html">Business Opportunities</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-4">
+                <h4>Departments</h4>
+                <ul>
+                    <li><a href="http://www.iaea.org/OurWork/ST/NE/Main/">Nuclear Energy</a></li>
+                    <li><a href="http://www-ns.iaea.org/">Nuclear Safety and Security</a></li>
+                    <li><a href="http://www-naweb.iaea.org/na/">Nuclear Sciences and Applications</a></li>
+                    <li><a href="http://www.iaea.org/OurWork/SV/Safeguards/">Safeguards</a></li>
+                    <li><a href="http://www.iaea.org/technicalcooperation/Home/index.html">Technical Cooperation</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-4">
+                <h4>News Centre</h4>
+                <ul>
+                    <li><a href="/newscenter/news/index.html">Top Stories and Features</a></li>
+                    <li><a href="/newscenter/focus/">Topics In Focus</a></li>
+                    <li><a href="/newscenter/pressreleases/">Press Releases</a></li>
+                    <li><a href="/newscenter/statements/">Statements</a></li>
+                    <li><a href="/newscenter/multimedia/">Multimedia</a></li>
+                    <li><a href="/newscenter/press/">Press Centre</a></li>
+                    <li><a href="/bulletin/">IAEA Bulletin</a></li>
 
-
+                </ul>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-4">
+                <h4>Documents</h4>
+                <ul>
+                    <li><a href="/Publications/Reports/">Annual Reports</a></li>
+                    <li><a href="/Publications/Documents/Infcircs/">Information Circulars</a></li>
+                    <li><a href="/Publications/Documents/Conventions/">Conventions, Treaties and  Legal Agreements</a></li>
+                    <li><a href="http://www-ns.iaea.org/standards/">Standards and Guides</a></li>
+                    <li><a href="http://www.iaea.org/OurWork/SV/Safeguards/protocol.html">Safeguards and Additional Protocols</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-4">
+                <h4>Policymaking</h4>
+                <ul>
+                    <li><a href="/About/Policy/GC/">General Conference</a></li>
+                    <li><a href="/About/Policy/Board/">Board of Governors</a></li>
+                    <li><a href="/About/Policy/MemberStates/">Member States</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-4">
+                <h4>Data Portals</h4>
+                <ul>
+                    <li><a href="http://nucleus.iaea.org/Home/index.html">Nucleus Knowledge Portal</a></li>
+                    <li><a href="http://www-pub.iaea.org/MTCD/publications/publications.asp">Publications Catalogue</a></li>
+                    <li><a href="/inis/">International Nuclear Information System (INIS)</a></li>
+                    <li><a href="http://www.iaea.org/programmes/a2/">Power Reactor Information System (PRIS)</a></li>
+                    <li><a href="http://www-nds.iaea.org/">Nuclear Data Service</a></li>
+                    <li><a href="/About/Policy/GC/">General Conference Archive</a>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="container">
+        <divrow class="clearfix">
+            <div class="col-md-6">footer</div>
+            <div class="col-md-6">
+                <div class="pull-right">
+                    <ul>
+                        <li><a href="/About/">About Us</a></li>
+                        <li><a href="/OurWork/">Our Work</a></li>
+                        <li><a href="/NewsCenter/">News Centre</a></li>
+                        <li><a href="/Publications/">Publications</a></li>
+                        <li><a href="http://nucleus.iaea.org/home/index.html">Nucleus</a></li>
+                    </ul>
+                </div>
+            </div>
+        </divrow>
+    </div>
+</div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -79,11 +278,11 @@
     <script src="../bootstrap/js/transition.js"></script>
 <script>
 /* drop down menu on hover */
-    $(function() {
+    /*$(function() {
         $(".col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12").each(function(index) {
             $(this).append("<div class='content'>" + $(this).width() + "</div>");
         });
-    });
+    });*/
 
 jQuery(document).ready(function(){
 
