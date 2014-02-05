@@ -19,11 +19,19 @@
     .navi a, .doormat a, .footer a {color:#fff;}
     h1, h2, h3, h4, h5, h6 {font-family: Merriweather; }
     .hero { background: url(img/bgr-hero.png) top center repeat-y; padding: 50px 0; }
-    .logo { background: url(img/bgr-logo.png) top center repeat-y; height: 69px; }
-    .navi { background: url(img/bgr-navi.png) top center repeat-y; }
-    .doormat { background: url(img/bgr-doormat.png) top center repeat-y; }
-    .footer { height: 120px; background: url(img/bgr-footer.png) top center repeat-y; }
-
+    .logo { background: url(img/bgr-logo.png) top center repeat-y;}
+    .navi { background: url(img/bgr-navi.png) top center repeat-y;}
+    .search {padding: 17px 0;}
+    .doormat { background: url(img/bgr-doormat.png) top center repeat-y; padding-top: 25px; padding-bottom: 25px; margin-top: 50px; }
+    .doormat ul {font-size: 12px; }
+    .doormat a {color: rgba(255, 255, 255, 0.5) }
+    .doormat h5 {color: rgba(255, 255, 255, 0.9) }
+    .doormat a:hover {color: rgba(255, 255, 255, 1); text-decoration: none  }
+    .footer { height: 120px; background: url(img/bgr-footer.png) top center repeat-y; padding-top: 25px; color: rgba(255, 255, 255, 0.5) }
+    .footer a {color: rgba(255, 255, 255, 0.5)}
+    .footer a:hover {color: rgba(255, 255, 255, 1)}
+    .iaea-logo-footer {opacity: .6;}
+    .iaea-logo-footer:hover {opacity: 1;}
     /* div {border: 1px solid #f90;} */
     /* .color {background-color: #dadada}
     .container {background-color: #eee}
@@ -48,17 +56,28 @@
 <div class="logo">
     <div class="container">
         <div class="row clearfix">
-            <div class="col-md-6"><a href=/""><img src="img/iaea-logo.png" alt="" width="" height="" border="0" /></a></div>
-            <div class="col-md-6"></div>
+            <div class="col-lg-4 col-md-6 col-sm-6"><a href=/""><img src="img/iaea-logo.png" class="img-responsive" alt="" width="" height="" border="0" /></a></div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col col-xs-pull-1 col-xs-10 pull-right search">
+                <form class="form-search content-search" action="/" method="post" id="search-block-form" accept-charset="UTF-8">
+                    <div>
+                        <div>
+                            <div class="input-group">
+                                <input title="Enter the terms you wish to search for." placeholder="Search" class="form-control form-text" type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" />
+                            <span class="input-group-btn"><button type="submit" class="btn btn-default">Search</button></span>
+                            </div>
+                        <!-- <button class="element-invisible btn btn-primary form-submit" id="edit-submit" name="op" value="Search" type="submit">Search</button> -->
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
 
 <div class="navi">
     <div class="container">
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="#" class="glyphicon glyphicon-home"> </a>
-            </li>
+        <ul class="menu nav navbar-nav">
+            <li class="active"><a href="#" class="glyphicon glyphicon-home"> </a>            </li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">About Us <b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -73,8 +92,6 @@
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Our Work <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Overview</a></li>
-                    <li class="divider"></li>
                     <li class="dropdown-header">IAEA Departments</li>
                     <li><a href="#">Nuclear Applications</a></li>
                     <li><a href="#">Nuclear Energy</a></li>
@@ -86,8 +103,6 @@
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Newscenter <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Overview</a></li>
-                    <li class="divider"></li>
                     <li><a href="#">Top Stories and Features</a></li>
                     <li><a href="#">Topics in Focus</a></li>
                     <li class="divider"></li>
@@ -105,8 +120,6 @@
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Publications <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Overview</a></li>
-                    <li class="divider"></li>
                     <li><a href="#">Books</a></li>
                     <li><a href="#">Standards/Guides</a></li>
                     <li><a href="#">The IAEA Bulletin</a></li>
@@ -175,8 +188,8 @@
     <div class="container">
         <div class="row clearfix">
             <div class="col-lg-2 col-md-4 col-sm-4">
-                <h4>More on the IAEA</h4>
-                <ul>
+                <h5>More on the IAEA</h5>
+                <ul class="list-unstyled">
                     <li><a href="/About/staff.html">Secretariat</a></li>
                     <li><a href="/About/Jobs/">Employment</a></li>
                     <li><a href="http://www-pub.iaea.org/MTCD/Meetings/Meetings.asp">Meetings</a></li>
@@ -187,8 +200,8 @@
                 </ul>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4">
-                <h4>Departments</h4>
-                <ul>
+                <h5>Departments</h5>
+                <ul class="list-unstyled">
                     <li><a href="http://www.iaea.org/OurWork/ST/NE/Main/">Nuclear Energy</a></li>
                     <li><a href="http://www-ns.iaea.org/">Nuclear Safety and Security</a></li>
                     <li><a href="http://www-naweb.iaea.org/na/">Nuclear Sciences and Applications</a></li>
@@ -197,8 +210,8 @@
                 </ul>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4">
-                <h4>News Centre</h4>
-                <ul>
+                <h5>News Centre</h5>
+                <ul class="list-unstyled">
                     <li><a href="/newscenter/news/index.html">Top Stories and Features</a></li>
                     <li><a href="/newscenter/focus/">Topics In Focus</a></li>
                     <li><a href="/newscenter/pressreleases/">Press Releases</a></li>
@@ -210,8 +223,8 @@
                 </ul>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4">
-                <h4>Documents</h4>
-                <ul>
+                <h5>Documents</h5>
+                <ul class="list-unstyled">
                     <li><a href="/Publications/Reports/">Annual Reports</a></li>
                     <li><a href="/Publications/Documents/Infcircs/">Information Circulars</a></li>
                     <li><a href="/Publications/Documents/Conventions/">Conventions, Treaties and  Legal Agreements</a></li>
@@ -220,16 +233,16 @@
                 </ul>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4">
-                <h4>Policymaking</h4>
-                <ul>
+                <h5>Policymaking</h5>
+                <ul class="list-unstyled">
                     <li><a href="/About/Policy/GC/">General Conference</a></li>
                     <li><a href="/About/Policy/Board/">Board of Governors</a></li>
                     <li><a href="/About/Policy/MemberStates/">Member States</a></li>
                 </ul>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4">
-                <h4>Data Portals</h4>
-                <ul>
+                <h5>Data Portals</h5>
+                <ul class="list-unstyled">
                     <li><a href="http://nucleus.iaea.org/Home/index.html">Nucleus Knowledge Portal</a></li>
                     <li><a href="http://www-pub.iaea.org/MTCD/publications/publications.asp">Publications Catalogue</a></li>
                     <li><a href="/inis/">International Nuclear Information System (INIS)</a></li>
@@ -244,16 +257,57 @@
 <div class="footer">
     <div class="container">
         <divrow class="clearfix">
-            <div class="col-md-6">footer</div>
+            <div class="col-md-1 iaea-logo-footer">
+                <a href="/"><img src="img/iaea-logo-footer.png" alt="IAEA" width="" height="" border="0" /></a>
+            </div>
+            <div class="col-md-5">
+                <p>
+                    Vienna International Centre, PO Box 100<br />
+                    A-1400 Vienna, Austria<br />
+                    Telephone: (+431) 2600-0, Facsimile (+431) 2600-7<br />
+                    <script type='text/javascript'>
+                        <!--
+                        var v2 = "2B4AQYQJYSK5AZCWZAJHRR";
+                        var v7 = unescape("%7D%24R%28200%26w%1E*%5C-%1A*6%3F%20d%27%205");
+                        var v5 = v2.length;
+                        var v1 = "";
+                        for (var v4 = 0; v4 < v5; v4++) {
+                            v1 += String.fromCharCode(v2.charCodeAt(v4) ^ v7.charCodeAt(v4));
+                        }
+                        document.write('<a href="javascript:void(0)" onclick="window.location=\'mail\u0074o\u003a' + v1 + '?subject=' + '\'">' + ' Official Email<\/a>');
+                        //-->
+                    </script>
+                    <noscript><a href='http://w2.syronex.com/jmr/safemailto/#noscript'> Official Email (with anti-spam)</a></noscript>
+                </p>
+
+            </div>
             <div class="col-md-6">
-                <div class="pull-right">
-                    <ul>
-                        <li><a href="/About/">About Us</a></li>
-                        <li><a href="/OurWork/">Our Work</a></li>
-                        <li><a href="/NewsCenter/">News Centre</a></li>
-                        <li><a href="/Publications/">Publications</a></li>
-                        <li><a href="http://nucleus.iaea.org/home/index.html">Nucleus</a></li>
-                    </ul>
+                <div class="row">
+                    <div class="pull-right">
+                        <ul class="list-inline">
+                            <li><a href="/About/">About Us</a></li>&nbsp;&middot;&nbsp;
+                            <li><a href="/OurWork/">Our Work</a></li>&nbsp;&middot;&nbsp;
+                            <li><a href="/NewsCenter/">News Centre</a></li>&nbsp;&middot;&nbsp;
+                            <li><a href="/Publications/">Publications</a></li>&nbsp;&middot;&nbsp;
+                            <li><a href="http://nucleus.iaea.org/home/index.html">Nucleus</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="pull-right">
+                        <ul class="list-inline">
+                            <li><a href="#">facebook</a></li>
+                            <li><a href="#">flickr</a></li>
+                            <li><a href="#">instagram</a></li>
+                            <li><a href="#">youtube</a></li>
+                            <li><a href="#">vimeo</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="pull-right">
+                        <p>© 1998–2014 IAEA, All rights reserved.</p>
+                    </div>
                 </div>
             </div>
         </divrow>
