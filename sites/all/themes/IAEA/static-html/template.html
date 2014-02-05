@@ -27,8 +27,11 @@
     .doormat a {color: rgba(255, 255, 255, 0.5) }
     .doormat h5 {color: rgba(255, 255, 255, 0.9) }
     .doormat a:hover {color: rgba(255, 255, 255, 1); text-decoration: none  }
-    .footer { height: 120px; background: url(img/bgr-footer.png) top center repeat-y; padding-top: 25px }
-
+    .footer { height: 120px; background: url(img/bgr-footer.png) top center repeat-y; padding-top: 25px; color: rgba(255, 255, 255, 0.5) }
+    .footer a {color: rgba(255, 255, 255, 0.5)}
+    .footer a:hover {color: rgba(255, 255, 255, 1)}
+    .iaea-logo-footer {opacity: .6;}
+    .iaea-logo-footer:hover {opacity: 1;}
     /* div {border: 1px solid #f90;} */
     /* .color {background-color: #dadada}
     .container {background-color: #eee}
@@ -254,16 +257,57 @@
 <div class="footer">
     <div class="container">
         <divrow class="clearfix">
-            <div class="col-md-6">footer</div>
+            <div class="col-md-1 iaea-logo-footer">
+                <a href="/"><img src="img/iaea-logo-footer.png" alt="IAEA" width="" height="" border="0" /></a>
+            </div>
+            <div class="col-md-5">
+                <p>
+                    Vienna International Centre, PO Box 100<br />
+                    A-1400 Vienna, Austria<br />
+                    Telephone: (+431) 2600-0, Facsimile (+431) 2600-7<br />
+                    <script type='text/javascript'>
+                        <!--
+                        var v2 = "2B4AQYQJYSK5AZCWZAJHRR";
+                        var v7 = unescape("%7D%24R%28200%26w%1E*%5C-%1A*6%3F%20d%27%205");
+                        var v5 = v2.length;
+                        var v1 = "";
+                        for (var v4 = 0; v4 < v5; v4++) {
+                            v1 += String.fromCharCode(v2.charCodeAt(v4) ^ v7.charCodeAt(v4));
+                        }
+                        document.write('<a href="javascript:void(0)" onclick="window.location=\'mail\u0074o\u003a' + v1 + '?subject=' + '\'">' + ' Official Email<\/a>');
+                        //-->
+                    </script>
+                    <noscript><a href='http://w2.syronex.com/jmr/safemailto/#noscript'> Official Email (with anti-spam)</a></noscript>
+                </p>
+
+            </div>
             <div class="col-md-6">
-                <div class="pull-right">
-                    <ul class="list-inline">
-                        <li><a href="/About/">About Us</a></li>&nbsp;&middot;&nbsp;
-                        <li><a href="/OurWork/">Our Work</a></li>&nbsp;&middot;&nbsp;
-                        <li><a href="/NewsCenter/">News Centre</a></li>&nbsp;&middot;&nbsp;
-                        <li><a href="/Publications/">Publications</a></li>&nbsp;&middot;&nbsp;
-                        <li><a href="http://nucleus.iaea.org/home/index.html">Nucleus</a></li>
-                    </ul>
+                <div class="row">
+                    <div class="pull-right">
+                        <ul class="list-inline">
+                            <li><a href="/About/">About Us</a></li>&nbsp;&middot;&nbsp;
+                            <li><a href="/OurWork/">Our Work</a></li>&nbsp;&middot;&nbsp;
+                            <li><a href="/NewsCenter/">News Centre</a></li>&nbsp;&middot;&nbsp;
+                            <li><a href="/Publications/">Publications</a></li>&nbsp;&middot;&nbsp;
+                            <li><a href="http://nucleus.iaea.org/home/index.html">Nucleus</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="pull-right">
+                        <ul class="list-inline">
+                            <li><a href="#">facebook</a></li>
+                            <li><a href="#">flickr</a></li>
+                            <li><a href="#">instagram</a></li>
+                            <li><a href="#">youtube</a></li>
+                            <li><a href="#">vimeo</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="pull-right">
+                        <p>© 1998–2014 IAEA, All rights reserved.</p>
+                    </div>
                 </div>
             </div>
         </divrow>
