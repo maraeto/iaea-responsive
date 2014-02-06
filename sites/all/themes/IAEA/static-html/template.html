@@ -21,7 +21,10 @@
     .hero { background: url(img/bgr-hero.png) top center repeat-y; padding: 50px 0; }
     .logo { background: url(img/bgr-logo.png) top center repeat-y;}
     .navi { background: url(img/bgr-navi.png) top center repeat-y;}
+    .navbar {margin-bottom: 0; border:none; background: none}
+    .social-media-icons > li > a { padding: 14px 5px 10px 5px; }
     .search {padding: 17px 0;}
+    .breadcrumb {margin-bottom: 0}
     .doormat { background: url(img/bgr-doormat.png) top center repeat-y; padding-top: 25px; padding-bottom: 25px; margin-top: 50px; }
     .doormat ul {font-size: 12px; }
     .doormat a {color: rgba(255, 255, 255, 0.5) }
@@ -59,17 +62,12 @@
         <div class="row clearfix">
             <div class="col-lg-4 col-md-6 col-sm-6"><a href=/""><img src="img/iaea-logo.png" class="img-responsive" alt="" width="" height="" border="0" /></a></div>
             <div class="col-lg-4 col-md-4 col-sm-4 col col-xs-pull-1 col-xs-10 pull-right search">
-                <form class="form-search content-search" action="/" method="post" id="search-block-form" accept-charset="UTF-8">
-                    <div>
-                        <div>
-                            <div class="input-group">
-                                <input title="Enter the terms you wish to search for." placeholder="Search" class="form-control form-text" type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" />
-                            <span class="input-group-btn"><button type="submit" class="btn btn-default">Search</button></span>
-                            </div>
-                        <!-- <button class="element-invisible btn btn-primary form-submit" id="edit-submit" name="op" value="Search" type="submit">Search</button> -->
-                        </div>
-                    </div>
-                </form>
+              <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+              </form>
             </div>
         </div>
     </div>
@@ -77,66 +75,95 @@
 
 <div class="navi">
     <div class="container">
-        <ul class="menu nav navbar-nav">
-            <li class="active"><a href="#" class="glyphicon glyphicon-home"></a></li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About Us <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">The Secretariat</a></li>
-                    <li><a href="#">Policy Bodies</a></li>
-                    <li><a href="#">Employment</a></li>
-                    <li><a href="#">Meetings</a></li>
-                    <li><a href="#">The Secretariat</a></li>
-                    <li><a href="#">The Director General</a></li>
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#iaea-main-navigation">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="iaea-main-navigation">
+              <ul class="nav navbar-nav">
+                    <li class="active"><a href="#" class="glyphicon glyphicon-home"> </a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About Us <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">The Secretariat</a></li>
+                            <li><a href="#">Policy Bodies</a></li>
+                            <li><a href="#">Employment</a></li>
+                            <li><a href="#">Meetings</a></li>
+                            <li><a href="#">The Secretariat</a></li>
+                            <li><a href="#">The Director General</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Our Work <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header">IAEA Departments</li>
+                            <li><a href="#">Nuclear Applications</a></li>
+                            <li><a href="#">Nuclear Energy</a></li>
+                            <li><a href="#">Safety &amp; Security</a></li>
+                            <li><a href="#">Safeguards</a></li>
+                            <li><a href="#">Technical Cooperation</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Newscenter <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Top Stories and Features</a></li>
+                            <li><a href="#">Topics in Focus</a></li>
+                            <li class="divider"></li>
+                            <li class="dropdown-header">Multimedia</li>
+                            <li><a href="#">Photo Essays</a></li>
+                            <li><a href="#">Videos</a></li>
+                            <li><a href="#">Podcast</a></li>
+                            <li class="divider"></li>
+                            <li class="dropdown-header">Press Centre</li>
+                            <li><a href="#">DG Statements</a></li>
+                            <li><a href="#">Press Releases</a></li>
+                            <li><a href="#">Media Advisories</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Publications <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Books</a></li>
+                            <li><a href="#">Standards/Guides</a></li>
+                            <li><a href="#">The IAEA Bulletin</a></li>
+                            <li><a href="#">Factsheets</a></li>
+                            <li><a href="#">Topical Booklets</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Nucleus</a></li>
+              </ul>
+
+              <ul class="nav navbar-nav navbar-right social-media-icons">
+                    <li><a href="https://www.facebook.com/iaeaorg" class="facebook social" data-toggle="tooltip" data-placement="top" title="IAEA Facebook"><span class='symbol'>circlefacebook</span></a></li>
+                    <li><a href="https://twitter.com/iaeaorg" class="twitter social" data-toggle="tooltip" data-placement="top" title="IAEA Twitter"><span class='symbol'>circletwitter</span></a></li>
+                    <li><a href="http://www.flickr.com/photos/iaea_imagebank/" class="flickr social" data-toggle="tooltip" data-placement="top" title="IAEA FlickR"><span class='symbol'>circleflickr</span></a></li>
+                    <li><a href="http://www.youtube.com/user/IAEAvideo" class="youtube social" data-toggle="tooltip" data-placement="top" title="IAEA YouTube"><span class='symbol'>circleyoutube</span></a></li>
+                    <li><a href="#" class="rss social" data-toggle="tooltip" data-placement="top" title="IAEA RSS Feeds"><span class='symbol'>circlerss</span></a></li>
                 </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Our Work <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li class="dropdown-header">IAEA Departments</li>
-                    <li><a href="#">Nuclear Applications</a></li>
-                    <li><a href="#">Nuclear Energy</a></li>
-                    <li><a href="#">Safety &amp; Security</a></li>
-                    <li><a href="#">Safeguards</a></li>
-                    <li><a href="#">Technical Cooperation</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Newscenter <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Top Stories and Features</a></li>
-                    <li><a href="#">Topics in Focus</a></li>
-                    <li class="divider"></li>
-                    <li class="dropdown-header">Multimedia</li>
-                    <li><a href="#">Photo Essays</a></li>
-                    <li><a href="#">Videos</a></li>
-                    <li><a href="#">Podcast</a></li>
-                    <li class="divider"></li>
-                    <li class="dropdown-header">Press Centre</li>
-                    <li><a href="#">DG Statements</a></li>
-                    <li><a href="#">Press Releases</a></li>
-                    <li><a href="#">Media Advisories</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Publications <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Books</a></li>
-                    <li><a href="#">Standards/Guides</a></li>
-                    <li><a href="#">The IAEA Bulletin</a></li>
-                    <li><a href="#">Factsheets</a></li>
-                    <li><a href="#">Topical Booklets</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Nucleus</a></li>
-        </ul>
-        <ul class="pull-right list-inline">
-            <li><a href="https://www.facebook.com/iaeaorg" class="facebook social" data-toggle="tooltip" data-placement="top" title="IAEA Facebook"><span class='symbol'>circlefacebook</span></a></li>
-            <li><a href="https://twitter.com/iaeaorg" class="twitter social" data-toggle="tooltip" data-placement="top" title="IAEA Twitter"><span class='symbol'>circletwitter</span></a></li>
-            <li><a href="http://www.flickr.com/photos/iaea_imagebank/" class="flickr social" data-toggle="tooltip" data-placement="top" title="IAEA FlickR"><span class='symbol'>circleflickr</span></a></li>
-            <li><a href="http://www.youtube.com/user/IAEAvideo" class="youtube social" data-toggle="tooltip" data-placement="top" title="IAEA YouTube"><span class='symbol'>circleyoutube</span></a></li>
-            <li><a href="#" class="rss social" data-toggle="tooltip" data-placement="top" title="IAEA RSS Feeds"><span class='symbol'>circlerss</span></a></li>
-        </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+    </div>
+</div>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12">
+            <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Library</a></li>
+                <li class="active">Data</li>
+            </ol>
+        </div>
     </div>
 </div>
 <div class="hero jumbotron">
