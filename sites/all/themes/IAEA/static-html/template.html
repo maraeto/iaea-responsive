@@ -27,30 +27,29 @@
     .doormat a {color: rgba(255, 255, 255, 0.5) }
     .doormat h5 {color: rgba(255, 255, 255, 0.9) }
     .doormat a:hover {color: rgba(255, 255, 255, 1); text-decoration: none  }
-    .footer { height: 120px; background: url(img/bgr-footer.png) top center repeat-y; padding-top: 25px; color: rgba(255, 255, 255, 0.5) }
+    .footer { /*height: 120px;*/ background: url(img/bgr-footer.png) top center repeat-y; padding-top: 25px; color: rgba(255, 255, 255, 0.5) }
     .footer a {color: rgba(255, 255, 255, 0.5)}
-    .footer a:hover {color: rgba(255, 255, 255, 1)}
+    .footer a:hover {color: rgba(255, 255, 255, 1); text-decoration: none}
     .iaea-logo-footer {opacity: .6;}
     .iaea-logo-footer:hover {opacity: 1;}
-
     .go-top {position: fixed; right: 2em; bottom: 2em; color: #333; display: none;}
-    /* div {border: 1px solid #f90;} */
-    /* .color {background-color: #dadada}
-    .container {background-color: #eee}
-    .row {background-color: #ccc}
-    .content {padding: 15px; margin: 10px 0;-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;}
-    .col-md-1 .content{border: 1px solid #f90; background-color: #500000}
-    .col-md-2 .content{border: 1px solid #f90; background-color: #500000}
-    .col-md-3 .content{border: 1px solid #f90; background-color: #ddd}
-    .col-md-4 .content{border: 1px solid #f90; background-color: #ddd}
-    .col-md-5 .content{border: 1px solid #f90; background-color: #ddd}
-    .col-md-6 .content{border: 1px solid #f90; background-color: #ddd}
-    .col-md-7 .content{border: 1px solid #f90; background-color: #ddd}
-    .col-md-8 .content{border: 1px solid #f90; background-color: #ddd}
-    .col-md-9 .content{border: 1px solid #f90; background-color: #ddd}
-    .col-md-10 .content{border: 1px solid #f90; background-color: #ddd}
-    .col-md-11 .content{border: 1px solid #f90; background-color: #ddd}
-    .col-md-12 .content{border: 1px solid #f90; background-color: #ddd} */
+
+    /* Mono Social Icon Font */
+    @font-face { font-family: 'Mono Social Icons Font';
+        src: url('fonts/MonoSocialIconsFont-1.10.eot');
+        src: url('fonts/MonoSocialIconsFont-1.10.eot?#iefix') format('embedded-opentype'),
+             url('fonts/MonoSocialIconsFont-1.10.woff') format('woff'),
+             url('fonts/MonoSocialIconsFont-1.10.ttf') format('truetype'),
+             url('fonts/MonoSocialIconsFont-1.10.svg#MonoSocialIconsFont') format('svg');
+        src: url('fonts/MonoSocialIconsFont-1.10.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+    .symbol, a.symbol:before { font-family: 'Mono Social Icons Font'; -webkit-text-rendering: optimizeLegibility; -moz-text-rendering: optimizeLegibility; -ms-text-rendering: optimizeLegibility; -o-text-rendering: optimizeLegibility; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-font-smoothing: antialiased; -ms-font-smoothing: antialiased; -o-font-smoothing: antialiased; font-smoothing: antialiased; font-size: 30px;
+    }
+    a.symbol:before { content: attr(title); margin-right: 0.3em; font-size: 130%; }
+    a.symbol { background: #9f9f9f; padding: 7px 5px 3px 5px; color: white; text-decoration: none; }
+
 </style>
 
 <body>
@@ -79,7 +78,7 @@
 <div class="navi">
     <div class="container">
         <ul class="menu nav navbar-nav">
-            <li class="active"><a href="#" class="glyphicon glyphicon-home"> </a>            </li>
+            <li class="active"><a href="#" class="glyphicon glyphicon-home"></a></li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">About Us <b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -129,8 +128,14 @@
                     <li><a href="#">Topical Booklets</a></li>
                 </ul>
             </li>
-            <li><a href="#">Nucleus</a>
-            </li>
+            <li><a href="#">Nucleus</a></li>
+        </ul>
+        <ul class="pull-right list-inline">
+            <li><a href="https://www.facebook.com/iaeaorg" class="facebook social" data-toggle="tooltip" data-placement="top" title="IAEA Facebook"><span class='symbol'>circlefacebook</span></a></li>
+            <li><a href="https://twitter.com/iaeaorg" class="twitter social" data-toggle="tooltip" data-placement="top" title="IAEA Twitter"><span class='symbol'>circletwitter</span></a></li>
+            <li><a href="http://www.flickr.com/photos/iaea_imagebank/" class="flickr social" data-toggle="tooltip" data-placement="top" title="IAEA FlickR"><span class='symbol'>circleflickr</span></a></li>
+            <li><a href="http://www.youtube.com/user/IAEAvideo" class="youtube social" data-toggle="tooltip" data-placement="top" title="IAEA YouTube"><span class='symbol'>circleyoutube</span></a></li>
+            <li><a href="#" class="rss social" data-toggle="tooltip" data-placement="top" title="IAEA RSS Feeds"><span class='symbol'>circlerss</span></a></li>
         </ul>
     </div>
 </div>
@@ -260,7 +265,7 @@
 </div>
 <div class="footer">
     <div class="container">
-        <divrow class="clearfix">
+        <div class="clearfix">
             <div class="col-md-1 iaea-logo-footer">
                 <a href="/"><img src="img/iaea-logo-footer.png" alt="IAEA" width="" height="" border="0" /></a>
             </div>
@@ -299,12 +304,12 @@
                 </div>
                 <div class="row">
                     <div class="pull-right">
-                        <ul class="list-inline">
-                            <li><a href="#" id="facebook" data-toggle="tooltip" data-placement="top" title="Visit us on Facebook">facebook</a></li>
-                            <li><a href="#">flickr</a></li>
-                            <li><a href="#">instagram</a></li>
-                            <li><a href="#">youtube</a></li>
-                            <li><a href="#">vimeo</a></li>
+                        <ul class="pull-right list-inline">
+                            <li><a href="https://www.facebook.com/iaeaorg" class="facebook social" data-toggle="tooltip" data-placement="top" title="IAEA Facebook"><span class='symbol'>circlefacebook</span></a></li>
+                            <li><a href="https://twitter.com/iaeaorg" class="twitter social" data-toggle="tooltip" data-placement="top" title="IAEA Twitter"><span class='symbol'>circletwitter</span></a></li>
+                            <li><a href="http://www.flickr.com/photos/iaea_imagebank/" class="flickr social" data-toggle="tooltip" data-placement="top" title="IAEA FlickR"><span class='symbol'>circleflickr</span></a></li>
+                            <li><a href="http://www.youtube.com/user/IAEAvideo" class="youtube social" data-toggle="tooltip" data-placement="top" title="IAEA YouTube"><span class='symbol'>circleyoutube</span></a></li>
+                            <li><a href="#" class="rss social" data-toggle="tooltip" data-placement="top" title="IAEA RSS Feeds"><span class='symbol'>circlerss</span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -316,8 +321,8 @@
             </div>
         </div>
     </div>
-    <a href="#" class="btn btn-default go-top"><span class="glyphicon glyphicon-chevron-up"></span></a>
 </div>
+<a href="#" class="btn btn-default btn-sm go-top"><span class="glyphicon glyphicon-chevron-up"></span></a>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -363,7 +368,7 @@
 
         $('.bootstrap-tabs a:first').tab('show');
     // trigger tooltip
-        $('#facebook').tooltip();
+        $('.social').tooltip();
 
 
     /* Go To Top */
