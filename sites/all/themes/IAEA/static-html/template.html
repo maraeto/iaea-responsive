@@ -132,11 +132,13 @@
         </ul>
     </div>
 </div>
-<div class="hero">
+<div class="hero jumbotron">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <h1>IAEA Delivers Final Report on Remediation in Fukushima to Japan</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, dicta, omnis quasi odit minus eligendi repudiandae corporis cumque. Accusamus, veritatis earum dolorem architecto hic tempora animi rem non repellendus adipisci?</p>
+                <button type="button" class="btn btn-primary btn-lg">Read more &rarr;</button>
             </div>
         </div>
     </div>
@@ -296,7 +298,7 @@
                 <div class="row">
                     <div class="pull-right">
                         <ul class="list-inline">
-                            <li><a href="#">facebook</a></li>
+                            <li><a href="#" id="facebook" data-toggle="tooltip" data-placement="top" title="Visit us on Facebook">facebook</a></li>
                             <li><a href="#">flickr</a></li>
                             <li><a href="#">instagram</a></li>
                             <li><a href="#">youtube</a></li>
@@ -317,7 +319,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="js/jquery-2.1.0.min.js"></script>
     <script src="../bootstrap/js/affix.js"></script>
     <script src="../bootstrap/js/alert.js"></script>
     <script src="../bootstrap/js/button.js"></script>
@@ -337,26 +339,31 @@
             $(this).append("<div class='content'>" + $(this).width() + "</div>");
         });
     });*/
+(function($){
 
-jQuery(document).ready(function(){
+    $(document).ready(function(){
 
-    jQuery('ul.nav li.dropdown, ul.nav li.dropdown-submenu').hover(function() {
-      jQuery(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(200);
-    }, function() {
-      jQuery(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(200);
+        $('ul.nav li.dropdown, ul.nav li.dropdown-submenu').hover(function() {
+          $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(200);
+        }, function() {
+          $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(200);
+        });
+    /* follow the link on */
+        $('ul.nav li.dropdown, ul.nav li.dropdown-submenu').click( function(e) {
+          e.stopPropagation();
+        });
+
+        $('.bootstrap-tabs a').click(function (e) {
+            e.preventDefault()
+            $(this).tab('show')
+        });
+
+        $('.bootstrap-tabs a:first').tab('show');
+        $('#facebook').tooltip();
+
     });
-/* follow the link on */
-    jQuery('ul.nav li.dropdown, ul.nav li.dropdown-submenu').click( function(e) {
-      e.stopPropagation();
-    });
 
-    jQuery('.bootstrap-tabs a').click(function (e) {
-        e.preventDefault()
-        jQuery(this).tab('show')
-    });
-
-    jQuery('.bootstrap-tabs a:first').tab('show');
-});
+})(jQuery);
 </script>
 </body>
 </html>
