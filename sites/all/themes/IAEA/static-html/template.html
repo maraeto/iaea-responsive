@@ -32,6 +32,8 @@
     .footer a:hover {color: rgba(255, 255, 255, 1)}
     .iaea-logo-footer {opacity: .6;}
     .iaea-logo-footer:hover {opacity: 1;}
+
+    .go-top {position: fixed; right: 2em; bottom: 2em; color: #333; display: none;}
     /* div {border: 1px solid #f90;} */
     /* .color {background-color: #dadada}
     .container {background-color: #eee}
@@ -312,8 +314,9 @@
                     </div>
                 </div>
             </div>
-        </divrow>
+        </div>
     </div>
+    <a href="#" class="btn btn-default go-top"><span class="glyphicon glyphicon-chevron-up"></span></a>
 </div>
 
     <!-- Bootstrap core JavaScript
@@ -359,7 +362,22 @@
         });
 
         $('.bootstrap-tabs a:first').tab('show');
+    // trigger tooltip
         $('#facebook').tooltip();
+
+    // go to top function
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200 ) {
+                $('.go-top').fadeIn(500);
+            } else {
+                $('.go-top').fadeOut(200);
+            }
+        })
+        // Animate the scroll to top
+        $('.go-top').click(function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop: 0}, 500);
+        });
 
     });
 
