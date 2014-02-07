@@ -21,18 +21,21 @@
     .hero { background: url(img/bgr-hero.png) top center repeat-y; padding: 50px 0; }
     .logo { background: url(img/bgr-logo.png) top center repeat-y;}
     .navi { background: url(img/bgr-navi.png) top center repeat-y;}
-    .navbar {margin-bottom: 0; border:none; background: none}
+    .navbar-collapse {padding-left: 0}
+    /*.nav > li > a { padding: 15px 30px 15px 0 }*/
+    .navbar {margin-bottom: 0; border:none; background-color: transparent;}
     .social-media-icons > li > a { padding: 14px 5px 10px 5px; }
     .search {padding: 17px 0;}
-    .breadcrumb {margin-bottom: 0}
+    .breadcrumb {margin-bottom: 0; background-color: transparent; color: rgba(255, 255, 255, 0.5)}
+    .breadcrumbs {background: url(img/bgr-doormat.png) top center repeat-y; }
     .doormat { background: url(img/bgr-doormat.png) top center repeat-y; padding-top: 25px; padding-bottom: 25px; margin-top: 50px; }
     .doormat ul {font-size: 12px; }
     .doormat a {color: rgba(255, 255, 255, 0.5) }
     .doormat h5 {color: rgba(255, 255, 255, 0.9) }
     .doormat a:hover {color: rgba(255, 255, 255, 1); text-decoration: none  }
     .footer { /*height: 120px;*/ background: url(img/bgr-footer.png) top center repeat-y; padding-top: 25px; color: rgba(255, 255, 255, 0.5) }
-    .footer a {color: rgba(255, 255, 255, 0.5)}
-    .footer a:hover {color: rgba(255, 255, 255, 1); text-decoration: none}
+    .footer a, .breadcrumbs a {color: rgba(255, 255, 255, 0.5)}
+    .footer a:hover, .breadcrumbs a:hover {color: rgba(255, 255, 255, 1); text-decoration: none}
     .iaea-logo-footer {opacity: .6;}
     .iaea-logo-footer:hover {opacity: 1;}
     .go-top {position: fixed; right: 2em; bottom: 2em; color: #333; display: none;}
@@ -90,7 +93,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="iaea-main-navigation">
               <ul class="nav navbar-nav">
-                    <li class="active"><a href="#" class="glyphicon glyphicon-home"> </a></li>
+                    <!-- <li class="active"><a href="#" class="glyphicon glyphicon-home"> </a></li> -->
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">About Us <b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -143,7 +146,7 @@
                     <li><a href="#">Nucleus</a></li>
               </ul>
 
-              <ul class="nav navbar-nav navbar-right social-media-icons">
+              <ul class="nav navbar-nav navbar-right social-media-icons hidden-xs">
                     <li><a href="https://www.facebook.com/iaeaorg" class="facebook social" data-toggle="tooltip" data-placement="top" title="IAEA Facebook"><span class='symbol'>circlefacebook</span></a></li>
                     <li><a href="https://twitter.com/iaeaorg" class="twitter social" data-toggle="tooltip" data-placement="top" title="IAEA Twitter"><span class='symbol'>circletwitter</span></a></li>
                     <li><a href="http://www.flickr.com/photos/iaea_imagebank/" class="flickr social" data-toggle="tooltip" data-placement="top" title="IAEA FlickR"><span class='symbol'>circleflickr</span></a></li>
@@ -155,14 +158,16 @@
         </nav>
     </div>
 </div>
-<div class="container">
-    <div class="row clearfix">
-        <div class="col-md-12">
-            <ol class="breadcrumb">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Library</a></li>
-                <li class="active">Data</li>
-            </ol>
+<div class="breadcrumbs hidden-xs">
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-12">
+                <ol class="breadcrumb">
+                    <li><a href="#" class="glyphicon glyphicon-home"> </a></li>
+                    <li><a href="#">Library</a></li>
+                    <li class="active">Data</li>
+                </ol>
+            </div>
         </div>
     </div>
 </div>
@@ -407,13 +412,13 @@
             }
         })
     // remove the top button when the window is smaller than 1300 px
-        $(window).resize(function(){
-            if ( $(this).width() < 1300 ) {
-                $('.go-top').fadeOut(100);
-            } else {
-                $('.go-top').fadeIn(100);
-            }
-        })
+        // $(window).resize(function(){
+        //     if ( $(this).width() < 1300 ) {
+        //         $('.go-top').fadeOut(100);
+        //     } else {
+        //         $('.go-top').fadeIn(100);
+        //     }
+        // })
     // Animate the scroll to top
         $('.go-top').click(function(event) {
             event.preventDefault();
