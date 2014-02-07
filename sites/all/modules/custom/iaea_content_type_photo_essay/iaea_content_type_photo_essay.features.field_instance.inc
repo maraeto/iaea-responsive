@@ -27,7 +27,7 @@ function iaea_content_type_photo_essay_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -74,9 +74,17 @@ function iaea_content_type_photo_essay_field_default_field_instances() {
         'weight' => 0,
       ),
       'full' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
+        'label' => 'hidden',
+        'module' => 'date',
+        'settings' => array(
+          'field_formatter_class' => '',
+          'format_type' => 'iaea_date_style',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
         'weight' => 0,
       ),
       'teaser' => array(
@@ -131,13 +139,20 @@ function iaea_content_type_photo_essay_field_default_field_instances() {
           'title_field' => '',
         ),
         'type' => 'galleria',
-        'weight' => 253,
+        'weight' => 501,
       ),
       'full' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'label' => 'hidden',
+        'module' => 'galleria',
+        'settings' => array(
+          'alt_field' => '',
+          'field_formatter_class' => '',
+          'optionset' => 'default',
+          'referenced_fields' => array(),
+          'title_field' => '',
+        ),
+        'type' => 'galleria',
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -210,10 +225,13 @@ function iaea_content_type_photo_essay_field_default_field_instances() {
         'weight' => 3,
       ),
       'full' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'label' => 'hidden',
+        'module' => 'taxonomy',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -259,10 +277,14 @@ function iaea_content_type_photo_essay_field_default_field_instances() {
         'weight' => 1,
       ),
       'full' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => '',
+          'trim_length' => 600,
+        ),
+        'type' => 'text_trimmed',
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -312,7 +334,7 @@ function iaea_content_type_photo_essay_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
