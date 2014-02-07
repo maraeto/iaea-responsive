@@ -55,11 +55,11 @@ function jquery_ajax_load_test_admin() {
  */
 
 function jquery_ajax_load_test_test() {
-  $output = sprintf('<a class="btn jquery_ajax_load_TB bs_modal" href="%s">Javascript Ajax Modal Test 10</a></br>
-    <a class="btn jquery_ajax_load_TB bs_modal" href="%s">Javascript Ajax Modal Test 11</a></br>
-    <a class="btn jquery_ajax_load" href="%s">jQuery Test 10</a></br>
-    <a class="btn jquery_ajax_load" href="%s" data-target="ajax-target-11">jQuery Test 11</a></br></br>
+  $output = sprintf('<a class="btn jquery_ajax_load_TB bs_modal" href="%s">Javascript Ajax Modal Test %s</a></br>
+    <a class="btn jquery_ajax_load_TB bs_modal" href="%s">Javascript Ajax Modal Test %s</a></br>
+    <a class="btn jquery_ajax_load" href="%s">jQuery Test %s</a></br>
+    <a class="btn jquery_ajax_load" href="%s" data-target="ajax-target-11">jQuery Test %s</a></br></br>
     <div id="jquery_ajax_load_target">Here goes AJAX Callback 10</div></br>
-    <div id="ajax-target-11">Here goes AJAX Callback 11</div>', variable_get('jquery_ajax_load_test1', '/node/10'), variable_get('jquery_ajax_load_test2', '/node/10'), variable_get('jquery_ajax_load_page1', '/node/10'), variable_get('jquery_ajax_load_page2', '/node/10'));
+    <div id="ajax-target-11">Here goes AJAX Callback 11</div>', variable_get('jquery_ajax_load_page1', '/node/10'), variable_get('jquery_ajax_load_page1', '/node/10'), variable_get('jquery_ajax_load_page2', '/node/10'), variable_get('jquery_ajax_load_page2', '/node/10'), variable_get('jquery_ajax_load_page1', '/node/10'), variable_get('jquery_ajax_load_page1', '/node/10'), variable_get('jquery_ajax_load_page2', '/node/10'), variable_get('jquery_ajax_load_page2', '/node/10'));
   return $output;
 }
