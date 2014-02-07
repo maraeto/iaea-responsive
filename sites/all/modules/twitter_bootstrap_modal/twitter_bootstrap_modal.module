@@ -20,6 +20,7 @@ function twitter_bootstrap_modal_init() {
       'TBtrigger' => $tb_trigger,
       'TBmodaltrigger' => $tb_modal_trigger,
       'TBmodule' => $module_path,
+      'TBpath' => base_path(),
       'TBname' => $site_name,
     ),
   ),
@@ -112,10 +113,11 @@ function twitter_bootstrap_modal_delivery_callback($page_callback_result) {
   }
   elseif (isset($page_callback_result)) {
     
+    $html = is_string($page_callback_result) ? $page_callback_result : drupal_render($page_callback_result);
     $render_string = theme('twitter_bootstrap_modal_modal', 
     array(
       'site_name' => variable_get('site_name', "Default site name"),
-      'render_string' => drupal_render($page_callback_result)
+      'render_string' => $html,
       )
     );
     print $render_string;
