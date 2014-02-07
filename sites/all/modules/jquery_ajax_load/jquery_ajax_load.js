@@ -40,6 +40,7 @@
   function jquery_ajax_load_load(el, target, url) {
     var module_path = Drupal.settings.jquery_ajax_load.module_path;
     var toggle = Drupal.settings.jquery_ajax_load.toggle;
+    var base_path = Drupal.settings.jquery_ajax_load.base_path;
     var animation = Drupal.settings.jquery_ajax_load.animation;
     if( toggle && $(el).hasClass( "jquery_ajax_load_open" ) ) {
       $(el).removeClass( "jquery_ajax_load_open" );
@@ -58,7 +59,7 @@
       loading_html += module_path;
       loading_html += '/jquery_ajax_load_loading.gif">';
       $(target).html(loading_html);
-      $(target).load('/jquery_ajax_load/get' + url, function( response, status, xhr ) {
+      $(target).load(base_path + 'jquery_ajax_load/get' + url, function( response, status, xhr ) {
         if ( status == "error" ) {
           var msg = "Sorry but there was an error: ";
           $(target).html( msg + xhr.status + " " + xhr.statusText );

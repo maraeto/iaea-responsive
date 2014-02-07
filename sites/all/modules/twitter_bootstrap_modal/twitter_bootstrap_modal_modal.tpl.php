@@ -19,7 +19,7 @@
       <?php  print $render_string; ?>
     </div>
     <div class="modal-footer">
-      <button class="btn" data-dismiss="modal" aria-hidden="true"><?php  t('Close'); ?></button>
+      <button class="btn" data-dismiss="modal" aria-hidden="true"><?php  print t('Close'); ?></button>
     </div>
   </div>
 </div>
