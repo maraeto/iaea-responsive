@@ -19,35 +19,44 @@
     .navi a, .doormat a, .footer a {color:#fff;}
     h1, h2, h3, h4, h5, h6 {font-family: Merriweather; }
     .hero { background: url(img/bgr-hero.png) top center repeat-y; padding: 50px 0; }
+    .hero h1 { font-size: 48px; font-weight: 200; margin-top: 0; line-height: 1.1 }
+    .hero p { font-size: 21px; font-weight: 200; }
     .logo { background: url(img/bgr-logo.png) top center repeat-y; margin-bottom: 0}
     .navi { background: url(img/bgr-navi.png) top center repeat-y;}
+    .navbar-default .navbar-nav > li:first-child { margin-left: -15px }
+    .navbar-default .navbar-nav > li > a { color: rgba(255, 255, 255, 0.8) }
+    .navbar-default .navbar-nav > li > a:hover { color: rgba(255, 255, 255, 1); background-color: #428bca }
     .navbar-collapse {padding-left: 0}
-    /*.nav > li > a { padding: 15px 30px 15px 0 }*/
     .navbar {margin-bottom: 0; border:none; background-color: transparent;}
-    .social-media-icons > li > a { padding: 14px 5px 10px 5px; }
+    .social-media-icons > li > a:hover { text-decoration: none }
     .search {padding: 12px 0 0 0;}
-    .breadcrumb {margin-bottom: 0; background-color: transparent; color: rgba(255, 255, 255, 0.5)}
-    .breadcrumbs {background: url(img/bgr-doormat.png) top center repeat-y; }
+    .breadcrumb { margin-bottom: 0; background-color: transparent }
+    .breadcrumb > li > a {color: rgba(255, 255, 255, 0.4)}
+    .breadcrumb > li > a:hover {color: rgba(255, 255, 255, 1); text-decoration: none}
+    .breadcrumb > li.active { color: rgba(255, 255, 255, 0.8) }
+    .breadcrumb > li + li:before { color: rgba(255, 255, 255, 0.3) }
+    .breadcrumbs {background: url(img/bgr-doormat.png) top center repeat-y }
     .doormat { background: url(img/bgr-doormat.png) top center repeat-y; padding-top: 25px; padding-bottom: 25px; margin-top: 50px; }
     .doormat ul {font-size: 12px; }
     .doormat a {color: rgba(255, 255, 255, 0.5) }
     .doormat h5 {color: rgba(255, 255, 255, 0.9) }
     .doormat a:hover {color: rgba(255, 255, 255, 1); text-decoration: none  }
-    .footer { /*height: 120px;*/ background: url(img/bgr-footer.png) top center repeat-y; padding-top: 25px; color: rgba(255, 255, 255, 0.5) }
+    .footer { /*height: 120px;*/ background: url(img/bgr-footer.png) top center repeat-y; padding-top: 25px; color: rgba(255, 255, 255, 0.5); font-size: 12px }
     .footer a, .breadcrumbs a {color: rgba(255, 255, 255, 0.5)}
-    .footer a:hover, .breadcrumbs a:hover {color: rgba(255, 255, 255, 1); text-decoration: none}
+    .footer a:hover {color: rgba(255, 255, 255, 1); text-decoration: none}
     .iaea-logo-footer {opacity: .6;}
     .iaea-logo-footer:hover {opacity: 1;}
     .go-top {position: fixed; right: 2em; bottom: 2em; color: #333; display: none;}
+    .dropdown-menu > li > a:hover { color: #fff; background-color: #428bca}
 
     /* Mono Social Icon Font */
     @font-face { font-family: 'Mono Social Icons Font';
-        src: url('fonts/MonoSocialIconsFont-1.10.eot');
-        src: url('fonts/MonoSocialIconsFont-1.10.eot?#iefix') format('embedded-opentype'),
-             url('fonts/MonoSocialIconsFont-1.10.woff') format('woff'),
-             url('fonts/MonoSocialIconsFont-1.10.ttf') format('truetype'),
-             url('fonts/MonoSocialIconsFont-1.10.svg#MonoSocialIconsFont') format('svg');
-        src: url('fonts/MonoSocialIconsFont-1.10.ttf') format('truetype');
+        src: url('../fonts/MonoSocialIconsFont-1.10.eot');
+        src: url('../fonts/MonoSocialIconsFont-1.10.eot?#iefix') format('embedded-opentype'),
+             url('../fonts/MonoSocialIconsFont-1.10.woff') format('woff'),
+             url('../fonts/MonoSocialIconsFont-1.10.ttf') format('truetype'),
+             url('../fonts/MonoSocialIconsFont-1.10.svg#MonoSocialIconsFont') format('svg');
+        src: url('../fonts/MonoSocialIconsFont-1.10.ttf') format('truetype');
         font-weight: normal;
         font-style: normal;
     }
@@ -63,16 +72,16 @@
 <div class="logo">
     <div class="container">
         <div class="row clearfix">
-            <div class="col-lg-8 col-md-6 col-sm-6">
+            <div class="col-lg-8 col-md-7 col-sm-6">
                 <a href=/""><img src="img/iaea-logo.png" class="img-responsive" alt="" width="" height="" border="0" /></a>
             </div>
 
-            <div class="search col-lg-4 col-md-6 col-sm-6 pull-righ">
+            <div class="search col-lg-4 col-md-5 col-sm-6 pull-righ">
                 <form class="navbar-form" role="search">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search IAEA" name="srch-term" id="srch-term">
                         <div class="input-group-btn">
-                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"> Search</i></button>
+                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                         </div>
                     </div>
                 </form>
@@ -152,7 +161,7 @@
                     <li><a href="#">Nucleus</a></li>
               </ul>
 
-              <ul class="nav navbar-nav navbar-right social-media-icons hidden-xs">
+              <ul class="pull-right list-inline social-media-icons hidden-xs">
                     <li><a href="https://www.facebook.com/iaeaorg" class="facebook social" data-toggle="tooltip" data-placement="top" title="IAEA Facebook"><span class='symbol'>circlefacebook</span></a></li>
                     <li><a href="https://twitter.com/iaeaorg" class="twitter social" data-toggle="tooltip" data-placement="top" title="IAEA Twitter"><span class='symbol'>circletwitter</span></a></li>
                     <li><a href="http://www.flickr.com/photos/iaea_imagebank/" class="flickr social" data-toggle="tooltip" data-placement="top" title="IAEA FlickR"><span class='symbol'>circleflickr</span></a></li>
@@ -177,14 +186,18 @@
         </div>
     </div>
 </div>
-<div class="hero jumbotron">
+<div class="hero">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <h1>IAEA Delivers Final Report on Remediation in Fukushima to Japan</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, dicta, omnis quasi odit minus eligendi repudiandae corporis cumque. Accusamus, veritatis earum dolorem architecto hic tempora animi rem non repellendus adipisci?</p>
-                <button type="button" class="btn btn-primary btn-lg">Read more &rarr;</button>
-            </div>
+            <!-- <div class="col-md-12"> -->
+                <div class="media col-md-4">
+                    <img src="http://lorempixel.com/360/270/people/" class="img-responsive" alt="people" width="" height="" border="0" />
+                </div>
+                <div class="madia-body col-md-8">
+                    <h1>IAEA Delivers Final Report on Remediation in Fukushima to Japan</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, dicta, omnis quasi odit minus eligendi repudiandae corporis cumque. Accusamus, veritatis earum dolorem architecto hic tempora animi rem non repellendus adipisci?</p>
+                    <button type="button" class="btn btn-primary btn-lg">Read more &rarr;</button></div>
+            <!-- </div> -->
         </div>
     </div>
 </div>
@@ -303,11 +316,8 @@
 </div>
 <div class="footer">
     <div class="container">
-        <div class="clearfix">
-            <div class="col-md-1 iaea-logo-footer">
-                <a href="/"><img src="img/iaea-logo-footer.png" alt="IAEA" width="" height="" border="0" /></a>
-            </div>
-            <div class="col-md-5">
+        <div class="row clearfix">
+            <div class="col-sm-6">
                 <p>
                     Vienna International Centre, PO Box 100<br />
                     A-1400 Vienna, Austria<br />
@@ -328,7 +338,7 @@
                 </p>
 
             </div>
-            <div class="col-md-6">
+            <div class="col-sm-6">
                 <div class="row">
                     <div class="pull-right">
                         <ul class="list-inline">
