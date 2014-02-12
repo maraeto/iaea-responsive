@@ -13,60 +13,8 @@
     <!-- Bootstrap core CSS -->
     <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400|Merriweather' rel='stylesheet' type='text/css'>
+    <link href="css/template.css" rel="stylesheet">
 </head>
-<style>
-    body { background: url(img/bgr-body.png) top center repeat-y; font-family: "Source Sans Pro" }
-    .navi a, .doormat a, .footer a {color:#fff;}
-    h1, h2, h3, h4, h5, h6 {font-family: Merriweather; }
-    .hero { background: url(img/bgr-hero.png) top center repeat-y; padding: 50px 0; }
-    .hero h1 { font-size: 48px; font-weight: 200; margin-top: 0; line-height: 1.1 }
-    .hero p { font-size: 21px; font-weight: 200; }
-    .logo { background: url(img/bgr-logo.png) top center repeat-y; margin-bottom: 0}
-    .navi { background: url(img/bgr-navi.png) top center repeat-y;}
-    .navbar-default .navbar-nav > li:first-child { margin-left: -15px }
-    .navbar-default .navbar-nav > li > a { color: rgba(255, 255, 255, 0.8) }
-    .navbar-default .navbar-nav > li > a:hover { color: rgba(255, 255, 255, 1); background-color: #428bca }
-    .navbar-collapse {padding-left: 0}
-    .navbar {margin-bottom: 0; border:none; background-color: transparent;}
-    .social-media-icons > li > a:hover { text-decoration: none }
-    .search {padding: 12px 0 0 0;}
-    .breadcrumb { margin-bottom: 0; background-color: transparent }
-    .breadcrumb > li > a {color: rgba(255, 255, 255, 0.4)}
-    .breadcrumb > li > a:hover {color: rgba(255, 255, 255, 1); text-decoration: none}
-    .breadcrumb > li.active { color: rgba(255, 255, 255, 0.8) }
-    .breadcrumb > li + li:before { color: rgba(255, 255, 255, 0.3) }
-    .breadcrumbs {background: url(img/bgr-doormat.png) top center repeat-y }
-    .doormat { background: url(img/bgr-doormat.png) top center repeat-y; padding-top: 25px; padding-bottom: 25px; margin-top: 50px; }
-    .doormat ul {font-size: 12px; }
-    .doormat a {color: rgba(255, 255, 255, 0.5) }
-    .doormat h5 {color: rgba(255, 255, 255, 0.9) }
-    .doormat a:hover {color: rgba(255, 255, 255, 1); text-decoration: none  }
-    .footer { /*height: 120px;*/ background: url(img/bgr-footer.png) top center repeat-y; padding-top: 25px; color: rgba(255, 255, 255, 0.5); font-size: 12px }
-    .footer a, .breadcrumbs a {color: rgba(255, 255, 255, 0.5)}
-    .footer a:hover {color: rgba(255, 255, 255, 1); text-decoration: none}
-    .iaea-logo-footer {opacity: .6;}
-    .iaea-logo-footer:hover {opacity: 1;}
-    .go-top {position: fixed; right: 2em; bottom: 2em; color: #333; display: none;}
-    .dropdown-menu > li > a:hover { color: #fff; background-color: #428bca}
-
-    /* Mono Social Icon Font */
-    @font-face { font-family: 'Mono Social Icons Font';
-        src: url('../fonts/MonoSocialIconsFont-1.10.eot');
-        src: url('../fonts/MonoSocialIconsFont-1.10.eot?#iefix') format('embedded-opentype'),
-             url('../fonts/MonoSocialIconsFont-1.10.woff') format('woff'),
-             url('../fonts/MonoSocialIconsFont-1.10.ttf') format('truetype'),
-             url('../fonts/MonoSocialIconsFont-1.10.svg#MonoSocialIconsFont') format('svg');
-        src: url('../fonts/MonoSocialIconsFont-1.10.ttf') format('truetype');
-        font-weight: normal;
-        font-style: normal;
-    }
-    .symbol, a.symbol:before { font-family: 'Mono Social Icons Font'; -webkit-text-rendering: optimizeLegibility; -moz-text-rendering: optimizeLegibility; -ms-text-rendering: optimizeLegibility; -o-text-rendering: optimizeLegibility; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-font-smoothing: antialiased; -ms-font-smoothing: antialiased; -o-font-smoothing: antialiased; font-smoothing: antialiased; font-size: 30px;
-    }
-    a.symbol:before { content: attr(title); margin-right: 0.3em; font-size: 130%; }
-    a.symbol { background: #9f9f9f; padding: 7px 5px 3px 5px; color: white; text-decoration: none; }
-
-</style>
-
 <body>
 
 <div class="logo">
@@ -92,7 +40,7 @@
 </div>
 
 <div class="navi">
-    <div class="container">
+    <div class="container space-bottom">
         <nav class="navbar navbar-default" role="navigation">
           <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -110,7 +58,7 @@
               <ul class="nav navbar-nav">
                     <!-- <li class="active"><a href="#" class="glyphicon glyphicon-home"> </a></li> -->
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About Us <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About Us <span class="glyphicon glyphicon-chevron-down"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">The Secretariat</a></li>
                             <li><a href="#">Policy Bodies</a></li>
@@ -121,7 +69,7 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Our Work <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Our Work <span class="glyphicon glyphicon-chevron-down"></span></a>
                         <ul class="dropdown-menu">
                             <li class="dropdown-header">IAEA Departments</li>
                             <li><a href="#">Nuclear Applications</a></li>
@@ -132,7 +80,7 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Newscenter <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Newscenter <span class="glyphicon glyphicon-chevron-down"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Top Stories and Features</a></li>
                             <li><a href="#">Topics in Focus</a></li>
@@ -149,7 +97,7 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Publications <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Publications <span class="glyphicon glyphicon-chevron-down"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Books</a></li>
                             <li><a href="#">Standards/Guides</a></li>
@@ -201,6 +149,7 @@
         </div>
     </div>
 </div>
+
 <div class="container">
     <div class="row clearfix">
         <div class="col-md-12">
@@ -208,7 +157,8 @@
         </div>
     </div>
 </div>
-<div class="container">
+
+<div class="container ">
     <div class="row clearfix">
         <div class="col-md-4">
             <h3>Lorem ipsum dolor sit amet</h3>
@@ -224,6 +174,62 @@
         </div>
     </div>
 </div>
+<hr class="spacer-25" />
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-2 col-md-offset-1">
+            <div class="thumbnail">
+                <img src="http://lorempixel.com/165/124/people/" alt="people" width="" height="" border="0" />
+                <div class="caption">
+                    <h4>Meetings</h4>
+                    <p>The IAEA hosts or co-sponsors several major international meetings and conferences throughout the year. Visit this section for the current listing.</p>
+                    <a href="#" class="btn btn-default">Read More &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="thumbnail">
+                <img src="http://lorempixel.com/165/124/city/" alt="city" width="" height="" border="0" />
+                <div class="caption">
+                    <h4>The Secretariat</h4>
+                    <p>The IAEA Secretariat - the international staff working in the organization - is made up of some 2300 professional and support staff from scientific, technical, managerial, and professional disciplines.</p>
+                    <a href="#" class="btn btn-default">Read More &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="thumbnail">
+                <img src="http://lorempixel.com/165/124/nature/" alt="nature" width="" height="" border="0" />
+                <div class="caption">
+                    <h4>Policy Bodies</h4>
+                    <p>IAEA programmes and budgets are set through decisions of its policymaking bodies - the 35-member Board of Governors and the General Conference of all Member States.</p>
+                    <a href="#" class="btn btn-default">Read More &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="thumbnail">
+                <img src="http://lorempixel.com/165/124/transport/" alt="transport" width="" height="" border="0" />
+                <div class="caption">
+                    <h4>Employment</h4>
+                    <p>The IAEA offers challenging assignments in a stimulating multi-cultural workplace. Visit this section to find the list of current vacancies.</p>
+                    <a href="#" class="btn btn-default">Read More &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="thumbnail">
+                <img src="http://lorempixel.com/165/124/business/" alt="business" width="" height="" border="0" />
+                <div class="caption">
+                    <h4>Director General</h4>
+                    <p>News and updates on the activities of IAEA Director General Yukiya Amano, as well as listings of his latest statements and public appearances.</p>
+                    <a href="#" class="btn btn-default">Read More &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr class="spacer-25" />
 <div class="container">
     <div class="row clearfix">
         <div class="col-md-3">
@@ -242,6 +248,27 @@
             <h4>Consectetur Adipisicing Elit</h4>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, magnam, minus voluptatum quasi laborum repellendus possimus doloremque ea eaque tenetur alias nihil sequi ullam nostrum dignissimos debitis dolor neque officia.
         </div>
+    </div>
+</div>
+<hr class="spacer-25" />
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-4">
+            <h4>Lorem ipsum dolor sit amet</h4>
+            <img src="http://lorempixel.com/360/124/transport/" alt="transport" width="" height="" border="0" />
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, quis, mollitia, fugit, id nesciunt quibusdam in repudiandae itaque pariatur vel obcaecati aut ex unde perferendis ipsam praesentium enim hic nisi. <a href="#">Read more &rarr;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h4>Consectetur Adipisicing Elit</h4>
+            <img src="http://lorempixel.com/360/124/nature/" alt="nature" width="" height="" border="0" />
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, magnam, minus voluptatum quasi laborum repellendus possimus doloremque ea eaque tenetur alias nihil sequi ullam nostrum dignissimos debitis dolor neque officia. <a href="#">Read more &rarr;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h4>Fugiat, placeat!</h4>
+            <img src="http://lorempixel.com/360/124/people/" alt="people" width="" height="" border="0" />
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, reprehenderit quas quam hic. Sapiente, vero, sint, eveniet repellendus numquam libero reprehenderit officiis eum ipsam error porro repudiandae esse recusandae temporibus. <a href="#">Read more &rarr;</a></p>
+        </div>
+
     </div>
 </div>
 <div class="doormat">

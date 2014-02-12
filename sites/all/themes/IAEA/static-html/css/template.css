@@ -1,0 +1,51 @@
+body { background: url(../img/bgr-body.png) top center repeat-y; font-family: "Source Sans Pro" }
+.navi a, .doormat a, .footer a {color:#fff;}
+h1, h2, h3, h4, h5, h6 {font-family: Merriweather; }
+.hero { background: url(../img/bgr-hero.png) top center repeat-y; padding: 50px 0; }
+.hero h1 { font-size: 48px; font-weight: 200; margin-top: 0; line-height: 1.1 }
+.hero p { font-size: 21px; font-weight: 200; }
+.logo { background: url(../img/bgr-logo.png) top center repeat-y; margin-bottom: 0}
+.navi { background: url(../img/bgr-navi.png) top center repeat-y;}
+.navbar-default .navbar-nav > li:first-child { margin-left: -15px }
+.navbar-default .navbar-nav > li > a { color: rgba(255, 255, 255, 0.8) }
+.navbar-default .navbar-nav > li > a:hover { color: rgba(255, 255, 255, 1); background-color: #428bca }
+.navbar-collapse {padding-left: 0}
+.navbar {margin-bottom: 0; border:none; background-color: transparent;}
+.social-media-icons > li > a:hover { text-decoration: none }
+.search {padding: 12px 0 0 0;}
+.breadcrumb { margin-bottom: 0; background-color: transparent }
+.breadcrumb > li > a {color: rgba(255, 255, 255, 0.4)}
+.breadcrumb > li > a:hover {color: rgba(255, 255, 255, 1); text-decoration: none}
+.breadcrumb > li.active { color: rgba(255, 255, 255, 0.8) }
+.breadcrumb > li + li:before { color: rgba(255, 255, 255, 0.3) }
+.breadcrumbs {background: url(../img/bgr-doormat.png) top center repeat-y }
+.doormat { background: url(../img/bgr-doormat.png) top center repeat-y; padding-top: 25px; padding-bottom: 25px; margin-top: 50px; }
+.doormat ul {font-size: 12px; }
+.doormat a {color: rgba(255, 255, 255, 0.5) }
+.doormat h5 {color: rgba(255, 255, 255, 0.9) }
+.doormat a:hover {color: rgba(255, 255, 255, 1); text-decoration: none  }
+.footer { /*height: 120px;*/ background: url(../img/bgr-footer.png) top center repeat-y; padding-top: 25px; color: rgba(255, 255, 255, 0.5); font-size: 12px }
+.footer a, .breadcrumbs a {color: rgba(255, 255, 255, 0.5)}
+.footer a:hover {color: rgba(255, 255, 255, 1); text-decoration: none}
+.iaea-logo-footer {opacity: .6;}
+.iaea-logo-footer:hover {opacity: 1;}
+.go-top {position: fixed; right: 2em; bottom: 2em; color: #333; display: none;}
+.dropdown-menu > li > a:hover { color: #fff; background-color: #428bca}
+hr.spacer-25 { border:none; clear: both; margin: 0 0 25px; }
+.dropdown > a > span.glyphicon { font-size: 10px }
+
+/* Mono Social Icon Font */
+@font-face { font-family: 'Mono Social Icons Font';
+src: url('../../fonts/MonoSocialIconsFont-1.10.eot');
+src: url('../../fonts/MonoSocialIconsFont-1.10.eot?#iefix') format('embedded-opentype'),
+     url('../../fonts/MonoSocialIconsFont-1.10.woff') format('woff'),
+     url('../../fonts/MonoSocialIconsFont-1.10.ttf') format('truetype'),
+     url('../../fonts/MonoSocialIconsFont-1.10.svg#MonoSocialIconsFont') format('svg');
+src: url('../../fonts/MonoSocialIconsFont-1.10.ttf') format('truetype');
+font-weight: normal;
+font-style: normal;
+}
+.symbol, a.symbol:before { font-family: 'Mono Social Icons Font'; -webkit-text-rendering: optimizeLegibility; -moz-text-rendering: optimizeLegibility; -ms-text-rendering: optimizeLegibility; -o-text-rendering: optimizeLegibility; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-font-smoothing: antialiased; -ms-font-smoothing: antialiased; -o-font-smoothing: antialiased; font-smoothing: antialiased; font-size: 30px;
+}
+a.symbol:before { content: attr(title); margin-right: 0.3em; font-size: 130%; }
+a.symbol { background: #9f9f9f; padding: 7px 5px 3px 5px; color: white; text-decoration: none; }
