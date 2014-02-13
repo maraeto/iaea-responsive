@@ -359,64 +359,6 @@
     <script src="../bootstrap/js/scrollspy.js"></script>
     <script src="../bootstrap/js/tab.js"></script>
     <script src="../bootstrap/js/transition.js"></script>
-<script>
-/* drop down menu on hover */
-    /*$(function() {
-        $(".col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12").each(function(index) {
-            $(this).append("<div class='content'>" + $(this).width() + "</div>");
-        });
-    });*/
-(function($){
-
-    $(document).ready(function(){
-
-        $('ul.nav li.dropdown, ul.nav li.dropdown-submenu').hover(function() {
-          $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(200);
-        }, function() {
-          $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(200);
-        });
-    /* follow the link on */
-        $('ul.nav li.dropdown, ul.nav li.dropdown-submenu').click( function(e) {
-          e.stopPropagation();
-        });
-
-        $('.bootstrap-tabs a').click(function (e) {
-            e.preventDefault()
-            $(this).tab('show')
-        });
-
-        $('.bootstrap-tabs a:first').tab('show');
-    // trigger tooltip
-        $('.social').tooltip();
-
-
-    /* Go To Top */
-        $(window).scroll(function() {
-            if ($(this).scrollTop() > 200 ) {
-                $('.go-top').fadeIn(500);
-            } else {
-                $('.go-top').fadeOut(200);
-            }
-        })
-    // remove the top button when the window is smaller than 1300 px
-        // $(window).resize(function(){
-        //     if ( $(this).width() < 1300 ) {
-        //         $('.go-top').fadeOut(100);
-        //     } else {
-        //         $('.go-top').fadeIn(100);
-        //     }
-        // })
-    // Animate the scroll to top
-        $('.go-top').click(function(event) {
-            event.preventDefault();
-            $('html, body').animate({scrollTop: 0}, 500);
-        });
-    /* Go To Top end */
-
-    });
-
-})(jQuery);
-
-</script>
+    <script src="../js/page-global.js"></script>
 </body>
 </html>
