@@ -6887,6 +6887,8 @@ h6 {
   padding-top: 25px;
   color: rgba(255, 255, 255, 0.5);
   font-size: 12px;
+  margin-top: 0;
+  border: none;
 }
 .footer a,
 .breadcrumbs a {
