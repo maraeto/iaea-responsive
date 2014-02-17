@@ -30,266 +30,250 @@ function taxonomy_get_term_by_name_and_vocabulary($name, $vid) {
   return $term;
 }
 
+
 function import_infcircs() {
+
+    $langs = array("sp"=>"292","ch"=>"290","en"=>"288","fr"=>"291","ru"=>"293","ar"=>"289");
 
     // Drupal UserID
     $uid = 24; // mjt
-    $debug = false;
 
-    $NID_NUMBER = array();
+    $query = "SELECT DISTINCT Number FROM mtcm.mt_infcircs";
+    $numbers = db_query($query);
 
-    $nid_number_query = "SELECT entity_id, field_infcirc_number_value FROM field_data_field_infcirc_number";
-    $nnresult = db_query($nid_number_query);
-    foreach ($nnresult as $row) $NID_NUMBER[$row->field_infcirc_number_value] = $row->entity_id;
+    // step trough the result
+    foreach ($numbers as $number) {
 
-    if($debug)
-    {
-        include_once("infcirc_debug.php");
-    }
-    else
-    {
-        include_once("infcircs-meta-data.php");
-    }
+        $query1 = "SELECT * FROM mtcm.mt_infcircs WHERE Number = '".$number->Number."' ORDER BY Revision";
+        $result1 = db_query($query1);
 
-    for ($i=0; $i < sizeOf($data); $i++)
-    {
-        $number = "";
-        $lng = "en";
+        $nodecreated = false;
+        $lastrevision = "";
+        unset($revisions);
+        unset($node);
 
-        $node = new stdClass(); // We create a new node object
+        foreach ($result1 as $row1) {
 
-        drush_print($i.") trying to import... ".$data[$i]["Title"]);
-
-        if ($data[$i]["VdkVgwKey"]!="") {
-
-            $filename = substr($data[$i]["VdkVgwKey"], strrpos($data[$i]["VdkVgwKey"], "/")+1);
-            $filename = substr($filename, 0, strrpos($filename, "."));
-
-            if (strpos($filename, "_"))
+            if (!$nodecreated)
             {
-                $lng = substr($filename, strrpos($filename, "_")+1);
-                $filename = substr($filename, 0, strrpos($filename, "_"));
+                $node = new stdClass(); // We create a new node object
+                $node->language = LANGUAGE_NONE; // Or any language code if Locale module is enabled. More on this below *
+                $node->type = "information_circular";
+                $node->field_infcirc_number[$node->language][0]['value'] = $row1->Number;
+
+                drush_print("trying to import... ".$row1->Number." / ".$row1->Revision);
+
+                $nodecreated = true;
             }
 
-            $number = str_replace("infcirc","",$filename);
-            while(substr($number,0,1)=="0") $number = substr($number,1);
-        }
-
-        if ($number!="" && isset($NID_NUMBER[$number]))
-        {
-            $node = node_load(intval($NID_NUMBER[$number]));
-            if ($node->nid > 0)
+            if ($node->title=="")
             {
-                drush_print("Loaded existing node: ".$node->nid);
+                // first version
+                $title = strip_tags($row1->Title);
+                $node->title = $title;
+                node_object_prepare($node); // Set some default values.
+
+                $node->field_infcirc_author[$node->language][0]['value'] = strip_tags($row1->Author);
+                $node->field_infcirc_description[$node->language][0]['value'] = str_replace("'", "\'", strip_tags($row1->Description));
+                $node->field_infcirc_subject[$node->language][0]['value'] = str_replace("'", "\'", strip_tags($row1->Subject));
+                $node->field_infcirc_date[$node->language][0]['value'] = $row1->InfDate;
+                $node->field_infcirc_related[$node->language][0]['value'] = $row1->related;
+
+                if ($row1->Category!="") {
+
+                    $categories = array();
+
+                    if (strpos($row1->Category,","))
+                    {
+                        $categories = explode(",", $row1->Category);
+                        for ($cn=0; $cn < sizeOf($categories); $cn++) $categories[$cn] = trim($categories[$cn]);
+                    }
+                    else
+                    {
+                        $categories = array(trim($row1->Category));
+                    }
+
+                    if (is_array($categories) && sizeOf($categories) > 0)
+                    {
+                        for ($cn=0; $cn < sizeOf($categories); $cn++)
+                        {
+                            if ($term = taxonomy_get_term_by_name_and_vocabulary($categories[$cn], 8)) {
+                                $terms_array = array_keys($term);
+                                $node->field_infcirc_category[$node->language][]['tid'] = $terms_array['0'];
+                            }
+                            else
+                            {
+                                $node->field_infcirc_category[$node->language][]['tid'] = custom_create_taxonomy_term($categories[$cn], 8);
+                            }
+                        }
+                    }
+                }
+
+                if ($row1->Country!="") {
+
+                    $countries = array();
+
+                    $row1->Country = str_replace(";",",",$row1->Country);
+
+                    if (strpos($row1->Country,","))
+                    {
+                        $countries = explode(",", $row1->Country);
+                        for ($cn=0; $cn < sizeOf($countries); $cn++) $countries[$cn] = trim($countries[$cn]);
+                    }
+                    else
+                    {
+                        $countries = array(trim($row1->Country));
+                    }
+
+                    if (is_array($countries) && sizeOf($countries) > 0)
+                    {
+                        for ($cn=0; $cn < sizeOf($countries); $cn++)
+                        {
+                            if ($term = taxonomy_get_term_by_name_and_vocabulary($countries[$cn], 7)) {
+                                $terms_array = array_keys($term);
+                                $node->field_infcirc_country[$node->language][]['tid'] = $terms_array['0'];
+                            }
+                            else
+                            {
+                                $node->field_infcirc_country[$node->language][]['tid'] = custom_create_taxonomy_term($countries[$cn], 7);
+                            }
+
+                        }
+                    }
+                }
+            }
+
+            if (trim($row1->Revision)=="")
+            {
+                // dokumente direkt an node anhängen...
+
+                $ppcnt = intval(isset($file_item->field_infcirc_document[$node->language]) && is_array($file_item->field_infcirc_document[$node->language]) ? sizeOf($file_item->field_infcirc_document[$node->language]):0);
+
+                if ($row1->VdkVgwKey!="")
+                {
+                    $remote_url = trim($row1->VdkVgwKey);
+                    $file_path = sys_get_temp_dir().substr($remote_url,max(strrpos($remote_url, "/"),strrpos($remote_url, "\\")));
+
+                    $fcont="";
+                    $handle = fopen($remote_url, "r");
+                    if ($handle)
+                    {
+                        while (!feof($handle)) $fcont.= fgets($handle, 4096);
+                        fclose($handle);
+
+                        usleep(500000);
+
+                        $fd = fopen ($file_path, "wb");
+                        fwrite($fd, $fcont);
+                        fclose($fd);
+                        chmod($file_path, 0777);
+                    }
+
+                    if (file_exists($file_path)) {
+
+                        $file = (object) array(
+                        'uid' => $uid ,
+                        'uri' => $file_path,
+                        'filemime' => file_get_mimetype($file_path),
+                        'status' => 1,
+                        'display' => 1,
+                        'description'=>'');
+
+                        $file = file_copy($file, "public://");
+
+                        chmod(drupal_realpath($file->uri), 0777);
+
+                        $file_item = entity_create('field_collection_item', array('uid'=>$uid, 'field_name' => 'field_infcirc_file'));
+                        $file_item->setHostEntity('node', $node);
+
+                        $file_item->field_infcirc_document[$node->language][$ppcnt] = (array)$file;
+                        $file_item->field_infcirc_document_language[$node->language][$ppcnt]['tid']= $langs[$row1->Language];
+
+                        $file_item->save();
+                    }
+                }
             }
             else
             {
-                drush_print("Failed to load existing node: ".$node->nid);
-            }
-        }
-        else
-        {
-            drush_print("Creating new node");
-        }
-
-        $node->language = LANGUAGE_NONE; // Or any language code if Locale module is enabled. More on this below *
-        $node->type = "information_circular";
-
-        if ($number=="" || !isset($NID_NUMBER[$number]))
-        {
-            if ($data[$i]["Title"]!="") {
-
-                $title = strip_tags($data[$i]["Title"]);
-
-                if (strlen($title) > 512)
+                if ($lastrevision!=$row1->Revision || !isset($revisions))
                 {
-                    drush_print("Cropping ".$number);
-                    $title = substr($title, 0, 512);
+                    drush_print("   trying revision ".$row1->Revision);
+
+                    // new revision
+                    $pcnt = (isset($revisions) && isset($revisions->field_infcirc_revisions[$node->language]) && is_array($revisions->field_infcirc_revisions[$node->language]) ? sizeOf($revisions->field_infcirc_revisions[$node->language]):0);
+
+                    $revisions = entity_create('field_collection_item', array('uid'=>$uid, 'field_name' => 'field_infcirc_revisions'));
+                    $revisions->setHostEntity('node', $node);
+
+                    $revisions->field_infcirc_revision_number[$node->language][$pcnt]['value'] = $row1->Revision;
+                    $revisions->field_infcirc_revision_date[$node->language][$pcnt]['value'] = $row1->InfDate;
+                    $revisions->field_infcirc_revision_desc[$node->language][$pcnt]['value'] = $row1->Description;
+
+                    $revisions->save();
+
+                    $lastrevision = $row1->Revision;
                 }
 
-                $node->title = $title;
-            }
-
-//            $url = str_replace(" ","_",$node->title); // ##### should take care of special characters here...
-//            $node->path = array('alias' => $url) ; // Setting a node path
-
-            node_object_prepare($node); // Set some default values.
-
-
-            if ($data[$i]["Author"]!="") {
-
-                $node->field_infcirc_author[$node->language][0]['value'] = strip_tags($data[$i]["Author"]);
-            }
-
-            if ($number!="") {
-
-                $node->field_infcirc_number[$node->language][0]['value'] = $number;
-            }
-
-            if ($data[$i]["Description"]!="") {
-
-                $node->field_infcirc_description[$node->language][0]['value'] = str_replace("'", "\'", strip_tags($data[$i]["Description"]));
-            }
-
-            if ($data[$i]["Subject"]!="") {
-
-                $node->field_infcirc_subject[$node->language][0]['value'] = str_replace("'", "\'", strip_tags($data[$i]["Subject"]));
-            }
-
-            if ($data[$i]["Category"]!="") {
-
-                $categories = array();
-
-                if (strpos($data[$i]["Category"],","))
+                if ($row1->VdkVgwKey!="")
                 {
-                    $categories = explode(",", $data[$i]["Category"]);
-                    for ($cn=0; $cn < sizeOf($categories); $cn++) $categories[$cn] = trim($categories[$cn]);
-                }
-                else
-                {
-                    $categories = array(trim($data[$i]["Category"]));
-                }
+                    $cnt = (isset($rev_file_item->field_infcirc_document[$node->language]) && is_array($rev_file_item->field_infcirc_document[$node->language]) ? sizeOf($rev_file_item->field_infcirc_document[$node->language]):0);
 
-                if (is_array($categories) && sizeOf($categories) > 0)
-                {
-                    for ($cn=0; $cn < sizeOf($categories); $cn++)
+                    $remote_url = trim($row1->VdkVgwKey);
+                    $file_path = sys_get_temp_dir().substr($remote_url,max(strrpos($remote_url, "/"),strrpos($remote_url, "\\")));
+
+                    $fcont="";
+                    $handle = fopen($remote_url, "r");
+                    if ($handle)
                     {
-                        if ($term = taxonomy_get_term_by_name_and_vocabulary($categories[$cn], 8)) {
-                            $terms_array = array_keys($term);
-                            $node->field_infcirc_category[$node->language][]['tid'] = $terms_array['0'];
-                        }
-                        else
-                        {
-                            $node->field_infcirc_category[$node->language][]['tid'] = custom_create_taxonomy_term($categories[$cn], 8);
-                        }
+                        while (!feof($handle)) $fcont.= fgets($handle, 4096);
+                        fclose($handle);
+
+                        usleep(500000);
+
+                        $fd = fopen ($file_path, "wb");
+                        fwrite($fd, $fcont);
+                        fclose($fd);
+                        chmod($file_path, 0777);
                     }
-                }
 
-            }
+                    if (file_exists($file_path)) {
 
-            if ($data[$i]["Country"]!="") {
+                        $file = (object) array(
+                        'uid' => $uid ,
+                        'uri' => $file_path,
+                        'filemime' => file_get_mimetype($file_path),
+                        'status' => 1,
+                        'display' => 1);
 
-                $countries = array();
+                        $file = file_copy($file, "public://");
 
-                $data[$i]["Country"] = str_replace(";",",",$data[$i]["Country"]);
+                        chmod(drupal_realpath($file->uri), 0777);
 
-                if (strpos($data[$i]["Country"],","))
-                {
-                    $countries = explode(",", $data[$i]["Country"]);
-                    for ($cn=0; $cn < sizeOf($countries); $cn++) $countries[$cn] = trim($countries[$cn]);
-                }
-                else
-                {
-                    $countries = array(trim($data[$i]["Country"]));
-                }
+                        $rev_file_item = entity_create('field_collection_item', array('uid'=>$uid, 'field_name' => 'field_infcirc_file'));
+                        $rev_file_item->setHostEntity('field_infcirc_revisions', $revisions);
 
-                if (is_array($countries) && sizeOf($countries) > 0)
-                {
-                    for ($cn=0; $cn < sizeOf($countries); $cn++)
-                    {
-                        if ($term = taxonomy_get_term_by_name_and_vocabulary($countries[$cn], 7)) {
-                            $terms_array = array_keys($term);
-                            $node->field_infcirc_country[$node->language][]['tid'] = $terms_array['0'];
-                        }
-                        else
-                        {
-                            $node->field_infcirc_country[$node->language][]['tid'] = custom_create_taxonomy_term($countries[$cn], 7);
-                        }
+                        $rev_file_item->field_infcirc_document[$node->language][$cnt] = (array)$file;
+                        $rev_file_item->field_infcirc_document_language[$node->language][$cnt]['tid']= $langs[$row1->Language];
 
+                        $rev_file_item->save(); // fails!!!
                     }
                 }
             }
-
-            if ($data[$i]["Source"]!="") {
-
-                $tmp = explode(" ", str_replace(".","",$data[$i]["Source"]));
-                $tmp1 = array();
-                $cnt = 0;
-                $fnd = false;
-                while($cnt < sizeOf($tmp) && !$fnd)
-                {
-                    $tmp1[]=$tmp[$cnt];
-                    if (is_numeric($tmp[$cnt]) && strlen($tmp[$cnt])==4) $fnd = true;
-                    $cnt++;
-                }
-
-                $data[$i]["Source"] = join(" ",$tmp1);
-
-                $node->field_infcirc_date[$node->language][0]['value'] = date('Y-m-d', strtotime($data[$i]["Source"]));
-
-                drush_print("dated: ".date('Y-m-d', strtotime($data[$i]["Source"])));
-            }
-
-            if ($data[$i]["related"]!="") {
-
-                $node->field_infcirc_related[$node->language][0]['value'] = $data[$i]["related"];
-            }
         }
 
-        if ($data[$i]["VdkVgwKey"]!="") {
+        $node->uid = $uid; // Or any id you wish
+        $node = node_submit($node); // Prepare node for a submit
 
-            if (!$debug) {
+        try {
+            node_save($node); // After this call we'll get a nid
+        }
+        catch( PDOException $Exception ) {
+            echo $Exception->getMessage( );
 
-                $remote_url = trim($data[$i]["VdkVgwKey"]);
-                $file_path = sys_get_temp_dir().substr($remote_url,max(strrpos($remote_url, "/"),strrpos($remote_url, "\\")));
-
-                $fcont="";
-                $handle = fopen($remote_url, "r");
-                if ($handle)
-                {
-                   while (!feof($handle)) $fcont.= fgets($handle, 4096);
-                   fclose($handle);
-
-                    $fd = fopen ($file_path, "wb");
-                    fwrite($fd, $fcont);
-                    fclose($fd);
-                    chmod($file_path, 0777);
-                }
-
-                sleep(0.5);
-
-                if (file_exists($file_path)) {
-
-                    $fileprop = "field_infcirc_file_".$lng;
-
-                    $file = (object) array(
-                    'uid' => $uid ,
-                    'uri' => $file_path,
-                    'filemime' => file_get_mimetype($file_path),
-                    'status' => 1,
-                    'display' => 1);
-
-                    $file = file_copy($file, "public://");
-                    $node->{$fileprop}[$node->language][0] = (array)$file;
-
-                    chmod(drupal_realpath($file->uri), 0777);
-                }
-            }
+            sleep(10);
         }
 
-        if (!$debug)
-        {
-            $node->uid = $uid; // Or any id you wish
-            if ($number=="" || !isset($NID_NUMBER[$number])) $node = node_submit($node); // Prepare node for a submit
-
-
-            try {
-                node_save($node); // After this call we'll get a nid
-            }
-            catch( PDOException $Exception ) {
-                echo $Exception->getMessage( );
-
-                sleep(3);
-            }
-
-            drush_print(" ... successfully saved NID ".$node->nid);
-
-            if ($number!="") $NID_NUMBER[$number] = $node->nid;
-        }
-        else
-        {
-            print_r($node);
-        }
+        drush_print(" ... successfully saved NID ".$node->nid);
     }
 }
 
