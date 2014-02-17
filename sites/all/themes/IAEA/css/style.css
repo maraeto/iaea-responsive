@@ -6781,144 +6781,180 @@ td.radio {
   padding: 0;
   margin: 4px 0 0 0;
 }
-/* aside .block h2.block-title { font-size:22px; }
-.field-banner-image-sidebar { margin-bottom: 20px } */
-.taxonomy-labels ul,
-.meta-navigation ul,
-.footer-nav ul,
-ul.social-media-icons,
-.doormat-menu ul {
-  list-style: none;
-  margin-left: 0;
+body {
+  background: url(../img/bgr-body.png) top center repeat-y;
+  font-family: "Source Sans Pro";
+}
+.navi a,
+.doormat a,
+.footer a {
+  color: #fff;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Merriweather;
+}
+.hero {
+  background: url(../img/bgr-hero.png) top center repeat-y;
+  padding: 50px 0;
+}
+.hero h1 {
+  font-size: 48px;
+  font-weight: 200;
+  margin-top: 0;
+  line-height: 1.1;
+}
+.hero p {
+  font-size: 21px;
+  font-weight: 200;
+}
+.logo {
+  background: url(../img/bgr-logo.png) top center repeat-y;
+  margin-bottom: 0;
+}
+.navi {
+  background: url(../img/bgr-navi.png) top center repeat-y;
+}
+.navbar-default .navbar-nav > li:first-child {
+  margin-left: -15px;
+}
+.navbar-default .navbar-nav > li > a {
+  color: rgba(255, 255, 255, 0.8);
+}
+.navbar-default .navbar-nav > li > a:hover {
+  color: #ffffff;
+  background-color: #428bca;
+}
+.navbar-collapse {
   padding-left: 0;
 }
-.taxonomy-labels ul li,
-.meta-navigation ul li,
-.footer-nav ul li,
-ul.social-media-icons li {
-  float: left;
-  padding-right: 10px;
+.navbar {
+  margin-bottom: 0;
+  border: none;
+  background-color: transparent;
 }
-.doormat-menu li {
-  font-size: 12px;
-}
-.doormat ul li {
-  padding-bottom: 5px;
-}
-.footer {
-  background-color: #428bca;
-  color: #fff;
-  margin-top: 0;
-  padding-top: 15px;
-}
-.footer a {
-  color: #ffffff;
-}
-.region-footer-nav {
-  margin-top: 10px;
-}
-.footer a:hover {
-  color: #3366cc;
-  background-color: #fff;
+.social-media-icons > li > a:hover {
   text-decoration: none;
+}
+.search {
+  padding: 12px 0 0 0;
+}
+.breadcrumb {
+  margin-bottom: 0;
+  background-color: transparent;
+}
+.breadcrumb > li > a {
+  color: rgba(255, 255, 255, 0.4);
+}
+.breadcrumb > li > a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+.breadcrumb > li.active {
+  color: rgba(255, 255, 255, 0.8);
+}
+.breadcrumb > li + li:before {
+  color: rgba(255, 255, 255, 0.3);
+}
+.breadcrumbs {
+  background: url(../img/bgr-doormat.png) top center repeat-y;
 }
 .doormat {
-  padding: 25px 15px;
-  margin-top: 45px;
-  background-color: #e1edf7;
+  background: url(../img/bgr-doormat.png) top center repeat-y;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  margin-top: 50px;
 }
-.doormat ul li a {
-  padding: 0;
+.doormat ul {
+  font-size: 12px;
 }
-#edit-field-newsstory-body-value {
-  margin-bottom: 20px;
+.doormat a {
+  color: rgba(255, 255, 255, 0.5);
 }
-.group-story-aside {
-  width: 390px;
+.doormat h5 {
+  color: rgba(255, 255, 255, 0.9);
 }
-.field-newsstory-author {
-  font-style: italic;
-}
-.field-newsstory-photo-caption {
-  font-size: 10px;
-}
-.field-banner3units-image,
-.bean-front-page-banner-1140x345 {
-  margin-bottom: 20px;
-}
-.press-release-item {
-  margin-bottom: 25px;
-}
-.press-release-item span,
-.press-release-item p {
-  margin: 0;
-}
-.field-jumbotron-image {
-  float: left;
-  margin-right: 30px;
-  margin-bottom: 50px;
-}
-.field-jumbotron-body {
-  margin-bottom: 30px;
-  font-size: 20px;
-}
-.label a {
-  color: #eeeeee;
-  font-weight: normal;
-}
-.label:hover {
-  background-color: #428bca;
+.doormat a:hover {
   color: #ffffff;
-}
-.label a:hover {
   text-decoration: none;
 }
-.news-story-date {
-  text-align: center;
+.footer {
+  background: url(../img/bgr-footer.png) top center repeat-y;
+  padding-top: 25px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  margin-top: 0;
+  border: none;
+}
+.footer a,
+.breadcrumbs a {
+  color: rgba(255, 255, 255, 0.5);
+}
+.footer a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+.iaea-logo-footer {
+  opacity: .6;
+}
+.iaea-logo-footer:hover {
+  opacity: 1;
+}
+.go-top {
+  position: fixed;
+  right: 2em;
+  bottom: 2em;
+  color: #333;
+  display: none;
+}
+.dropdown-menu > li > a:hover {
   color: #fff;
-  min-height: 20px;
-  padding: 19px;
-  margin-bottom: 20px;
-  background-color: #6aa3d5;
-  border: 1px solid #8f8f8f;
-  border-radius: 6px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  background-color: #428bca;
 }
-.news-story-date-day {
-  font-size: 56px;
-  font-weight: 500;
+hr.spacer-25 {
+  border: none;
+  clear: both;
+  margin: 0 0 25px;
 }
-.bean-media-block {
-  margin-bottom: 20px;
+.dropdown > a > span.glyphicon {
+  font-size: 10px;
 }
-.dropdown-header {
-  text-transform: uppercase;
-  font-size: 13px;
-  letter-spacing: 2px;
+/* Mono Social Icon Font */
+@font-face {
+  font-family: 'Mono Social Icons Font';
+  src: url('../fonts/MonoSocialIconsFont-1.10.eot');
+  src: url('../fonts/MonoSocialIconsFont-1.10.eot?#iefix') format('embedded-opentype'), url('../fonts/MonoSocialIconsFont-1.10.woff') format('woff'), url('../fonts/MonoSocialIconsFont-1.10.ttf') format('truetype'), url('../fonts/MonoSocialIconsFont-1.10.svg#MonoSocialIconsFont') format('svg');
+  src: url('../fonts/MonoSocialIconsFont-1.10.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
-.media {
-  margin-bottom: 25px;
+.symbol,
+a.symbol:before {
+  font-family: 'Mono Social Icons Font';
+  -webkit-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  -ms-text-rendering: optimizeLegibility;
+  -o-text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  font-size: 30px;
 }
-.search-field {
-  padding-top: 20px;
+a.symbol:before {
+  content: attr(title);
+  margin-right: 0.3em;
+  font-size: 130%;
 }
-.label-news_story {
-  background-color: #92bce0;
-}
-.label-dg_statement {
-  background-color: #a3d7a3;
-}
-.label-media_advisory {
-  background-color: #f8d9ac;
-}
-.label-press_release {
-  background-color: #eba5a3;
-}
-.label-photo_essay {
-  background-color: #b0e1ef;
-}
-.label-iaea_video {
-  background-color: #92bce0;
+a.symbol {
+  background: #9f9f9f;
+  padding: 7px 5px 3px 5px;
+  color: white;
+  text-decoration: none;
 }
