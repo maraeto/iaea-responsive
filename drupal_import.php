@@ -37,7 +37,8 @@ function import_migrated_objects() {
                                   "media_advisory",
                                   "press_release",
                                   "dg_statement",
-                                  "photo_essay");
+                                  "photo_essay",
+                                  "photo_gallery");
                                   // shall be exended after building additional content types
 
     // the following section is used for testing purposes
@@ -180,6 +181,68 @@ function import_migrated_objects() {
                     $addtmetadata.= $img_row->ImageText." ";
                 }
 
+            break;
+
+            case "photo_gallery":
+//                $node->field_photogallery_teaser[$node->language][0]['value'] = $body;
+//                $node->field_photogallery_teaser[$node->language][0]['format'] = 'filtered_html';
+
+                if ($row->PublishingDate!="") $node->field_photogallery_date[$node->language][0]['value'] = $row->PublishingDate;
+
+                $txprop = "field_photogallery_tags";
+                $imgprop = "field_photogallery_photos";
+
+// IMAGE HANDLING FOR PHOTO GALLERYS
+// no cover image at the moment, no teaser text at the moment
+
+                $img_query = "SELECT * FROM mtcm.mt_migrated_image WHERE CID = ".$row->CID." AND Imported = 0 AND ImageStatus < '400' ORDER BY RID";
+                $img_result = db_query($img_query);
+
+                $cnt = 0;
+                foreach ($img_result as $img_row) {
+
+                    //grab the file for this node based on the "schema" from the old website...
+                    $remote_url = ($img_row->CorrOldURL!="" ? $img_row->CorrOldURL : $img_row->OldURL);
+                    $file_path = sys_get_temp_dir().substr($remote_url,max(strrpos($remote_url, "/"),strrpos($remote_url, "\\")));
+
+                    $fcont="";
+                    $handle = @fopen($remote_url, "r");
+                    if ($handle)
+                    {
+                       while (!feof($handle)) $fcont.= fgets($handle, 4096);
+                       fclose($handle);
+
+                        $fd = fopen ($file_path, "wb");
+                        fwrite($fd, $fcont);
+                        fclose($fd);
+                    }
+
+                    if (file_exists($file_path)) {
+
+                        $file = (object) array(
+                        'uid' => $uid ,
+                        'uri' => $file_path,
+                        'filemime' => file_get_mimetype($file_path),
+                        'status' => 1,
+                        'alt' => substr($img_row->ImageText,0,1023),
+                        'width' => $img_row->Width,
+                        'height' => $img_row->Height
+                        );
+                        $file = file_copy($file, "public://");
+                        $node->{$imgprop}[$node->language][$cnt] = (array)$file;
+
+                        chmod(drupal_realpath($file->uri), 0777);
+
+                        $newurl = substr(drupal_realpath($file->uri),strlen($_SERVER["PWD"]));
+
+                        $img_upd_query = "UPDATE mtcm.mt_migrated_image SET NewURL='".$newurl."', LastImported='".strftime("%Y-%m-%d %H:%M:%S")."', Imported=1  WHERE CID = '".$img_row->CID."' AND RID = '".$img_row->RID."'";
+                        $img_upd_result = db_query($img_upd_query);
+
+                        $cnt++;
+                    }
+
+                    $addtmetadata.= $img_row->ImageText." ";
+                }
 
             break;
 
