@@ -6784,11 +6784,6 @@ td.radio {
 body {
   background: url(/sites/all/themes/IAEA/img/bgr-body.png) top center repeat-y;
 }
-.navi a,
-.doormat a,
-.footer a {
-  color: #fff;
-}
 .hero {
   background: url(/sites/all/themes/IAEA/img/bgr-hero.png) top center repeat-y;
   padding: 50px 0;
@@ -6914,12 +6909,17 @@ hr.spacer-25 {
 .dropdown > a > span.glyphicon {
   font-size: 10px;
 }
+.navi a,
+.doormat a,
+.footer a {
+  color: #fff;
+}
 /* Mono Social Icon Font */
 @font-face {
   font-family: 'Mono Social Icons Font';
-  src: url('../fonts/MonoSocialIconsFont-1.10.eot');
-  src: url('../fonts/MonoSocialIconsFont-1.10.eot?#iefix') format('embedded-opentype'), url('../fonts/MonoSocialIconsFont-1.10.woff') format('woff'), url('../fonts/MonoSocialIconsFont-1.10.ttf') format('truetype'), url('../fonts/MonoSocialIconsFont-1.10.svg#MonoSocialIconsFont') format('svg');
-  src: url('../fonts/MonoSocialIconsFont-1.10.ttf') format('truetype');
+  src: url('/sites/all/themes/IAEA/fonts/MonoSocialIconsFont-1.10.eot');
+  src: url('/sites/all/themes/IAEA/fonts/MonoSocialIconsFont-1.10.eot?#iefix') format('embedded-opentype'), url('/sites/all/themes/IAEA/fonts/MonoSocialIconsFont-1.10.woff') format('woff'), url('/sites/all/themes/IAEA/fonts/MonoSocialIconsFont-1.10.ttf') format('truetype'), url('/sites/all/themes/IAEA/fonts/MonoSocialIconsFont-1.10.svg#MonoSocialIconsFont') format('svg');
+  src: url('/sites/all/themes/IAEA/fonts/MonoSocialIconsFont-1.10.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -6948,4 +6948,17 @@ a.symbol {
   padding: 7px 5px 3px 5px;
   color: white;
   text-decoration: none;
+}
+.news-story-date {
+  text-align: center;
+  color: #fff;
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: #6aa3d5;
+  border: 1px solid #8f8f8f;
+}
+.news-story-date-day {
+  font-size: 56px;
+  font-weight: 500;
 }
