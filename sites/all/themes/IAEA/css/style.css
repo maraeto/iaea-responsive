@@ -6798,6 +6798,10 @@ body {
   font-size: 21px;
   font-weight: 200;
 }
+.hero-banner {
+  width: 100%;
+  margin: 0 auto;
+}
 .logo {
   background: url(/sites/all/themes/IAEA/img/bgr-logo.png) top center repeat-y;
   margin-bottom: 0;
