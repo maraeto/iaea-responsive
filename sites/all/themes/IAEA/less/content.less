@@ -12,7 +12,7 @@ body { background: url(/sites/all/themes/IAEA/img/bgr-body.png) top center repea
 
 // Navigation
 // --------------------------
-.navi { background: url(/sites/all/themes/IAEA/img/bgr-navi.png) top center repeat-y; }
+.navigation-main { background: url(/sites/all/themes/IAEA/img/bgr-navi.png) top center repeat-y; }
 // .navbar-default .navbar-nav > li:first-child { margin-left: -15px }
 .navbar-default .navbar-nav > li > a { color: rgba(255, 255, 255, 0.8) }
 .navbar-default .navbar-nav > li > a:hover { color: rgba(255, 255, 255, 1); background-color: @gray-dark }
@@ -22,6 +22,14 @@ body { background: url(/sites/all/themes/IAEA/img/bgr-body.png) top center repea
 .social-media-icons > li > a { color: rgba(255,255,255,0.5) }
 .social-media-icons > li > a:hover { color: rgba(255,255,255,1); text-decoration: none }
 .search {padding: 12px 0 0 0;}
+// Sidebar secondary navigation
+// --------------------------
+.navigation-sidebar { background-color: #ebebeb }
+.navigation-sidebar > li { border-bottom: 1px solid #dbdbdb;  }
+.navigation-sidebar > li + li { margin-top: 0 }
+.navigation-sidebar > li.active > a { background-color: @brand-primary; border-radius: 0 }
+.navigation-sidebar > li > a:hover { background-color: lighten(@gray, 55%); border-radius: 0 }
+.navigation-sidebar > li.dropdown ul { left: 155px; top:-3px; .border-left-radius(0) }
 
 // Breadcrumbs
 // --------------------------
@@ -73,17 +81,24 @@ a.symbol:hover { text-decoration: none }
 
 // News Story
 // --------------------------
-.news-story-image-wrap { margin-right:30px; max-width: 360px }
+.news-story-image-wrap, .basicpage-image-wrap { margin-right:30px; max-width: 360px }
 .news-story-date { text-align: center; color: #fff; min-height: 20px; padding: 19px; margin-bottom: 20px; background-color: @brand-primary; border: 1px solid darken(@well-bg, 40%) }
 .news-story-date-day {font-size: 56px; font-family: @font-family-serif; font-weight: @headings-font-weight; }
-.news-story-image { margin-bottom: 15px; }
-.news-story-image-caption { color: @gray-light; font-size: @font-size-small }
+.news-story-image, .basicpage-image { margin-bottom: 15px; }
+.news-story-image-caption, .basicpage-image-caption { color: @gray-light; font-size: @font-size-small }
 .news-story-meta { text-align: center }
 
 .news-story-social-media, .news-story-author { margin-top: 50px }
 .news-story-social-media-icons > li > a { color: rgba(0, 0, 0, 0.2)  }
 .news-story-social-media-icons > li > a > span.symbol { font-size: 58px; }
 .news-story-social-media-icons > li > a:hover { color: @brand-primary; text-decoration: none }
+
+// Basicpage
+// --------------------------
+.basicpage h1 { margin-top: 0; margin-bottom: 30px }
+.basicpage-section { margin-bottom: 30px }
+.basicpage-related-resources { width: 262px; margin-left: 30px }
+.basicpage-related-resources h4 { margin-top: 0 }
 
 // Labels
 // --------------------------

@@ -6802,7 +6802,7 @@ body {
   background: url(/sites/all/themes/IAEA/img/bgr-logo.png) top center repeat-y;
   margin-bottom: 0;
 }
-.navi {
+.navigation-main {
   background: url(/sites/all/themes/IAEA/img/bgr-navi.png) top center repeat-y;
 }
 .navbar-default .navbar-nav > li > a {
@@ -6833,6 +6833,29 @@ body {
 }
 .search {
   padding: 12px 0 0 0;
+}
+.navigation-sidebar {
+  background-color: #ebebeb;
+}
+.navigation-sidebar > li {
+  border-bottom: 1px solid #dbdbdb;
+}
+.navigation-sidebar > li + li {
+  margin-top: 0;
+}
+.navigation-sidebar > li.active > a {
+  background-color: #6aa3d5;
+  border-radius: 0;
+}
+.navigation-sidebar > li > a:hover {
+  background-color: #e2e2e2;
+  border-radius: 0;
+}
+.navigation-sidebar > li.dropdown ul {
+  left: 155px;
+  top: -3px;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
 }
 .breadcrumb {
   margin-bottom: 0;
@@ -6944,7 +6967,8 @@ a.symbol {
 a.symbol:hover {
   text-decoration: none;
 }
-.news-story-image-wrap {
+.news-story-image-wrap,
+.basicpage-image-wrap {
   margin-right: 30px;
   max-width: 360px;
 }
@@ -6962,10 +6986,12 @@ a.symbol:hover {
   font-family: Merriweather, Georgia, "Times New Roman", Times, serif;
   font-weight: 500;
 }
-.news-story-image {
+.news-story-image,
+.basicpage-image {
   margin-bottom: 15px;
 }
-.news-story-image-caption {
+.news-story-image-caption,
+.basicpage-image-caption {
   color: #999999;
   font-size: 12px;
 }
@@ -6985,6 +7011,20 @@ a.symbol:hover {
 .news-story-social-media-icons > li > a:hover {
   color: #6aa3d5;
   text-decoration: none;
+}
+.basicpage h1 {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+.basicpage-section {
+  margin-bottom: 30px;
+}
+.basicpage-related-resources {
+  width: 262px;
+  margin-left: 30px;
+}
+.basicpage-related-resources h4 {
+  margin-top: 0;
 }
 .label a {
   color: #eeeeee;
