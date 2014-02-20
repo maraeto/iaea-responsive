@@ -36,6 +36,10 @@
           $('html, body').animate({scrollTop: 0}, 500);
       });
   /* Go To Top end */
+  /* make the image caption is the same size as parent image */
+      $('.basicpage-image').each(function(){
+        $(this).parent().width( $(this).width() );
+      });
   });
 
 })(jQuery);

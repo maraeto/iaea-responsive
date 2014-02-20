@@ -6967,8 +6967,7 @@ a.symbol {
 a.symbol:hover {
   text-decoration: none;
 }
-.news-story-image-wrap,
-.basicpage-image-wrap {
+.news-story-image-wrap {
   margin-right: 30px;
   max-width: 360px;
 }
@@ -6992,6 +6991,7 @@ a.symbol:hover {
 }
 .news-story-image-caption,
 .basicpage-image-caption {
+  width: auto;
   color: #999999;
   font-size: 12px;
 }
@@ -7018,6 +7018,10 @@ a.symbol:hover {
 }
 .basicpage-section {
   margin-bottom: 30px;
+}
+.basicpage-image-wrap {
+  margin-right: 30px;
+  max-width: 360px;
 }
 .basicpage-related-resources {
   width: 262px;
