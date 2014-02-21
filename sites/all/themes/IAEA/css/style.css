@@ -6800,6 +6800,7 @@ body {
 }
 .hero-banner {
   width: auto;
+  margin-bottom: 20px;
 }
 .hero-banner-image {
   margin: 0 auto;
@@ -6841,10 +6842,13 @@ body {
   padding: 12px 0 0 0;
 }
 .navigation-sidebar {
-  background-color: #ebebeb;
+  background-color: #fff;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-top: 1px solid #dddddd;
 }
 .navigation-sidebar > li {
-  border-bottom: 1px solid #dbdbdb;
+  border-bottom: 1px solid #ddd;
 }
 .navigation-sidebar > li + li {
   margin-top: 0;
@@ -6854,7 +6858,7 @@ body {
   border-radius: 0;
 }
 .navigation-sidebar > li > a:hover {
-  background-color: #e2e2e2;
+  background-color: #eee;
   border-radius: 0;
 }
 .navigation-sidebar > li.dropdown ul {
@@ -6975,6 +6979,26 @@ a.symbol:hover {
 }
 #frontpage-tabs {
   margin-top: 20px;
+}
+.navigation-sidebar-frontpage {
+  margin-bottom: 50px;
+}
+.navigation-sidebar-frontpage > li:first-child {
+  border-top: 1px solid #eee;
+}
+.navigation-sidebar-frontpage > li {
+  border-bottom: 1px solid #eee;
+}
+.navigation-sidebar-frontpage > li + li {
+  margin-top: 0;
+}
+.navigation-sidebar-frontpage > li.active > a {
+  background-color: #6aa3d5;
+  border-radius: 0;
+}
+.navigation-sidebar-frontpage > li > a:hover {
+  background-color: #eee;
+  border-radius: 0;
 }
 .news-story-image-wrap {
   margin-right: 30px;

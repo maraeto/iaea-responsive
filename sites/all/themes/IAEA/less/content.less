@@ -5,7 +5,7 @@ body { background: url(/sites/all/themes/IAEA/img/bgr-body.png) top center repea
 .hero { background: url(/sites/all/themes/IAEA/img/bgr-hero.png) top center repeat-y; padding: 50px 0; }
 .hero h1 { font-size: 48px; font-weight: 200; margin-top: 0; line-height: 1.1 }
 .hero p { font-size: 21px; font-weight: 200; }
-.hero-banner { width: auto }
+.hero-banner { width: auto; margin-bottom: 20px }
 .hero-banner-image { margin: 0 auto }
 
 // Logo
@@ -24,13 +24,14 @@ body { background: url(/sites/all/themes/IAEA/img/bgr-body.png) top center repea
 .social-media-icons > li > a { color: rgba(255,255,255,0.5) }
 .social-media-icons > li > a:hover { color: rgba(255,255,255,1); text-decoration: none }
 .search {padding: 12px 0 0 0;}
+
 // Sidebar secondary navigation
 // --------------------------
-.navigation-sidebar { background-color: #ebebeb }
-.navigation-sidebar > li { border-bottom: 1px solid #dbdbdb;  }
+.navigation-sidebar { background-color: #fff; border-left: 1px solid #ddd; border-right: 1px solid #ddd; border-top: 1px solid #ddd }
+.navigation-sidebar > li { border-bottom: 1px solid #ddd;  }
 .navigation-sidebar > li + li { margin-top: 0 }
 .navigation-sidebar > li.active > a { background-color: @brand-primary; border-radius: 0 }
-.navigation-sidebar > li > a:hover { background-color: lighten(@gray, 55%); border-radius: 0 }
+.navigation-sidebar > li > a:hover { background-color: #eee; border-radius: 0 }
 .navigation-sidebar > li.dropdown ul { left: 155px; top:-3px; .border-left-radius(0) }
 
 // Breadcrumbs
@@ -84,6 +85,13 @@ a.symbol:hover { text-decoration: none }
 // Front Page
 // --------------------------
 #frontpage-tabs { margin-top: 20px }
+.navigation-sidebar-frontpage { margin-bottom: 50px }
+.navigation-sidebar-frontpage > li:first-child { border-top: 1px solid #eee; }
+.navigation-sidebar-frontpage > li { border-bottom: 1px solid #eee; }
+.navigation-sidebar-frontpage > li + li { margin-top: 0 }
+.navigation-sidebar-frontpage > li.active > a { background-color: @brand-primary; border-radius: 0 }
+.navigation-sidebar-frontpage > li > a:hover { background-color: #eee; border-radius: 0 }
+
 
 // News Story
 // --------------------------
