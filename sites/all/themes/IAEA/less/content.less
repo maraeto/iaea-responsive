@@ -5,7 +5,8 @@ body { background: url(/sites/all/themes/IAEA/img/bgr-body.png) top center repea
 .hero { background: url(/sites/all/themes/IAEA/img/bgr-hero.png) top center repeat-y; padding: 50px 0; }
 .hero h1 { font-size: 48px; font-weight: 200; margin-top: 0; line-height: 1.1 }
 .hero p { font-size: 21px; font-weight: 200; }
-.hero-banner { width: 100%; margin: 0 auto; }
+.hero-banner { width: auto }
+.hero-banner-image { margin: 0 auto }
 
 // Logo
 // --------------------------
@@ -80,6 +81,10 @@ a.symbol:before { content: attr(title); margin-right: 0.3em }
 a.symbol { background: #9f9f9f; padding: 7px 5px 3px 5px; text-decoration: none; }
 a.symbol:hover { text-decoration: none }
 
+// Front Page
+// --------------------------
+#frontpage-tabs { margin-top: 20px }
+
 // News Story
 // --------------------------
 .news-story-image-wrap { margin-right:30px; max-width: 360px }
@@ -107,6 +112,7 @@ a.symbol:hover { text-decoration: none }
 .label a { color: @gray-lighter; font-weight: normal}
 .label:hover { background-color: @brand-primary; color: #fff}
 .label a:hover {text-decoration: none;}
+
 
 
 // .taxonomy-labels ul, .meta-navigation ul, .footer-nav ul, ul.social-media-icons, .doormat-menu ul { list-style: none; margin-left: 0; padding-left: 0 }

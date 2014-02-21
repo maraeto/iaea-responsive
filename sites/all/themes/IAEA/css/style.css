@@ -6799,7 +6799,9 @@ body {
   font-weight: 200;
 }
 .hero-banner {
-  width: 100%;
+  width: auto;
+}
+.hero-banner-image {
   margin: 0 auto;
 }
 .logo {
@@ -6970,6 +6972,9 @@ a.symbol {
 }
 a.symbol:hover {
   text-decoration: none;
+}
+#frontpage-tabs {
+  margin-top: 20px;
 }
 .news-story-image-wrap {
   margin-right: 30px;
