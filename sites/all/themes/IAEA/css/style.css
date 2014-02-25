@@ -270,12 +270,12 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #6aa3d5;
+  color: #5990ff;
   text-decoration: none;
 }
 a:hover,
 a:focus {
-  color: #357ebd;
+  color: #0d5dff;
   text-decoration: underline;
 }
 a:focus {
@@ -447,10 +447,10 @@ cite {
   color: #999999;
 }
 .text-primary {
-  color: #6aa3d5;
+  color: #5990ff;
 }
 .text-primary:hover {
-  color: #428aca;
+  color: #266eff;
 }
 .text-warning {
   color: #8a6d3b;
@@ -1972,8 +1972,8 @@ fieldset[disabled] .btn-default.active {
 }
 .btn-primary {
   color: #ffffff;
-  background-color: #6aa3d5;
-  border-color: #5697cf;
+  background-color: #5990ff;
+  border-color: #407fff;
 }
 .btn-primary:hover,
 .btn-primary:focus,
@@ -1981,8 +1981,8 @@ fieldset[disabled] .btn-default.active {
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
   color: #ffffff;
-  background-color: #4a8fcc;
-  border-color: #3378b5;
+  background-color: #3075ff;
+  border-color: #0256ff;
 }
 .btn-primary:active,
 .btn-primary.active,
@@ -2004,11 +2004,11 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-  background-color: #6aa3d5;
-  border-color: #5697cf;
+  background-color: #5990ff;
+  border-color: #407fff;
 }
 .btn-primary .badge {
-  color: #6aa3d5;
+  color: #5990ff;
   background-color: #ffffff;
 }
 .btn-success {
@@ -2176,7 +2176,7 @@ fieldset[disabled] .btn-info.active {
   background-color: #ffffff;
 }
 .btn-link {
-  color: #6aa3d5;
+  color: #5990ff;
   font-weight: normal;
   cursor: pointer;
   border-radius: 0;
@@ -2198,7 +2198,7 @@ fieldset[disabled] .btn-link {
 }
 .btn-link:hover,
 .btn-link:focus {
-  color: #357ebd;
+  color: #0d5dff;
   text-decoration: underline;
   background-color: transparent;
 }
@@ -2949,7 +2949,7 @@ input[type="button"].btn-block {
   color: #ffffff;
   text-decoration: none;
   outline: 0;
-  background-color: #6aa3d5;
+  background-color: #5990ff;
 }
 .dropdown-menu > .disabled > a,
 .dropdown-menu > .disabled > a:hover,
@@ -3359,7 +3359,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .nav .open > a:hover,
 .nav .open > a:focus {
   background-color: #eeeeee;
-  border-color: #6aa3d5;
+  border-color: #5990ff;
 }
 .nav .nav-divider {
   height: 1px;
@@ -3452,7 +3452,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
   color: #ffffff;
-  background-color: #6aa3d5;
+  background-color: #5990ff;
 }
 .nav-stacked > li {
   float: none;
@@ -4046,8 +4046,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .pagination > .active > span:focus {
   z-index: 2;
   color: #ffffff;
-  background-color: #6aa3d5;
-  border-color: #6aa3d5;
+  background-color: #5990ff;
+  border-color: #5990ff;
   cursor: default;
 }
 .pagination > .disabled > span,
@@ -4162,11 +4162,11 @@ textarea.input-group-sm > .input-group-btn > .btn {
   background-color: #808080;
 }
 .label-primary {
-  background-color: #6aa3d5;
+  background-color: #5990ff;
 }
 .label-primary[href]:hover,
 .label-primary[href]:focus {
-  background-color: #428aca;
+  background-color: #266eff;
 }
 .label-success {
   background-color: #5cb85c;
@@ -4225,7 +4225,7 @@ a.badge:focus {
 }
 a.list-group-item.active > .badge,
 .nav-pills > .active > a > .badge {
-  color: #6aa3d5;
+  color: #5990ff;
   background-color: #ffffff;
 }
 .nav-pills > li > a > .badge {
@@ -4290,7 +4290,7 @@ a.list-group-item.active > .badge,
 a.thumbnail:hover,
 a.thumbnail:focus,
 a.thumbnail.active {
-  border-color: #6aa3d5;
+  border-color: #5990ff;
 }
 .thumbnail .caption {
   padding: 9px;
@@ -4403,7 +4403,7 @@ a.thumbnail.active {
   line-height: 20px;
   color: #ffffff;
   text-align: center;
-  background-color: #6aa3d5;
+  background-color: #5990ff;
   -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
   -moz-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
@@ -4518,8 +4518,8 @@ a.list-group-item.active:hover,
 a.list-group-item.active:focus {
   z-index: 2;
   color: #ffffff;
-  background-color: #6aa3d5;
-  border-color: #6aa3d5;
+  background-color: #5990ff;
+  border-color: #5990ff;
 }
 a.list-group-item.active .list-group-item-heading,
 a.list-group-item.active:hover .list-group-item-heading,
@@ -4777,18 +4777,18 @@ a.list-group-item-info.active:focus {
   border-bottom-color: #dddddd;
 }
 .panel-primary {
-  border-color: #6aa3d5;
+  border-color: #5990ff;
 }
 .panel-primary > .panel-heading {
   color: #ffffff;
-  background-color: #6aa3d5;
-  border-color: #6aa3d5;
+  background-color: #5990ff;
+  border-color: #5990ff;
 }
 .panel-primary > .panel-heading + .panel-collapse .panel-body {
-  border-top-color: #6aa3d5;
+  border-top-color: #5990ff;
 }
 .panel-primary > .panel-footer + .panel-collapse .panel-body {
-  border-bottom-color: #6aa3d5;
+  border-bottom-color: #5990ff;
 }
 .panel-success {
   border-color: #d6e9c6;
@@ -6585,7 +6585,7 @@ div.password-suggestions ul {
   font-size: 120%;
 }
 .form-autocomplete .glyphicon.glyphicon-spin {
-  color: #6aa3d5;
+  color: #5990ff;
 }
 .form-autocomplete .input-group-addon {
   background-color: #ffffff;
@@ -6854,7 +6854,7 @@ body {
   margin-top: 0;
 }
 .navigation-sidebar > li.active > a {
-  background-color: #6aa3d5;
+  background-color: #5990ff;
   border-radius: 0;
 }
 .navigation-sidebar > li > a:hover {
@@ -6932,7 +6932,7 @@ body {
 }
 .dropdown-menu > li > a:hover {
   color: #fff;
-  background-color: #6aa3d5;
+  background-color: #5990ff;
 }
 hr.spacer-25 {
   border: none;
@@ -6993,7 +6993,7 @@ a.symbol:hover {
   margin-top: 0;
 }
 .navigation-sidebar-frontpage > li.active > a {
-  background-color: #6aa3d5;
+  background-color: #5990ff;
   border-radius: 0;
 }
 .navigation-sidebar-frontpage > li > a:hover {
@@ -7028,7 +7028,7 @@ a.symbol:hover {
   min-height: 20px;
   padding: 19px;
   margin-bottom: 20px;
-  background-color: #6aa3d5;
+  background-color: #5990ff;
   border: 1px solid #8f8f8f;
 }
 .news-story-date-day {
@@ -7060,7 +7060,7 @@ a.symbol:hover {
   font-size: 58px;
 }
 .news-story-social-media-icons > li > a:hover {
-  color: #6aa3d5;
+  color: #5990ff;
   text-decoration: none;
 }
 .basicpage h1 {
@@ -7086,9 +7086,15 @@ a.symbol:hover {
   font-weight: normal;
 }
 .label:hover {
-  background-color: #6aa3d5;
+  background-color: #5990ff;
   color: #ffffff;
 }
 .label a:hover {
   text-decoration: none;
+}
+.media-label {
+  color: #999999;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 1.5px;
 }
