@@ -6784,6 +6784,9 @@ td.radio {
 body {
   background: url(/sites/all/themes/IAEA/img/bgr-body.png) top center repeat-y;
 }
+body.admin-menu {
+  padding-top: 1px !important;
+}
 .hero {
   background: url(/sites/all/themes/IAEA/img/bgr-hero.png) top center repeat-y;
   padding: 50px 0;
@@ -6839,7 +6842,7 @@ body {
   text-decoration: none;
 }
 .search {
-  padding: 12px 0 0 0;
+  padding-top: 21px;
 }
 .navigation-sidebar {
   background-color: #fff;
