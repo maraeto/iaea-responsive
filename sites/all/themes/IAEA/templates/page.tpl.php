@@ -21,38 +21,44 @@
     <div class="container space-bottom">
         <div class="row clearfix">
             <div class="col-md-12">
+                <div class="row clearfix">
+                    <div class="col-md-8">
+                        <nav class="navbar navbar-default" role="navigation">
+                            <!-- main navigation -->
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#iaea-main-navigation">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
 
-                <nav class="navbar navbar-default" role="navigation">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#iaea-main-navigation">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                      </button>
-                    </div>
-
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="iaea-main-navigation">
-                        <?php if (!empty($primary_nav))   : ?>
-                            <?php print render($primary_nav); ?>
-                        <?php endif; ?>
-                        <?php if (!empty($secondary_nav)): ?>
-                            <?php print render($secondary_nav); ?>
-                        <?php endif; ?>
-                        <?php if (!empty($page['navigation'])): ?>
-                            <?php print render($page['navigation']); ?>
-                        <?php endif; ?>
-
-                        <?php if (!empty($page['nav_social_media'])): ?>
-                          <?php print render($page['nav_social_media']); ?>
-                        <?php endif; ?>
-                    </div><!-- /.navbar-collapse -->
-                </nav>
-            </div>
-        </div>
-    </div>
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse" id="iaea-main-navigation">
+                                <?php if (!empty($primary_nav)) : ?>
+                                  <?php print render($primary_nav); ?>
+                                <?php endif; ?>
+                                <?php if (!empty($secondary_nav)): ?>
+                                  <?php print render($secondary_nav); ?>
+                                <?php endif; ?>
+                                <?php if (!empty($page[ 'navigation'])): ?>
+                                  <?php print render($page[ 'navigation']); ?>
+                                <?php endif; ?>
+                            </div><!-- /#iaea-main-navigation -->
+                          </nav>
+                      </div>
+                      <!-- social media idons -->
+                      <div class="col-md-4">
+                          <?php if (!empty($page[ 'nav_social_media'])): ?>
+                          <?php print render($page[ 'nav_social_media']); ?>
+                          <?php endif; ?>
+                      </div>
+                </div><!-- /.row -->
+            </div><!-- /.col-md-12 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
 </div><!-- /.navigation-main -->
 
 <div class="breadcrumbs hidden-xs">
