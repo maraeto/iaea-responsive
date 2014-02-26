@@ -5,7 +5,7 @@ base theme = bootstrap
 version = 1.0
 
 ; Regions
-regions[social_media_nav]	= 'Social Media Icons Navigation'
+regions[nav_social_media]	= 'Social Media Icons Navigation'
 regions[search_box] 			= 'Search Box'
 regions[navigation]     	= 'Navigation'
 regions[header]         	= 'Top Bar'

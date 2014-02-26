@@ -45,8 +45,8 @@
                             <?php print render($page['navigation']); ?>
                         <?php endif; ?>
 
-                        <?php if (!empty($page['social_media_nav'])): ?>
-                          <?php print render($page['social_media_nav']); ?>
+                        <?php if (!empty($page['nav_social_media'])): ?>
+                          <?php print render($page['nav_social_media']); ?>
                         <?php endif; ?>
                     </div><!-- /.navbar-collapse -->
                 </nav>
@@ -54,3 +54,41 @@
         </div>
     </div>
 </div><!-- /.navigation-main -->
+
+<div class="breadcrumbs hidden-xs">
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-12">
+                <?php if (!empty($breadcrumb)): print $breadcrumb; endif;?>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<?php if ($page['doormat']): ?>
+    <div class="doormat">
+      <div class="container">
+        <div class="row clearfix">
+          <?php print render($page['doormat']); ?>
+        </div>
+      </div>
+    </div>
+<?php endif; ?>
+
+<div class="footer">
+    <div class="container">
+      <div class="row clearfix">
+        <div class="col-sm-6">
+          <?php if (!empty($page['footer_address'])): ?>
+            <?php print render($page['footer_address']); ?>
+          <?php endif; ?>
+        </div>
+        <div class="col-sm-6">
+          <?php if (!empty($page['footer_nav'])): ?>
+            <?php print render($page['footer_nav']); ?>
+          <?php endif; ?>
+        </div>
+      </div>
+    </div>
+</div>
