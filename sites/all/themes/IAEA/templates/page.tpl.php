@@ -1,30 +1,28 @@
-<header id="navbar" role="banner">
+<div class="logo">
     <div class="container">
         <div class="row clearfix">
-            <div class="col-md-8 column">
+            <div class="col-lg-8 col-md-7 col-sm-6">
               <?php if ($logo): ?>
                 <a class="logo navbar-btn pull-left" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
-                  <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+                  <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" class="img-responsive" />
                 </a>
               <?php endif; ?>
             </div>
-            <div class="col-md-4 column">
-                <div class="row pull-right clearfix">
-                    <div class="col-md-12 column">
-                        <?php if (!empty($page['social_media'])): ?>
-                          <?php print render($page['social_media']); ?>
-                        <?php endif; ?>
-                    </div>
-                </div>
-                <div class="text-right pull-right search-field">
-                    <?php if (!empty($page['search_box'])): ?>
-                      <?php print render($page['search_box']); ?>
-                    <?php endif; ?>
-                </div>
+            <div class="search col-lg-4 col-md-5 col-sm-6 pull-righ">
+              <?php if (!empty($page['search_box'])): ?>
+                <?php print render($page['search_box']); ?>
+              <?php endif; ?>
             </div>
         </div>
     </div>
-</header>
+</div>
+
+
+
+<div class="navigation-main">
+    <div class="container space-bottom">
+        <div class="row clearfix">
+            <div class="col-md-12">
 
   <div class="<?php print $navbar_classes; ?>">
     <div class="navbar-header" role="navigation">
@@ -58,9 +56,13 @@
     <?php endif; ?>
 
   </div>
+</div>
+</div>
+</div>
+</div>
 
-<div class="main-container container">
-  <div class="row">
+<div class="container">
+  <div class="row clearfix">
 
   <?php if (!empty($breadcrumb)): ?>
     <div class="col-md-12">
@@ -106,25 +108,30 @@
 
 
 <?php if ($page['doormat']): ?>
-  <div class="doormat">
-    <div class="container">
+<div class="doormat">
+  <div class="container">
+    <div class="row clearfix">
       <?php print render($page['doormat']); ?>
     </div>
-  </div> <!-- /.doormat -->
+  </div>
+</div>
 <?php endif; ?>
 
 <footer class="footer">
-  <?php #print render($page['footer']); ?>
     <div class="container">
-      <div class="row">
-        <div class="col-md-4 footer-address">
-          <?php if (!empty($page['footer_address'])): ?>
-            <?php print render($page['footer_address']); ?>
+      <div class="row clearfix">
+        <div class="col-sm-6">
+            <div class="row">
+              <?php if (!empty($page['footer_address'])): ?>
+                <?php print render($page['footer_address']); ?>
+              <?php endif; ?>
+            </div>
+        </div>
+        <div class="col-sm-6">
+          <?php if (!empty($page['footer_nav'])): ?>
+            <?php print render($page['footer_nav']); ?>
           <?php endif; ?>
         </div>
-        <div class="col-md-8 footer-nav text-right">
-            <?php if (!empty($page['footer_nav'])): ?>
-              <?php print render($page['footer_nav']); ?>
-            <?php endif; ?>
-        </div>
+      </div>
+    </div>
 </footer>
