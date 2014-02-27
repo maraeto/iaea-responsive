@@ -6899,14 +6899,18 @@ body.admin-menu {
 }
 .doormat ul {
   font-size: 12px;
+  padding-left: 0;
+  list-style: none;
 }
 .doormat h5 {
   color: rgba(255, 255, 255, 0.9);
 }
-.doormat-list > li > a {
-  color: rgba(255, 255, 255, 0.5);
+.doormat-list > li > a,
+.doormat li > a {
+  color: rgba(255, 255, 255, 0.6);
 }
-.doormat-list > li > a:hover {
+.doormat-list > li > a:hover,
+.doormat li > a:hover {
   color: #ffffff;
   text-decoration: none;
 }
