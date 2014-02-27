@@ -61,16 +61,55 @@
     </div><!-- /.container -->
 </div><!-- /.navigation-main -->
 
-<div class="breadcrumbs hidden-xs">
-    <div class="container">
-        <div class="row clearfix">
-            <div class="col-md-12">
-                <?php if (!empty($breadcrumb)): print $breadcrumb; endif;?>
-            </div>
-        </div>
-    </div>
-</div>
+<?php if (!empty($breadcrumb)): ?>
+  <div class="breadcrumbs hidden-xs">
+      <div class="container">
+          <div class="row clearfix">
+              <div class="col-md-12">
+                   <?php print $breadcrumb; ?>
+              </div>
+          </div>
+      </div>
+  </div>
+<?php endif;?>
 
+<?php if (!empty($page['hero'])): ?>
+  <div class="hero-banner">
+    <?php print render($page['hero']); ?>
+  </div>
+<?php endif;?>
+
+<div class="container">
+    <div class="row clearfix">
+      <section<?php print $content_column_class; ?>>
+        <?php if (!empty($page['highlighted'])): ?>
+          <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
+        <?php endif; ?>
+
+        <a id="main-content"></a>
+
+        <?php print render($title_prefix); ?>
+
+        <?php if (!empty($title)): ?>
+          <h1 class="page-header"><?php print $title; ?></h1>
+        <?php endif; ?>
+
+        <?php print render($title_suffix); ?>
+
+        <?php print $messages; ?>
+        <?php if (!empty($tabs)): ?>
+          <?php print render($tabs); ?>
+        <?php endif; ?>
+        <?php if (!empty($page['help'])): ?>
+          <?php print render($page['help']); ?>
+        <?php endif; ?>
+        <?php if (!empty($action_links)): ?>
+          <ul class="action-links"><?php print render($action_links); ?></ul>
+        <?php endif; ?>
+        <?php print render($page['content']); ?>
+      </section>
+    </div>
+  </div>
 
 <?php if ($page['doormat']): ?>
     <div class="doormat">
