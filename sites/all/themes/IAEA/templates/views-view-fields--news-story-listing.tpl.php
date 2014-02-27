@@ -34,3 +34,4 @@
     	<?php print $fields['view_node']->content; ?>
 	</div>
 </div>
+<hr class="spacer25" />

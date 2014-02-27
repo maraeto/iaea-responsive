@@ -28,7 +28,7 @@ function IAEA_preprocess_page(&$variables) {
   }
 } */
 
-/* applies "img-responsive" class to ever image */
+/* applies "img-responsive" class to every image */
 function IAEA_preprocess_image(&$variables) {
   $variables['attributes']['class'][] = "img-responsive";
 }

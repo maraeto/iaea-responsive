@@ -59,5 +59,6 @@
   <?php print $page_top; ?>
   <?php print $page; ?>
   <?php print $page_bottom; ?>
+  <a href="#" class="btn btn-default btn-sm go-top"><span class="glyphicon glyphicon-chevron-up"></span></a>
 </body>
 </html>

@@ -6872,7 +6872,7 @@ body.admin-menu {
   border-top-left-radius: 0;
 }
 .breadcrumb {
-  margin-bottom: 0;
+  margin-bottom: 0px;
   background-color: transparent;
 }
 .breadcrumb > li > a {
@@ -6890,6 +6890,7 @@ body.admin-menu {
 }
 .breadcrumbs {
   background: url(/sites/all/themes/IAEA/img/bgr-doormat.png) top center repeat-y;
+  margin-bottom: 20px;
 }
 .doormat {
   background: url(/sites/all/themes/IAEA/img/bgr-doormat.png) top center repeat-y;
@@ -6923,13 +6924,16 @@ body.admin-menu {
   border: none;
 }
 .footer li a,
-.footer p a {
+.footer a {
   color: rgba(255, 255, 255, 0.5);
 }
 .footer li a:hover,
-.footer p a:hover {
+.footer a:hover {
   color: #ffffff;
   text-decoration: none;
+}
+.footer h5 {
+  margin-top: 0;
 }
 .go-top {
   position: fixed;
