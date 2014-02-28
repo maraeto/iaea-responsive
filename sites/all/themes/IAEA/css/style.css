@@ -6846,9 +6846,8 @@ body.admin-menu {
   padding-top: 21px;
 }
 .navigation-sidebar {
-  background-color: #fff;
-  border-left: 1px solid #ddd;
-  border-right: 1px solid #ddd;
+  background-color: #f6f6f6;
+  /* border-left: 1px solid #ddd; border-right: 1px solid #ddd;*/
   border-top: 1px solid #dddddd;
 }
 .navigation-sidebar > li {
