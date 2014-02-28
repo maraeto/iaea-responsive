@@ -21,8 +21,16 @@
     to reset the status of already imported objects use those 3 queries:
 
     UPDATE mtcm.mt_migrated_content SET LastImported='', Imported = 0, NewLocation='';
+    UPDATE mtcm.mt_migrated_ilink SET LastImported='', Imported = 0, NewURL='';
     UPDATE mtcm.mt_migrated_link SET LastImported='', Imported = 0, NewURL='';
     UPDATE mtcm.mt_migrated_image SET LastImported='', Imported = 0, NewURL='';
+
+    to completely reimport (after deleting all nodes in Drupal):
+
+    UPDATE mtcm.mt_migrated_content SET DrupalID = 0, Imported = 0, NewLocation = '', LastImported = '';
+    UPDATE mtcm.mt_migrated_ilink SET DrupalID = 0, Imported = 0, NewURL = '', LastImported = '';
+    UPDATE mtcm.mt_migrated_link SET DrupalID = 0, Imported = 0, NewURL = '', LastImported = '';
+    UPDATE mtcm.mt_migrated_image SET DrupalID = 0, Imported = 0, NewURL = '', LastImported = '';
 
 // ----------------------------------------------------------
 
@@ -165,7 +173,7 @@ function import_migrated_objects() {
                         'width' => $img_row->Width,
                         'height' => $img_row->Height
                         );
-                        $file = file_copy($file, "public://");
+                        $file = file_copy($file, "public://", FILE_EXISTS_ERROR);
                         $node->{$imgprop}[$node->language][$cnt] = (array)$file;
 
                         chmod(drupal_realpath($file->uri), 0777);
@@ -228,7 +236,7 @@ function import_migrated_objects() {
                         'width' => $img_row->Width,
                         'height' => $img_row->Height
                         );
-                        $file = file_copy($file, "public://");
+                        $file = file_copy($file, "public://", FILE_EXISTS_ERROR);
                         $node->{$imgprop}[$node->language][$cnt] = (array)$file;
 
                         chmod(drupal_realpath($file->uri), 0777);
@@ -409,7 +417,7 @@ function import_migrated_objects() {
                     'status' => 1,
                     'alt' => $img_row->AltText
                     );
-                    $file = file_copy($file, "public://");
+                    $file = file_copy($file, "public://", FILE_EXISTS_ERROR);
                     $node->{$imgprop}[$node->language][$cnt] = (array)$file;
 
                     if ($imgcapprop!="")

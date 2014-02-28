@@ -214,7 +214,7 @@ function update_migrated_objects() {
                                 'width' => $img_row->Width,
                                 'height' => $img_row->Height
                                 );
-                                $file = file_copy($file, "public://");
+                                $file = file_copy($file, "public://", FILE_EXISTS_ERROR);
                                 $node->{$imgprop}[$node->language][$cnt] = (array)$file;
 
                                 chmod(drupal_realpath($file->uri), 0777);
@@ -288,7 +288,7 @@ function update_migrated_objects() {
                                 'width' => $img_row->Width,
                                 'height' => $img_row->Height
                                 );
-                                $file = file_copy($file, "public://");
+                                $file = file_copy($file, "public://", FILE_EXISTS_ERROR);
                                 $node->{$imgprop}[$node->language][$cnt] = (array)$file;
 
                                 chmod(drupal_realpath($file->uri), 0777);
@@ -516,7 +516,7 @@ function update_migrated_objects() {
                             'status' => 1,
                             'alt' => $img_row->AltText
                             );
-                            $file = file_copy($file, "public://");
+                            $file = file_copy($file, "public://", FILE_EXISTS_ERROR);
                             $node->{$imgprop}[$node->language][$cnt] = (array)$file;
                             if ($imgcapprop!="")
                             {

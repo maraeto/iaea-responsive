@@ -31,6 +31,15 @@ function taxonomy_get_term_by_name_and_vocabulary($name, $vid) {
 }
 
 
+function corrDate($date)
+{
+    $dat = date_parse($date);
+    if ($dat["year"] > 2030) $dat["year"] = $dat["year"]-100; // correct 19.century
+    $date = $dat["year"]."-".str_pad($dat["month"],2,"0",STR_PAD_LEFT)."-".str_pad($dat["day"],2,"0",STR_PAD_LEFT);
+    drush_print($date);
+    return ($date);
+}
+
 function import_infcircs() {
 
     $langs = array("sp"=>"292","ch"=>"290","en"=>"288","fr"=>"291","ru"=>"293","ar"=>"289");
@@ -38,7 +47,7 @@ function import_infcircs() {
     // Drupal UserID
     $uid = 24; // mjt
 
-    $query = "SELECT DISTINCT Number FROM mtcm.mt_infcircs";
+    $query = "SELECT DISTINCT Number FROM mtcm.mt_infcircs ORDER BY Number";
     $numbers = db_query($query);
 
     // step trough the result
@@ -76,7 +85,7 @@ function import_infcircs() {
                 $node->field_infcirc_author[$node->language][0]['value'] = strip_tags($row1->Author);
                 $node->field_infcirc_description[$node->language][0]['value'] = str_replace("'", "\'", strip_tags($row1->Description));
                 $node->field_infcirc_subject[$node->language][0]['value'] = str_replace("'", "\'", strip_tags($row1->Subject));
-                $node->field_infcirc_date[$node->language][0]['value'] = $row1->InfDate;
+                $node->field_infcirc_date[$node->language][0]['value'] = corrDate($row1->InfDate);
                 $node->field_infcirc_related[$node->language][0]['value'] = $row1->related;
 
                 if ($row1->Category!="") {
@@ -179,7 +188,7 @@ function import_infcircs() {
                         'display' => 1,
                         'description'=>'');
 
-                        $file = file_copy($file, "public://");
+                        $file = file_copy($file, "public://", FILE_EXISTS_ERROR);
 
                         chmod(drupal_realpath($file->uri), 0777);
 
@@ -206,7 +215,7 @@ function import_infcircs() {
                     $revisions->setHostEntity('node', $node);
 
                     $revisions->field_infcirc_revision_number[$node->language][$pcnt]['value'] = $row1->Revision;
-                    $revisions->field_infcirc_revision_date[$node->language][$pcnt]['value'] = $row1->InfDate;
+                    $revisions->field_infcirc_revision_date[$node->language][$pcnt]['value'] = corrDate($row1->InfDate);
                     $revisions->field_infcirc_revision_desc[$node->language][$pcnt]['value'] = $row1->Description;
 
                     $revisions->save();
@@ -228,7 +237,7 @@ function import_infcircs() {
                         while (!feof($handle)) $fcont.= fgets($handle, 4096);
                         fclose($handle);
 
-                        usleep(500000);
+                        usleep(200000);
 
                         $fd = fopen ($file_path, "wb");
                         fwrite($fd, $fcont);
@@ -245,7 +254,7 @@ function import_infcircs() {
                         'status' => 1,
                         'display' => 1);
 
-                        $file = file_copy($file, "public://");
+                        $file = file_copy($file, "public://", FILE_EXISTS_ERROR);
 
                         chmod(drupal_realpath($file->uri), 0777);
 
@@ -255,7 +264,7 @@ function import_infcircs() {
                         $rev_file_item->field_infcirc_document[$node->language][$cnt] = (array)$file;
                         $rev_file_item->field_infcirc_document_language[$node->language][$cnt]['tid']= $langs[$row1->Language];
 
-                        $rev_file_item->save(); // fails!!!
+                        $rev_file_item->save();
                     }
                 }
             }

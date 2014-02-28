@@ -108,7 +108,7 @@ function import_bulletins() {
                 'display' => 1,
                 'description'=>'');
 
-                $file = file_copy($file, "public://");
+                $file = file_copy($file, "public://", FILE_EXISTS_ERROR);
 
                 chmod(drupal_realpath($file->uri), 0777);
 
