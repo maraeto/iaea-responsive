@@ -302,6 +302,12 @@ function iaea_view_news_story_listing_views_default_views() {
   /* Display: News List - ALL */
   $handler = $view->new_display('panel_pane', 'News List - ALL', 'panel_pane_3');
   $handler->display->display_options['display_description'] = 'Lists all news items with pager';
+  $handler->display->display_options['defaults']['query'] = FALSE;
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['slave'] = TRUE;
+  $handler->display->display_options['query']['options']['query_tags'] = array(
+    0 => 'full_news_listing',
+  );
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
