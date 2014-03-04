@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the IAEA View News Story Listing feature.
+ */
+
+include_once 'iaea_view_news_story_listing.features.inc';
