@@ -7109,3 +7109,6 @@ a.symbol:hover {
   font-size: 11px;
   letter-spacing: 1.5px;
 }
+.view-filters {
+  margin-bottom: 25px;
+}
