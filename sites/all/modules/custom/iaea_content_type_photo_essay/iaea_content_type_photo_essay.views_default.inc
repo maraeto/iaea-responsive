@@ -58,16 +58,6 @@ function iaea_content_type_photo_essay_views_default_views() {
     'multiple_to' => '',
   );
   $handler->display->display_options['fields']['field_photoessay_date']['field_api_classes'] = TRUE;
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_type'] = 'h4';
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   /* Field: Content: Photos */
   $handler->display->display_options['fields']['field_photoessay_photos']['id'] = 'field_photoessay_photos';
   $handler->display->display_options['fields']['field_photoessay_photos']['table'] = 'field_data_field_photoessay_photos';
@@ -78,7 +68,7 @@ function iaea_content_type_photo_essay_views_default_views() {
   $handler->display->display_options['fields']['field_photoessay_photos']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_photoessay_photos']['settings'] = array(
     'image_style' => 'photo_essay_grid_thumb',
-    'image_link' => '',
+    'image_link' => 'content',
     'field_formatter_class' => '',
   );
   $handler->display->display_options['fields']['field_photoessay_photos']['delta_limit'] = '1';
@@ -97,11 +87,22 @@ function iaea_content_type_photo_essay_views_default_views() {
     'trim_length' => '100',
   );
   $handler->display->display_options['fields']['field_photoessay_teaser']['field_api_classes'] = TRUE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'p';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   /* Field: Content: Link */
   $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['label'] = '';
+  $handler->display->display_options['fields']['view_node']['exclude'] = TRUE;
   $handler->display->display_options['fields']['view_node']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['view_node']['alter']['link_class'] = 'btn btn-default';
   $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
@@ -130,7 +131,7 @@ function iaea_content_type_photo_essay_views_default_views() {
   $handler->display->display_options['filters']['type']['group'] = 1;
 
   /* Display: Photo Essay Grid Front Page Tabs */
-  $handler = $view->new_display('panel_pane', 'Photo Essay Grid Front Page Tabs', 'panel_pane_1');
+  $handler = $view->new_display('panel_pane', 'Photo Essay Grid Front Page Tabs', 'front_page_grid');
   $handler->display->display_options['defaults']['use_more'] = FALSE;
   $handler->display->display_options['use_more'] = TRUE;
   $handler->display->display_options['defaults']['use_more_always'] = FALSE;
@@ -139,15 +140,11 @@ function iaea_content_type_photo_essay_views_default_views() {
   $handler->display->display_options['defaults']['use_more_text'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'More Photo Essays →';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'semanticviews_default';
-  $handler->display->display_options['style_options']['row']['first_class'] = '';
-  $handler->display->display_options['style_options']['row']['last_class'] = '';
-  $handler->display->display_options['style_options']['row']['last_every_nth'] = '';
-  $handler->display->display_options['style_options']['row']['striping_classes'] = '';
+  $handler->display->display_options['style_plugin'] = 'views_bootstrap_grid_plugin_style';
+  $handler->display->display_options['style_options']['columns'] = '3';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
 
   /* Display: Photo Essay List - ALL Items */
