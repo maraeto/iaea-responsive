@@ -3,11 +3,12 @@ body.admin-menu { padding-top: 1px !important }
 
 // Hero
 // --------------------------
-.hero { background: url(/sites/all/themes/IAEA/img/bgr-hero.png) top center repeat-y; padding: 50px 0; }
+@hero-padding: 50px;
+.hero { background: url(/sites/all/themes/IAEA/img/bgr-hero.png) top center repeat-y; padding: @hero-padding 0; margin-bottom: 25px; overflow: hidden; }
 .hero h1 { font-size: 48px; font-weight: 200; margin-top: 0; line-height: 1.1 }
 .hero p { font-size: 21px; font-weight: 200; }
-.hero-banner { width: auto; margin-bottom: 20px }
-.hero-banner-image, .hero-banner img { margin: 0 auto }
+.hero-banner { width: auto; margin: -@hero-padding 0 }
+.hero-banner img { margin: 0 auto }
 
 // Logo
 // --------------------------
@@ -38,13 +39,16 @@ body.admin-menu { padding-top: 1px !important }
 
 // Breadcrumbs
 // --------------------------
+@breadcrumbs-margin-bottom: 20px;
 .breadcrumb { margin-bottom: 0px; background-color: transparent }
 .breadcrumb > li > a {color: rgba(255, 255, 255, 0.4)}
 .breadcrumb > li > a:hover {color: rgba(255, 255, 255, 1); text-decoration: none}
 .breadcrumb > li.active { color: rgba(255, 255, 255, 0.8) }
 .breadcrumb > li + li:before { color: rgba(255, 255, 255, 0.3) }
-.breadcrumbs {background: url(/sites/all/themes/IAEA/img/bgr-doormat.png) top center repeat-y; margin-bottom: 20px }
+.breadcrumbs {background: url(/sites/all/themes/IAEA/img/bgr-doormat.png) top center repeat-y; margin-bottom: @breadcrumbs-margin-bottom }
 .breadcrumbs a { }
+/* when sibling of breadcrums is a hero, get rid of breadcrumbs bottom margin by adding hero's negative top margin */
+.breadcrumbs + div.hero { margin-top: -@breadcrumbs-margin-bottom; }
 
 // Doormat
 // --------------------------
@@ -133,7 +137,10 @@ a.symbol:hover { text-decoration: none }
 // .media-heading { font-family: @font-family-sans-serif }
 
 
+// Views
+// --------------------------
 .view-filters { margin-bottom: 25px }
+
 
 
 // .taxonomy-labels ul, .meta-navigation ul, .footer-nav ul, ul.social-media-icons, .doormat-menu ul { list-style: none; margin-left: 0; padding-left: 0 }

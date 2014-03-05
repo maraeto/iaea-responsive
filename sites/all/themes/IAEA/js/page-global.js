@@ -22,7 +22,7 @@
 
 
     /* Manipulate DOM, take the .hero-banner out of the .container and place it in front of it */
-    // $( ".hero-banner" ).insertBefore( $( ".main-content" ) );
+    $( ".hero" ).insertBefore( $( ".main-content" ) );
 
     // add classes to the front page resources lists
     // assign class .navigation-sidebar-frontpage-wrapper to the parent container in panels using semantic panels
