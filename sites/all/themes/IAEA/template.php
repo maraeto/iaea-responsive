@@ -48,7 +48,18 @@ function IAEA_preprocess_field(&$variables) {
       case 'field_basicpage_section':
         $variables['classes_array'][] = 'clearfix';
         break;
-      }
+      case 'field_infcirc_file':  
+        foreach($variables['element'] as $property => &$value) {
+          if(is_numeric($property)) {
+            foreach($value['entity']['field_collection_item'] as $id => &$data) {
+              $tid = $data['#entity']->field_infcirc_document_language[LANGUAGE_NONE][0]['tid'];
+              $term = taxonomy_term_load($tid);
+              $data['field_infcirc_document'][0]['#file']->filename = $term->name;
+            }
+          }
+        }
+        break;
+    }
 }
 
 /**
