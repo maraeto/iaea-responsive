@@ -402,7 +402,7 @@ function iaea_view_news_story_listing_views_default_views() {
   );
 
   /* Display: Last 1 News */
-  $handler = $view->new_display('panel_pane', 'Last 1 News', 'panel_pane_4');
+  $handler = $view->new_display('panel_pane', 'Last 1 News', 'last_one_news');
   $handler->display->display_options['display_description'] = 'Lists last News Item in jumbotron';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
@@ -416,14 +416,18 @@ function iaea_view_news_story_listing_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Field: Content: Link */
   $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['label'] = '';
   $handler->display->display_options['fields']['view_node']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['view_node']['alter']['link_class'] = 'btn btn-default';
+  $handler->display->display_options['fields']['view_node']['alter']['link_class'] = 'btn btn-primary btn-lg';
   $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['view_node']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['view_node']['text'] = 'Read more &rarr;';
   /* Field: Content: Story Photo */
   $handler->display->display_options['fields']['field_newsstory_photo']['id'] = 'field_newsstory_photo';
