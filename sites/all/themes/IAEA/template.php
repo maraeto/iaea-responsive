@@ -29,11 +29,35 @@ function IAEA_preprocess_page(&$variables) {
 } */
 
 /**
- * Applies "img-responsive" class to every image 
+ * Applies "img-responsive" class to every image
  */
 function IAEA_preprocess_image(&$variables) {
   $variables['attributes']['class'][] = "img-responsive";
 }
+
+/**
+ * preprocess proxy implementation that will define separate function for each view
+ * that is going to be altered.
+ */
+function IAEA_preprocess_views_view(&$vars) {
+  if (isset($vars['view']->name)) {
+    $function = 'IAEA_preprocess_views_view__'.$vars['view']->name;
+    if (function_exists($function)) {
+     $function($vars);
+    }
+  }
+}
+/**
+* View preprocess that will add prefix and sufix to the Meetings view
+*/
+function IAEA_preprocess_views_view__meetings(&$vars) {
+  if($vars['display_id'] == 'meeting_carousel') {
+    // $vars['attachment_before'] = '<div class="carousel slide" data-ride="carousel" id="meetings-carousel-frontpage">'
+    //                            . '<div class="carousel-inner">';
+    $vars['attachment_after'] = '</div><!-- /.carousel-inner --></div>';
+  }
+}
+
 
 /**
  * Add label class to tags based on field name.
@@ -93,7 +117,7 @@ function IAEA_menu_tree(&$variables) {
 }
 
 
-/* 
+/*
  * Adding option to include divider in menu.
  * (bootstrap) <li class="divider"></li>
  */
