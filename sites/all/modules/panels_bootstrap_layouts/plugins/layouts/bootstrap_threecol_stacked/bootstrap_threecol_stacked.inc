@@ -11,6 +11,7 @@ $plugin = array(
   'theme' => 'bootstrap_threecol_stacked',
   'admin css' => '../panels-bootstrap-layouts-admin.css',
   'regions' => array(
+    'hero-banner' => t('Hero Banner'),
     'top' => t('Top'),
     'left' => t('Left side'),
     'middle' => t('Middle column'),
