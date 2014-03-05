@@ -29,6 +29,7 @@
 	<div class="media-body">
 		<h4 class="media-heading"><?php print $fields['title']->content; ?></h4>
     	<?php print $fields['field_focus_summary']->content; ?>
+    	<?php print $fields['view_node']->content; ?>
 	</div>
 </div>
 <hr class="spacer25" />
