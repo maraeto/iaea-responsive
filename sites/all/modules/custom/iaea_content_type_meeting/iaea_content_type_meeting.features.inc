@@ -1,19 +1,13 @@
 <?php
 /**
  * @file
- * iaea_meetings.features.inc
+ * iaea_content_type_meeting.features.inc
  */
 
 /**
  * Implements hook_ctools_plugin_api().
  */
-function iaea_meetings_ctools_plugin_api($module = NULL, $api = NULL) {
-  if ($module == "feeds" && $api == "feeds_importer_default") {
-    return array("version" => "1");
-  }
-  if ($module == "feeds_tamper" && $api == "feeds_tamper_default") {
-    return array("version" => "2");
-  }
+function iaea_content_type_meeting_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
@@ -22,14 +16,14 @@ function iaea_meetings_ctools_plugin_api($module = NULL, $api = NULL) {
 /**
  * Implements hook_views_api().
  */
-function iaea_meetings_views_api($module = NULL, $api = NULL) {
+function iaea_content_type_meeting_views_api($module = NULL, $api = NULL) {
   return array("api" => "3.0");
 }
 
 /**
  * Implements hook_node_info().
  */
-function iaea_meetings_node_info() {
+function iaea_content_type_meeting_node_info() {
   $items = array(
     'meeting' => array(
       'name' => t('Meeting'),
