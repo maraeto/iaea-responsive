@@ -23,12 +23,20 @@
  *
  * @ingroup views_templates
  */
-dpm($fields);
+
+/**
+ * @TODO
+ * check why the paragraph font in this template renders differently (font style is heavier)
+ * than in static templates e.g. here
+ * /sites/all/themes/IAEA/static-html/template-newscenter.html
+ *
+ */
+$img_url = file_create_url($row->field_field_newsstory_photo[0]['raw']['uri']);
 ?>
 <div class="container">
 	<div class="row clearfix">
 		<div class="media col-md-4">
-			<a class="pull-left" href="<?php print url('node/'.$row->nid); ?>"><?php print $fields['field_newsstory_photo']->content; ?></a>
+			<a href="<?php print url('node/'.$row->nid); ?>"><img src="<?php print $img_url; ?>" alt="<?php print $fields['title']->content; ?>" class="img-responsive" width="360" /></a>
 		</div>
 		<div class="media-body col-md-8">
 			<h1 class="media-heading"><?php print $fields['title']->content; ?></h1>
