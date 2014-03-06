@@ -56,3 +56,32 @@ function _iaea_views_alter_news_listing_view_query_alter(&$query) {
   ));
   $query->addJoin('INNER', 'field_data_field_site_section', 'fd_fss', $conditions, array(':tid' => $tid));
 }
+
+/**
+ * Implements hook_views_pre_build()
+ */
+function iaea_views_alter_views_pre_build(&$view) {
+  _iaea_views_alter_views_pre_build_fix_homepage_redirect($view);
+}
+
+/**
+ * Workaround solution of redirect to frontpage on exposed form reset.
+ * See https://drupal.org/node/525592 for more details.
+ *
+ * @param view $view
+ */
+function _iaea_views_alter_views_pre_build_fix_homepage_redirect(&$view) {
+  // List of VIEW_NAME => display name list used to select the appropriate views.
+  $views_to_fix = array(
+    'news_story_listing' => array('panel_pane_3',),
+  );
+  if (!isset($views_to_fix[$view->name])) {
+    return;
+  }
+  if (!in_array($view->current_display, $views_to_fix[$view->name])) {
+    return;
+  }
+  // Set the override path to the current page. This will redirect the view
+  // back to the current page when submitted in case AJAX fails.
+  $view->override_path = $_GET['q'];
+}
