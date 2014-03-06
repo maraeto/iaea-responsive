@@ -7079,6 +7079,32 @@ a.symbol:hover {
   color: #5990ff;
   text-decoration: none;
 }
+.group-story-aside {
+  width: 390px;
+  border: none;
+}
+.group-story-aside > div.panel-body {
+  padding-top: 0;
+  padding-left: 0;
+}
+.group-story-aside > div.panel-body > img {
+  width: 360px;
+}
+.news-story-photo-caption > p {
+  font-size: 12px;
+}
+.field-newsstory-resources {
+  list-style: none;
+  padding-left: 0;
+}
+.field-newsstory-resources > li {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-bottom: 1px solid #eee;
+}
+.field-newsstory-resources > li:first-child {
+  border-top: 1px solid #eee;
+}
 .basicpage h1 {
   margin-top: 0;
   margin-bottom: 30px;
