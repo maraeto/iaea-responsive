@@ -1,0 +1,40 @@
+<?php
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+function iaea_tokens_token_info() {
+  return array(
+    'tokens' => array(
+      'file' => array(
+        'hash' => array(
+          'name' => t('Hash prefix'),
+          'description' => t('Hash prefix based on the file name and size.'),
+        ),
+      ),
+    ),
+  );
+}
+
+function iaea_tokens_tokens($type, $tokens, array $data = array(), array $options = array()) {
+  $replacements = array();
+  // File tokens.
+  if ($type == 'file' && !empty($data['file'])) {
+    foreach ($tokens as $name => $original) {
+      if ($name == 'hash'){
+        $replacements[$original] = substr(md5($data['file']->filesize . '|' . $data['file']->filename), 0, 2);
+      }
+    }
+  }
+  return $replacements;
+}
+
+/**
+ * Implements hook_filefield_paths_field_type_info() on behalf of file_entity.module.
+ */
+function iaea_tokens_filefield_paths_field_type_info() {
+  return array('document');
+}

@@ -1,17 +1,17 @@
 <?php
 /**
  * @file
- * iaea_content_type_bulletin_article.features.taxonomy.inc
+ * iaea_common_taxonomies.features.taxonomy.inc
  */
 
 /**
  * Implements hook_taxonomy_default_vocabularies().
  */
-function iaea_content_type_bulletin_article_taxonomy_default_vocabularies() {
+function iaea_common_taxonomies_taxonomy_default_vocabularies() {
   return array(
-    'bulletin_authors' => array(
-      'name' => 'Bulletin Authors',
-      'machine_name' => 'bulletin_authors',
+    'country' => array(
+      'name' => 'Country',
+      'machine_name' => 'country',
       'description' => '',
       'hierarchy' => 0,
       'module' => 'taxonomy',
@@ -32,9 +32,9 @@ function iaea_content_type_bulletin_article_taxonomy_default_vocabularies() {
         ),
       ),
     ),
-    'bulletin_issue' => array(
-      'name' => 'Bulletin Issue',
-      'machine_name' => 'bulletin_issue',
+    'language' => array(
+      'name' => 'Language',
+      'machine_name' => 'language',
       'description' => '',
       'hierarchy' => 0,
       'module' => 'taxonomy',
