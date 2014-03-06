@@ -14,6 +14,7 @@ dependencies[] = text
 dependencies[] = views
 dependencies[] = views_bootstrap
 dependencies[] = views_content
+dependencies[] = views_filters_populate
 features[ctools][] = strongarm:strongarm:1
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
