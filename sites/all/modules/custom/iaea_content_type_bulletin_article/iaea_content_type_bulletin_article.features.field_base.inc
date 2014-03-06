@@ -45,7 +45,7 @@ function iaea_content_type_bulletin_article_field_default_field_bases() {
   // Exported field_base: 'field_bulletin_author'
   $field_bases['field_bulletin_author'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_bulletin_author',

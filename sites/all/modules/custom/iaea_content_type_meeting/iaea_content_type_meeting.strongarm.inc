@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * iaea_meetings.strongarm.inc
+ * iaea_content_type_meeting.strongarm.inc
  */
 
 /**
  * Implements hook_strongarm().
  */
-function iaea_meetings_strongarm() {
+function iaea_content_type_meeting_strongarm() {
   $export = array();
 
   $strongarm = new stdClass();
@@ -35,50 +35,71 @@ function iaea_meetings_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_form_location_meeting';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['comment_form_location_meeting'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_meeting';
-  $strongarm->value = '0';
+  $strongarm->value = '1';
   $export['comment_meeting'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_preview_meeting';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['comment_preview_meeting'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_subject_field_meeting';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['comment_subject_field_meeting'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'field_bundle_settings_comment__comment_node_meeting';
-  $strongarm->value = array();
-  $export['field_bundle_settings_comment__comment_node_meeting'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__meeting';
   $strongarm->value = array(
-    'view_modes' => array(),
+    'view_modes' => array(
+      'teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'full' => array(
+        'custom_settings' => FALSE,
+      ),
+      'rss' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_index' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_result' => array(
+        'custom_settings' => FALSE,
+      ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'node_embed' => array(
+        'custom_settings' => FALSE,
+      ),
+      'token' => array(
+        'custom_settings' => FALSE,
+      ),
+      'revision' => array(
+        'custom_settings' => FALSE,
+      ),
+    ),
     'extra_fields' => array(
       'form' => array(
         'title' => array(
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '5',
+          'weight' => '7',
         ),
       ),
       'display' => array(),
@@ -113,7 +134,7 @@ function iaea_meetings_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_meeting';
-  $strongarm->value = '0';
+  $strongarm->value = '1';
   $export['node_preview_meeting'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -122,13 +143,6 @@ function iaea_meetings_strongarm() {
   $strongarm->name = 'node_submitted_meeting';
   $strongarm->value = 0;
   $export['node_submitted_meeting'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_node_meeting_pattern';
-  $strongarm->value = 'meeting/[node:title]';
-  $export['pathauto_node_meeting_pattern'] = $strongarm;
 
   return $export;
 }
