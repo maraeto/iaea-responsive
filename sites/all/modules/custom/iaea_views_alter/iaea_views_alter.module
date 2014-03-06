@@ -1,0 +1,87 @@
+<?php
+
+/**
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ * Group of query alter method calls.
+ *
+ * @param QueryAlterableInterface $query
+ * @return type
+ */
+function iaea_views_alter_query_alter(QueryAlterableInterface $query) {
+  _iaea_views_alter_news_listing_view_query_alter($query);
+}
+
+
+/**
+ * Alters the news listing view when a number is added to the end of the URL path.
+ * TODO: Add caching on the VID as it does not need to search the DB every time.
+ *
+ * @param &QueryAlterableInterface $query
+ */
+function _iaea_views_alter_news_listing_view_query_alter(&$query) {
+  // Not a select query
+  if (!($query instanceof SelectQueryInterface)) {
+    return;
+  }
+  // Skipp if the query is not tagged properly.
+  if(!$query->hasTag('full_news_listing')) {
+    return;
+  }
+  // No term passed in URL
+  $path_elements = explode('/', current_path());
+  if (!($tid = (int) array_pop($path_elements))) {
+    return;
+  }
+  // Can not extract vocabulary
+  if (!($vocabulary = taxonomy_vocabulary_machine_name_load('site_section'))) {
+    return;
+  }
+  // Search for a valid term
+  $terms = taxonomy_term_load_multiple(array($tid), array('vid' => $vocabulary->vid));
+  $term = array_pop($terms);
+  if(empty($term)) {
+    return;
+  }
+  // Alter the raw DB query.
+  $conditions = implode(' AND ', array(
+    "%alias.entity_id  = node.nid",
+    "%alias.entity_type = 'node'",
+    "%alias.deleted = 0",
+    "%alias.field_site_section_tid = :tid",
+  ));
+  $query->addJoin('INNER', 'field_data_field_site_section', 'fd_fss', $conditions, array(':tid' => $tid));
+}
+
+/**
+ * Implements hook_views_pre_build()
+ */
+function iaea_views_alter_views_pre_build(&$view) {
+  _iaea_views_alter_views_pre_build_fix_homepage_redirect($view);
+}
+
+/**
+ * Workaround solution of redirect to frontpage on exposed form reset.
+ * See https://drupal.org/node/525592 for more details.
+ *
+ * @param view $view
+ */
+function _iaea_views_alter_views_pre_build_fix_homepage_redirect(&$view) {
+  // List of VIEW_NAME => display name list used to select the appropriate views.
+  $views_to_fix = array(
+    'news_story_listing' => array('panel_pane_3',),
+  );
+  if (!isset($views_to_fix[$view->name])) {
+    return;
+  }
+  if (!in_array($view->current_display, $views_to_fix[$view->name])) {
+    return;
+  }
+  // Set the override path to the current page. This will redirect the view
+  // back to the current page when submitted in case AJAX fails.
+  $view->override_path = $_GET['q'];
+}

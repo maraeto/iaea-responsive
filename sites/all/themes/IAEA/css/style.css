@@ -6790,6 +6790,8 @@ body.admin-menu {
 .hero {
   background: url(/sites/all/themes/IAEA/img/bgr-hero.png) top center repeat-y;
   padding: 50px 0;
+  margin-bottom: 25px;
+  overflow: hidden;
 }
 .hero h1 {
   font-size: 48px;
@@ -6803,9 +6805,8 @@ body.admin-menu {
 }
 .hero-banner {
   width: auto;
-  margin-bottom: 20px;
+  margin: -50px 0;
 }
-.hero-banner-image,
 .hero-banner img {
   margin: 0 auto;
 }
@@ -6890,6 +6891,10 @@ body.admin-menu {
 .breadcrumbs {
   background: url(/sites/all/themes/IAEA/img/bgr-doormat.png) top center repeat-y;
   margin-bottom: 20px;
+}
+/* when sibling of breadcrums is a hero, get rid of breadcrumbs bottom margin by adding hero's negative top margin */
+.breadcrumbs + div.hero {
+  margin-top: -20px;
 }
 .doormat {
   background: url(/sites/all/themes/IAEA/img/bgr-doormat.png) top center repeat-y;
@@ -7108,4 +7113,7 @@ a.symbol:hover {
   text-transform: uppercase;
   font-size: 11px;
   letter-spacing: 1.5px;
+}
+.view-filters {
+  margin-bottom: 25px;
 }

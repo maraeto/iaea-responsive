@@ -1,0 +1,5 @@
+name = IAEA Views Alters
+description = Custom view alters 
+core = 7.x
+package = IAEA
+version = 7.x-1.0

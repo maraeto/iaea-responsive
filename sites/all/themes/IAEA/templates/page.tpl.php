@@ -73,13 +73,8 @@
   </div>
 <?php endif;?>
 
-<?php if (!empty($page['hero'])): ?>
-  <div class="hero-banner">
-    <?php print render($page['hero']); ?>
-  </div>
-<?php endif;?>
 
-<div class="container">
+<div class="container main-content">
     <div class="row clearfix">
       <section<?php print $content_column_class; ?>>
         <?php if (!empty($page['highlighted'])): ?>

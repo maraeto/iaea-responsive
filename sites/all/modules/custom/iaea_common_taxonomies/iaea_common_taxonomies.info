@@ -1,0 +1,11 @@
+name = iaea_common_taxonomies
+description = Collection of taxonomies shared between the content types.
+core = 7.x
+package = Features
+version = 7.x-1.0
+project = iaea_common_taxonomies
+dependencies[] = features
+dependencies[] = taxonomy
+features[features_api][] = api:2
+features[taxonomy][] = country
+features[taxonomy][] = language

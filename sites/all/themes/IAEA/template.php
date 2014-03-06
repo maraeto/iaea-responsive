@@ -28,27 +28,85 @@ function IAEA_preprocess_page(&$variables) {
   }
 } */
 
-/* applies "img-responsive" class to every image */
+/**
+ * Applies "img-responsive" class to every image
+ */
 function IAEA_preprocess_image(&$variables) {
   $variables['attributes']['class'][] = "img-responsive";
 }
 
-/* Add label class to tags based on field name */
+/**
+ * preprocess proxy implementation that will define separate function for each view
+ * that is going to be altered.
+ */
+function IAEA_preprocess_views_view(&$vars) {
+  if (isset($vars['view']->name)) {
+    $function = 'IAEA_preprocess_views_view__'.$vars['view']->name;
+    if (function_exists($function)) {
+     $function($vars);
+    }
+  }
+}
+/**
+* View preprocess that will add prefix and sufix to the Meetings view
+*/
+function IAEA_preprocess_views_view__meetings(&$vars) {
+  if($vars['display_id'] == 'meeting_carousel') {
+    // $vars['attachment_before'] = '<div class="carousel slide" data-ride="carousel" id="meetings-carousel-frontpage">'
+    //                            . '<div class="carousel-inner">';
+    $vars['attachment_after'] = '</div><!-- /.carousel-inner --></div>';
+  }
+}
+
+
+/**
+ * Add label class to tags based on field name.
+ */
 function IAEA_preprocess_field(&$variables) {
-    switch ($variables['element']['#field_name']) {
-      case 'field_mediaadvisory_tags':
-      case 'field_dgstatement_tags':
-      case 'field_newsstory_tags':
-      case 'field_pressrelease_tags':
-        foreach ($variables['items'] as $key => $item) {
-          $variables['items'][$key]['#prefix'] = '<span class="label label-default">';
-          $variables['items'][$key]['#suffix'] = '</span>';
-        }
-        break;
-      case 'field_basicpage_section':
-        $variables['classes_array'][] = 'clearfix';
-        break;
+  switch ($variables['element']['#field_name']) {
+    case 'field_mediaadvisory_tags':
+    case 'field_dgstatement_tags':
+    case 'field_newsstory_tags':
+    case 'field_pressrelease_tags':
+      foreach ($variables['items'] as $key => $item) {
+        $variables['items'][$key]['#prefix'] = '<span class="label label-default">';
+        $variables['items'][$key]['#suffix'] = '</span>';
       }
+      break;
+    case 'field_basicpage_section':
+      $variables['classes_array'][] = 'clearfix';
+      break;
+    case 'field_infcirc_file':
+      _IAEA_preprocess_field_apply_language($variables, 'field_infcirc_document', 'field_infcirc_document_language');
+      break;
+    case 'field_bulletin_file':
+      _IAEA_preprocess_field_apply_language($variables, 'field_bulletin_document', 'field_bulletin_document_language');
+      break;
+  }
+}
+
+/**
+ * Changes the filename to the language name for field collections having file
+ * field and a language term reference field.
+ *
+ * @param array $variables
+ *   See hook_preprocess_field for detailed explanation of this variable.
+ * @param string $file_field
+ *   Name of the file field to be changed.
+ * @param string $language_field
+ *   Name of the term reference field.
+ */
+function _IAEA_preprocess_field_apply_language(&$variables, $file_field, $language_field) {
+  foreach($variables['element'] as $property => &$value) {
+    if(!is_numeric($property)) {
+      continue;
+    }
+    foreach($value['entity']['field_collection_item'] as &$data) {
+      $tid = $data['#entity']->{$language_field}[LANGUAGE_NONE][0]['tid'];
+      $term = taxonomy_term_load($tid);
+      $data[$file_field][0]['#file']->filename = $term->name;
+    }
+  }
 }
 
 /**
@@ -59,7 +117,10 @@ function IAEA_menu_tree(&$variables) {
 }
 
 
-/* Adding option to include divider in menu (bootstrap) <li class="divider"></li>  */
+/*
+ * Adding option to include divider in menu.
+ * (bootstrap) <li class="divider"></li>
+ */
 function IAEA_menu_link(array $variables) {
   $element = $variables['element'];
   $sub_menu = '';

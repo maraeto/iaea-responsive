@@ -49,7 +49,7 @@ function iaea_content_type_information_circulars_field_default_field_instances()
             'pathauto' => 0,
             'transliterate' => 0,
           ),
-          'value' => 'infcircs',
+          'value' => 'infcircs/[file:hash]',
         ),
         'retroactive_update' => 0,
       ),

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the IAEA Content Type Meeting feature.
+ */
+
+include_once 'iaea_content_type_meeting.features.inc';

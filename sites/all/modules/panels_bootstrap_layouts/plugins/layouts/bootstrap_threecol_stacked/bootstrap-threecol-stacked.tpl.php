@@ -1,4 +1,9 @@
 <div class="<?php print $classes ?>" <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?>>
+  <?php if ($content['hero-banner']): ?>
+    <div class="hero">
+        <?php print $content['hero-banner']; ?>
+    </div>
+  <?php endif ?>
   <?php if ($content['top']): ?>
     <div class="row">
       <?php print $content['top']; ?>
