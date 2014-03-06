@@ -1,0 +1,4 @@
+name = "IAEA Tokens"
+description = "Provide IAEA specific tokens."
+package = "IAEA"
+core = "7.x"
