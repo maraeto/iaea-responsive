@@ -28,7 +28,9 @@ function iaea_view_news_story_listing_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
   $handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
+  $handler->display->display_options['exposed_form']['options']['expose_sort_order'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -138,6 +140,11 @@ function iaea_view_news_story_listing_views_default_views() {
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
+  $handler->display->display_options['defaults']['exposed_form'] = FALSE;
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
+  $handler->display->display_options['exposed_form']['options']['expose_sort_order'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -323,6 +330,11 @@ function iaea_view_news_story_listing_views_default_views() {
   $handler->display->display_options['sorts']['created']['granularity'] = 'minute';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'AND',
+    3 => 'AND',
+    2 => 'OR',
+  );
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
@@ -354,13 +366,42 @@ function iaea_view_news_story_listing_views_default_views() {
     3 => 0,
     4 => 0,
   );
+  /* Filter criterion: Global: Populate filters */
+  $handler->display->display_options['filters']['populate']['id'] = 'populate';
+  $handler->display->display_options['filters']['populate']['table'] = 'views_filters_populate';
+  $handler->display->display_options['filters']['populate']['field'] = 'populate';
+  $handler->display->display_options['filters']['populate']['group'] = 1;
+  $handler->display->display_options['filters']['populate']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['populate']['expose']['operator_id'] = '';
+  $handler->display->display_options['filters']['populate']['expose']['label'] = 'Search';
+  $handler->display->display_options['filters']['populate']['expose']['operator'] = 'populate_op';
+  $handler->display->display_options['filters']['populate']['expose']['identifier'] = 'populate';
+  $handler->display->display_options['filters']['populate']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  $handler->display->display_options['filters']['populate']['filters'] = array(
+    'title' => 'title',
+    'field_newsstory_body_value' => 'field_newsstory_body_value',
+    'status' => 0,
+    'type' => 0,
+    'keys' => 0,
+    'field_newsstory_date_value' => 0,
+  );
+  /* Filter criterion: Content: Title */
+  $handler->display->display_options['filters']['title']['id'] = 'title';
+  $handler->display->display_options['filters']['title']['table'] = 'node';
+  $handler->display->display_options['filters']['title']['field'] = 'title';
+  $handler->display->display_options['filters']['title']['operator'] = 'allwords';
+  $handler->display->display_options['filters']['title']['group'] = 2;
   /* Filter criterion: Content: Story Body (field_newsstory_body) */
   $handler->display->display_options['filters']['field_newsstory_body_value']['id'] = 'field_newsstory_body_value';
   $handler->display->display_options['filters']['field_newsstory_body_value']['table'] = 'field_data_field_newsstory_body';
   $handler->display->display_options['filters']['field_newsstory_body_value']['field'] = 'field_newsstory_body_value';
   $handler->display->display_options['filters']['field_newsstory_body_value']['operator'] = 'allwords';
-  $handler->display->display_options['filters']['field_newsstory_body_value']['group'] = 1;
-  $handler->display->display_options['filters']['field_newsstory_body_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_newsstory_body_value']['group'] = 2;
   $handler->display->display_options['filters']['field_newsstory_body_value']['expose']['operator_id'] = 'field_newsstory_body_value_op';
   $handler->display->display_options['filters']['field_newsstory_body_value']['expose']['label'] = 'Search';
   $handler->display->display_options['filters']['field_newsstory_body_value']['expose']['operator'] = 'field_newsstory_body_value_op';
@@ -375,7 +416,7 @@ function iaea_view_news_story_listing_views_default_views() {
   $handler->display->display_options['filters']['field_newsstory_date_value']['id'] = 'field_newsstory_date_value';
   $handler->display->display_options['filters']['field_newsstory_date_value']['table'] = 'field_data_field_newsstory_date';
   $handler->display->display_options['filters']['field_newsstory_date_value']['field'] = 'field_newsstory_date_value';
-  $handler->display->display_options['filters']['field_newsstory_date_value']['group'] = 1;
+  $handler->display->display_options['filters']['field_newsstory_date_value']['group'] = 3;
   $handler->display->display_options['filters']['field_newsstory_date_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_newsstory_date_value']['expose']['operator_id'] = 'field_newsstory_date_value_op';
   $handler->display->display_options['filters']['field_newsstory_date_value']['expose']['label'] = 'Year';
