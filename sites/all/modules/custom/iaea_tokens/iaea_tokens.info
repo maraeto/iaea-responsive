@@ -1,4 +1,6 @@
 name = "IAEA Tokens"
-description = "Provide IAEA specific tokens."
+description = "Provide IAEA specific token definitions."
 package = "IAEA"
 core = "7.x"
+
+dependencies[] = tokens

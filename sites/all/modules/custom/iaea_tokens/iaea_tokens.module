@@ -7,30 +7,25 @@
  */
 
 function iaea_tokens_token_info() {
-  $info = array();
-
-  $info['tokens']['file']['hash'] = array(
-    'name' => t('Hash prefix'),
-    'description' => t('Hash prefix based on the file name and size.'),
+  return array(
+    'tokens' => array(
+      'file' => array(
+        'hash' => array(
+          'name' => t('Hash prefix'),
+          'description' => t('Hash prefix based on the file name and size.'),
+        ),
+      ),
+    ),
   );
-
-  return $info;
 }
 
 function iaea_tokens_tokens($type, $tokens, array $data = array(), array $options = array()) {
   $replacements = array();
-  $sanitize = !empty($options['sanitize']);
-
   // File tokens.
   if ($type == 'file' && !empty($data['file'])) {
-    $file = $data['file'];
-
     foreach ($tokens as $name => $original) {
-      switch ($name) {
-        case 'hash':
-          $hash_prefix = substr(md5($file->filesize . '|' . $file->filename), 0, 2);
-          $replacements[$original] = $sanitize ? check_plain($hash_prefix) : $hash_prefix;
-          break;
+      if ($name == 'hash'){
+        $replacements[$original] = substr(md5($data['file']->filesize . '|' . $data['file']->filename), 0, 2);
       }
     }
   }
