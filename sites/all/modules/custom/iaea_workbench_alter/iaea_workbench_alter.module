@@ -1,0 +1,77 @@
+<?php
+
+/**
+ * Implements hook_views_default_views_alter.
+ *
+ * Disables the default viwes provided by workbench module. We will use colned 
+ * versions from them stored in a feature for easier maintenance and changes.
+ *
+ * @param array $views
+ */
+function iaea_workbench_alter_views_default_views_alter(&$views) {
+  foreach(_iaea_wrkbench_alter_get_default_views() as $view_name) {
+    if (isset($views[$view_name])) {
+      $views[$view_name]->disabled = TRUE;
+    }
+  }
+}
+
+/**
+ * Implements hook_workbench_content_alter() defined in workbench module.
+ *
+ * Used to change the views and configurations for the "My workbench" page.
+ *
+ * @param type $content
+ */
+function iaea_workbench_alter_workbench_content_alter(&$content) {
+  // Remove the current user's block from the display.
+  unset($content['workbench_current_user']);
+  
+  // Make my edits view  the full width.
+  $content['workbench_edited']['#attributes']['class'] = array('clearfix');
+  
+  // Swap the default views with the cloned ones.
+  $default_views = _iaea_wrkbench_alter_get_default_views();
+  foreach ($content as $block_name => $configurations) {
+    if (!in_array($block_name, $default_views)) {
+      continue;
+    }
+    // Add the new view to the page.
+    $new_configurations = $configurations;
+    $new_configurations['#view'] .= '_clone';
+    $content[$new_configurations['#view']] = $new_configurations;
+    
+    // Remove the old one.
+    unset($content[$configurations['#view']]);
+  }
+}
+
+/**
+ * Returns a list of the default view names provided by workbench and
+ * workbench_moderation modules.
+ *
+ * @return array
+ */
+function _iaea_wrkbench_alter_get_default_views() {
+  return array(
+    'workbench_current_user', 
+    'workbench_edited', 
+    'workbench_recent_content', 
+    'workbench_moderation',
+  );
+}
+
+/**
+ * Implements hook_permission()
+ *
+ * Add a custom permission for accessing the new workbench tab - "Needs QA".
+ *
+ * @return array
+ */
+function iaea_workbench_alter_permission() {
+  return array(
+    'use workbench_moderation needs qa tab' => array(
+      'title' => t('Use "Needs QA" workbench tab')
+    ),
+  );
+}
