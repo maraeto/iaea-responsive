@@ -454,6 +454,8 @@ function update_migrated_objects() {
 
                     // NUMBER, EVENT, LOCATION
 
+                    if (strpos($row->ReferenceNumber,"/")) $row->ReferenceNumber = substr($row->ReferenceNumber, strrpos($row->ReferenceNumber,"/")+1);
+
                     if ($node->field_pressrelease_number[$node->language][0]['value'] != $row->ReferenceNumber)
                     {
                         $node->field_pressrelease_number[$node->language][0]['value'] = $row->ReferenceNumber;

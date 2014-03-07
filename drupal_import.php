@@ -18,7 +18,7 @@
 
 // ----------------------------------------------------------
 
-    to reset the status of already imported objects use those 3 queries:
+    to reset the status of already imported objects use those 4 queries:
 
     UPDATE mtcm.mt_migrated_content SET LastImported='', Imported = 0, NewLocation='';
     UPDATE mtcm.mt_migrated_ilink SET LastImported='', Imported = 0, NewURL='';
@@ -363,6 +363,8 @@ function import_migrated_objects() {
 
                 if ($row->ReferenceNumber!="")
                 {
+                    if (strpos($row->ReferenceNumber,"/")) $row->ReferenceNumber = substr($row->ReferenceNumber, strrpos($row->ReferenceNumber,"/")+1);
+
                     $node->field_pressrelease_number[$node->language][0]['value'] = $row->ReferenceNumber;
                     $node->field_pressrelease_number[$node->language][0]['format'] = 'filtered_html';
                 }
