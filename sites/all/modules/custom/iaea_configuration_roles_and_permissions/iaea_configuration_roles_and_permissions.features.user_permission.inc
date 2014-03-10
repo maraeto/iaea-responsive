@@ -179,6 +179,15 @@ function iaea_configuration_roles_and_permissions_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: 'access rules debug'.
+  $permissions['access rules debug'] = array(
+    'name' => 'access rules debug',
+    'roles' => array(
+      'Administrator' => 'Administrator',
+    ),
+    'module' => 'rules',
+  );
+
   // Exported permission: 'access service links'.
   $permissions['access service links'] = array(
     'name' => 'access service links',
@@ -505,6 +514,15 @@ function iaea_configuration_roles_and_permissions_user_default_permissions() {
     'module' => 'linkchecker',
   );
 
+  // Exported permission: 'administer mailsystem'.
+  $permissions['administer mailsystem'] = array(
+    'name' => 'administer mailsystem',
+    'roles' => array(
+      'Administrator' => 'Administrator',
+    ),
+    'module' => 'mailsystem',
+  );
+
   // Exported permission: 'administer media browser'.
   $permissions['administer media browser'] = array(
     'name' => 'administer media browser',
@@ -660,6 +678,15 @@ function iaea_configuration_roles_and_permissions_user_default_permissions() {
     'module' => 'user',
   );
 
+  // Exported permission: 'administer rules'.
+  $permissions['administer rules'] = array(
+    'name' => 'administer rules',
+    'roles' => array(
+      'Administrator' => 'Administrator',
+    ),
+    'module' => 'rules',
+  );
+
   // Exported permission: 'administer search'.
   $permissions['administer search'] = array(
     'name' => 'administer search',
@@ -812,6 +839,15 @@ function iaea_configuration_roles_and_permissions_user_default_permissions() {
       'Tech QA' => 'Tech QA',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'bypass rules access'.
+  $permissions['bypass rules access'] = array(
+    'name' => 'bypass rules access',
+    'roles' => array(
+      'Administrator' => 'Administrator',
+    ),
+    'module' => 'rules',
   );
 
   // Exported permission: 'bypass workbench moderation'.
@@ -1974,6 +2010,16 @@ function iaea_configuration_roles_and_permissions_user_default_permissions() {
     'module' => 'linkchecker',
   );
 
+  // Exported permission: 'edit mimemail user settings'.
+  $permissions['edit mimemail user settings'] = array(
+    'name' => 'edit mimemail user settings',
+    'roles' => array(
+      'Administrator' => 'Administrator',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'mimemail',
+  );
+
   // Exported permission: 'edit own audio files'.
   $permissions['edit own audio files'] = array(
     'name' => 'edit own audio files',
@@ -2402,6 +2448,7 @@ function iaea_configuration_roles_and_permissions_user_default_permissions() {
     'roles' => array(
       'Administrator' => 'Administrator',
       'Tech QA' => 'Tech QA',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'workbench_moderation',
   );
@@ -2522,6 +2569,15 @@ function iaea_configuration_roles_and_permissions_user_default_permissions() {
       'Administrator' => 'Administrator',
     ),
     'module' => 'user',
+  );
+
+  // Exported permission: 'send arbitrary files'.
+  $permissions['send arbitrary files'] = array(
+    'name' => 'send arbitrary files',
+    'roles' => array(
+      'Administrator' => 'Administrator',
+    ),
+    'module' => 'mimemail',
   );
 
   // Exported permission: 'set page title'.
