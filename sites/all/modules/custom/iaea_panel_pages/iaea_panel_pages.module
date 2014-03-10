@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the IAEA Panel Pages feature.
+ */
+
+include_once 'iaea_panel_pages.features.inc';
