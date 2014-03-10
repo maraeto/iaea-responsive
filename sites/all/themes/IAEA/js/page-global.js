@@ -1,6 +1,6 @@
-(function($){
+(function($) {
 
-  $(document).ready(function(){
+  $(document).ready(function() {
     $('ul.nav li.dropdown, ul.nav li.dropdown-submenu').hover(function() {
       $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(200);
     }, function() {
@@ -44,9 +44,27 @@
       });
   /* Go To Top end */
   /* make the image caption is the same size as parent image */
-      $('.basicpage-image').each(function(){
+      $('.basicpage-image').each(function() {
         $(this).parent().width( $(this).width() );
       });
+
+// FOCUS page
+      (function(){
+        var selection = $('.focus-page-related-news');
+        selection.each(function(){
+          $('li', selection).slice(5).toggleClass('hide');
+          var buttonHTML = '<button type="button" class="btn btn-default pull-right"><span class="glyphicon glyphicon-chevron-down" style="font-size:10px"></span> Display more</span>';
+        });
+
+
+
+        $(buttonHTML).appendTo(selection).click(function(){
+          $('li', selection).slice(5).toggleClass('hide');
+        });
+
+      })();
+// end FOCUS
+
   });
 
 })(jQuery);
