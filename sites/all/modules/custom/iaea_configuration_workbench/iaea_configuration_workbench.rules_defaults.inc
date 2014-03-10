@@ -20,14 +20,12 @@ function iaea_configuration_workbench_default_rules_configuration() {
         { "contents_current_state" : { "node" : [ "node" ], "moderation_state" : "draft" } }
       ],
       "DO" : [
-        { "mimemail_to_users_of_role" : {
+        { "mimemail" : {
             "key" : "[site:current-user]--[node:nid]--[new-state:value]--[site:current-date]",
-            "roles" : { "value" : { "5" : "5", "6" : "6" } },
-            "active" : 1,
+            "to" : [ "node:author:mail" ],
             "subject" : "[node:title] changed to [new-state:value]",
             "body" : "New content being changed from [previous-state:value] to [new-state:value].\\r\\nGo to node page from \\u003Ca href=\\u0022[node:url]\\u0022\\u003Ehere\\u003C\\/a\\u003E.",
             "plaintext" : "New content being changed from [previous-state:value] to [new-state:value].\\r\\nGo to node page from here: [node:url].",
-            "language_user" : 0,
             "language" : [ "" ]
           }
         }
