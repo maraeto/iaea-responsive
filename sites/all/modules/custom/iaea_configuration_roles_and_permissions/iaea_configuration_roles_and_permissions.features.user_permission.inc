@@ -2402,6 +2402,7 @@ function iaea_configuration_roles_and_permissions_user_default_permissions() {
     'roles' => array(
       'Administrator' => 'Administrator',
       'Tech QA' => 'Tech QA',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'workbench_moderation',
   );
