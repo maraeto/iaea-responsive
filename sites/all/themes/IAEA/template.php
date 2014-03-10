@@ -12,7 +12,7 @@ function IAEA_preprocess_page(&$variables) {
 	if (drupal_is_front_page()) {
 		$variables['title']="";
 	}
-  drupal_add_js(path_to_theme() . '/js/page-global.js', array( 'scope' => 'footer'));
+  drupal_add_js(path_to_theme() . '/js/page-global-ck.js', array( 'scope' => 'footer'));
 }
 
 /**
