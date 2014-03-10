@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the IAEA Configuration Workbench feature.
+ */
+
+include_once 'iaea_configuration_workbench.features.inc';

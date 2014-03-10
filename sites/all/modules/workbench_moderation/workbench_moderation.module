@@ -1217,7 +1217,7 @@ function workbench_moderation_node_is_current($node) {
  *   state object has name, description, and weight properties.
  */
 function workbench_moderation_states() {
-  static $states;
+  $states = &drupal_static(__FUNCTION__);
   if (!isset($states)) {
     $states = db_select('workbench_moderation_states', 'states')
       ->fields('states', array('name', 'label', 'description', 'weight'))
@@ -1326,7 +1326,7 @@ function workbench_moderation_state_delete($state) {
  *   'from' states, then by the weight of the 'to' states.
  */
 function workbench_moderation_transitions() {
-  static $transitions;
+  $transitions = &drupal_static(__FUNCTION__);
   if (!isset($transitions)) {
     $query = db_select('workbench_moderation_transitions', 't')
       ->fields('t', array('from_name', 'to_name'));
@@ -2098,6 +2098,28 @@ function workbench_moderation_ctools_plugin_api($module, $api) {
   if ($module == 'page_manager' && $api == 'pages_default') {
     return array('version' => 1);
   }
+}
+
+/**
+ * Implements hook_features_api().
+ */
+function workbench_moderation_features_api() {
+  return array(
+    'workbench_moderation_states' => array(
+      'name' => t('Workbench States'),
+      'default_hook' => 'workbench_moderation_export_states',
+      'feature_source' => TRUE,
+      'default_file' => FEATURES_DEFAULTS_INCLUDED,
+      'file' => drupal_get_path('module', 'workbench_moderation') .'/workbench_moderation.features.inc',
+    ),
+    'workbench_moderation_transitions' => array(
+      'name' => t('Workbench Transitions'),
+      'default_hook' => 'workbench_moderation_export_transitions',
+      'feature_source' => TRUE,
+      'default_file' => FEATURES_DEFAULTS_INCLUDED,
+      'file' => drupal_get_path('module', 'workbench_moderation') .'/workbench_moderation.features.inc',
+    ),
+  );
 }
 
 /**
