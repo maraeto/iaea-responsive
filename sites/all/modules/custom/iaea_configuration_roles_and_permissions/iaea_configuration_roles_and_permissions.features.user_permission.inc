@@ -64,6 +64,7 @@ function iaea_configuration_roles_and_permissions_user_default_permissions() {
     'roles' => array(
       'Administrator' => 'Administrator',
       'Editor' => 'Editor',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'bean',
   );
@@ -332,6 +333,7 @@ function iaea_configuration_roles_and_permissions_user_default_permissions() {
     'name' => 'administer bean usage',
     'roles' => array(
       'Administrator' => 'Administrator',
+      'Tech QA' => 'Tech QA',
     ),
     'module' => 'bean_usage',
   );
@@ -341,7 +343,7 @@ function iaea_configuration_roles_and_permissions_user_default_permissions() {
     'name' => 'administer beans',
     'roles' => array(
       'Administrator' => 'Administrator',
-      'Editor' => 'Editor',
+      'Tech QA' => 'Tech QA',
     ),
     'module' => 'bean',
   );
@@ -909,6 +911,7 @@ function iaea_configuration_roles_and_permissions_user_default_permissions() {
     'name' => 'create any jumbotron bean',
     'roles' => array(
       'Editor' => 'Editor',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'bean',
   );
@@ -918,6 +921,7 @@ function iaea_configuration_roles_and_permissions_user_default_permissions() {
     'name' => 'create any media_block bean',
     'roles' => array(
       'Editor' => 'Editor',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'bean',
   );
@@ -926,7 +930,9 @@ function iaea_configuration_roles_and_permissions_user_default_permissions() {
   $permissions['create any page_block bean'] = array(
     'name' => 'create any page_block bean',
     'roles' => array(
+      'Administrator' => 'Administrator',
       'Editor' => 'Editor',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'bean',
   );
@@ -936,6 +942,7 @@ function iaea_configuration_roles_and_permissions_user_default_permissions() {
     'name' => 'create any resources_block bean',
     'roles' => array(
       'Editor' => 'Editor',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'bean',
   );
@@ -1240,7 +1247,10 @@ function iaea_configuration_roles_and_permissions_user_default_permissions() {
   // Exported permission: 'delete any jumbotron bean'.
   $permissions['delete any jumbotron bean'] = array(
     'name' => 'delete any jumbotron bean',
-    'roles' => array(),
+    'roles' => array(
+      'Administrator' => 'Administrator',
+      'Tech QA' => 'Tech QA',
+    ),
     'module' => 'bean',
   );
 
@@ -1258,7 +1268,10 @@ function iaea_configuration_roles_and_permissions_user_default_permissions() {
   // Exported permission: 'delete any media_block bean'.
   $permissions['delete any media_block bean'] = array(
     'name' => 'delete any media_block bean',
-    'roles' => array(),
+    'roles' => array(
+      'Administrator' => 'Administrator',
+      'Tech QA' => 'Tech QA',
+    ),
     'module' => 'bean',
   );
 
@@ -1287,7 +1300,10 @@ function iaea_configuration_roles_and_permissions_user_default_permissions() {
   // Exported permission: 'delete any page_block bean'.
   $permissions['delete any page_block bean'] = array(
     'name' => 'delete any page_block bean',
-    'roles' => array(),
+    'roles' => array(
+      'Administrator' => 'Administrator',
+      'Tech QA' => 'Tech QA',
+    ),
     'module' => 'bean',
   );
 
@@ -1347,7 +1363,10 @@ function iaea_configuration_roles_and_permissions_user_default_permissions() {
   // Exported permission: 'delete any resources_block bean'.
   $permissions['delete any resources_block bean'] = array(
     'name' => 'delete any resources_block bean',
-    'roles' => array(),
+    'roles' => array(
+      'Administrator' => 'Administrator',
+      'Tech QA' => 'Tech QA',
+    ),
     'module' => 'bean',
   );
 
@@ -1874,6 +1893,7 @@ function iaea_configuration_roles_and_permissions_user_default_permissions() {
     'name' => 'edit any jumbotron bean',
     'roles' => array(
       'Editor' => 'Editor',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'bean',
   );
@@ -1893,6 +1913,7 @@ function iaea_configuration_roles_and_permissions_user_default_permissions() {
     'name' => 'edit any media_block bean',
     'roles' => array(
       'Editor' => 'Editor',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'bean',
   );
@@ -1920,7 +1941,9 @@ function iaea_configuration_roles_and_permissions_user_default_permissions() {
   $permissions['edit any page_block bean'] = array(
     'name' => 'edit any page_block bean',
     'roles' => array(
+      'Administrator' => 'Administrator',
       'Editor' => 'Editor',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'bean',
   );
@@ -1979,6 +2002,7 @@ function iaea_configuration_roles_and_permissions_user_default_permissions() {
     'name' => 'edit any resources_block bean',
     'roles' => array(
       'Editor' => 'Editor',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'bean',
   );
@@ -2838,7 +2862,10 @@ function iaea_configuration_roles_and_permissions_user_default_permissions() {
   $permissions['view any page_block bean'] = array(
     'name' => 'view any page_block bean',
     'roles' => array(
+      'Administrator' => 'Administrator',
       'Editor' => 'Editor',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'bean',
   );
@@ -2860,6 +2887,7 @@ function iaea_configuration_roles_and_permissions_user_default_permissions() {
     'roles' => array(
       'Administrator' => 'Administrator',
       'Editor' => 'Editor',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'bean',
   );
@@ -2870,6 +2898,7 @@ function iaea_configuration_roles_and_permissions_user_default_permissions() {
     'roles' => array(
       'Administrator' => 'Administrator',
       'Editor' => 'Editor',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'bean',
   );
@@ -2880,7 +2909,6 @@ function iaea_configuration_roles_and_permissions_user_default_permissions() {
     'roles' => array(
       'Administrator' => 'Administrator',
       'Editor' => 'Editor',
-      'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
     ),
     'module' => 'bean_usage',
