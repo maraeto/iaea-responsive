@@ -49,7 +49,7 @@ function iaea_content_type_information_circulars_field_default_field_instances()
             'pathauto' => 0,
             'transliterate' => 0,
           ),
-          'value' => 'infcircs/[file:hash]',
+          'value' => 'publications/documents/infcircs/[field_collection_item:root_host:field-infcirc-date:custom:Y]',
         ),
         'retroactive_update' => 0,
       ),
