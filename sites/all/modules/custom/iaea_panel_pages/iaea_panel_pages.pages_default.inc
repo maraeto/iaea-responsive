@@ -5423,6 +5423,7 @@ function iaea_panel_pages_default_page_manager_pages() {
         'offset_size' => '0',
       ),
       'bottom' => NULL,
+      'hero-banner' => NULL,
     ),
     'middle' => array(
       'style' => 'bootstrap_region',
@@ -5502,10 +5503,10 @@ function iaea_panel_pages_default_page_manager_pages() {
     $display->content['new-3c475194-d760-4391-904a-521126bca661'] = $pane;
     $display->panels['left'][0] = 'new-3c475194-d760-4391-904a-521126bca661';
     $pane = new stdClass();
-    $pane->pid = 'new-4d8e7cf2-7061-4fb8-8d7c-29d7166aa84d';
+    $pane->pid = 'new-72a50ca5-3c50-4dcc-9bd5-fc2d2b8c8c2a';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
-    $pane->subtype = 'press_releases-panel_pane_1';
+    $pane->subtype = 'press_releases-all_press_releases';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array();
@@ -5517,9 +5518,9 @@ function iaea_panel_pages_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '4d8e7cf2-7061-4fb8-8d7c-29d7166aa84d';
-    $display->content['new-4d8e7cf2-7061-4fb8-8d7c-29d7166aa84d'] = $pane;
-    $display->panels['middle'][0] = 'new-4d8e7cf2-7061-4fb8-8d7c-29d7166aa84d';
+    $pane->uuid = '72a50ca5-3c50-4dcc-9bd5-fc2d2b8c8c2a';
+    $display->content['new-72a50ca5-3c50-4dcc-9bd5-fc2d2b8c8c2a'] = $pane;
+    $display->panels['middle'][0] = 'new-72a50ca5-3c50-4dcc-9bd5-fc2d2b8c8c2a';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
