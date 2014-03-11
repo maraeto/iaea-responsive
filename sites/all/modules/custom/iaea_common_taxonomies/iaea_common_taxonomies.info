@@ -9,3 +9,6 @@ dependencies[] = taxonomy
 features[features_api][] = api:2
 features[taxonomy][] = country
 features[taxonomy][] = language
+features[taxonomy][] = story_resource_type
+features[taxonomy][] = tags
+features[taxonomy][] = site_section
