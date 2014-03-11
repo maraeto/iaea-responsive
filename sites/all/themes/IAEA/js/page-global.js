@@ -48,21 +48,25 @@
         $(this).parent().width( $(this).width() );
       });
 
-// FOCUS page
-      (function(){
-        var selection = $('.focus-page-related-news');
-        selection.each(function(){
-          $('li', selection).slice(5).toggleClass('hide');
-          var buttonHTML = '<button type="button" class="btn btn-default pull-right"><span class="glyphicon glyphicon-chevron-down" style="font-size:10px"></span> Display more</span>';
-        });
+// FOCUS page - displays more stories on click
+    (function() {
+      var selection = $('.focus-page-related-news li').slice(5);
+      selection.addClass('hide');
+      $('.more-news').click(function(event) {
 
-
-
-        $(buttonHTML).appendTo(selection).click(function(){
-          $('li', selection).slice(5).toggleClass('hide');
-        });
-
-      })();
+          var $this = $(this),
+            flag = $this.data("clickflag") || false;
+          if (!flag) {
+            $this.html('Display Less <span class="glyphicon glyphicon-chevron-up"></span>');
+            selection.removeClass('hide').addClass('show');
+          } else {
+            selection.removeClass('show').addClass('hide');
+            $('html, body').animate({scrollTop: 0}, 500);
+            $this.html('Display More <span class="glyphicon glyphicon-chevron-down"></span>');
+          }
+          $this.data("clickflag", !flag);
+      });
+    })();
 // end FOCUS
 
   });
