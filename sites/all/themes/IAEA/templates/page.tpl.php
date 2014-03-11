@@ -76,7 +76,6 @@
 
 <div class="container main-content">
     <div class="row clearfix">
-      <section<?php print $content_column_class; ?>>
         <?php if (!empty($page['highlighted'])): ?>
           <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
         <?php endif; ?>
@@ -102,7 +101,6 @@
           <ul class="action-links"><?php print render($action_links); ?></ul>
         <?php endif; ?>
         <?php print render($page['content']); ?>
-      </section>
     </div>
   </div>
 
