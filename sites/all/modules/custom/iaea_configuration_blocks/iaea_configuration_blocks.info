@@ -1,0 +1,7 @@
+name = IAEA Configuration Blocks
+core = 7.x
+package = Configuration
+dependencies[] = fe_block
+features[fe_block_boxes][] = add_this_sharing_buttons
+features[fe_block_settings][] = block-add_this_sharing_buttons
+features[features_api][] = api:2

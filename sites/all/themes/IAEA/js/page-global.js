@@ -1,6 +1,35 @@
 (function($) {
 
+// FOCUS page - displays more stories on click
+    function iaea_toggable_lists (selection) {
+      // create the button
+      var buttonHTML = $('<button type="button" class="btn btn-default more-news pull-right">Display More <span class="glyphicon glyphicon-chevron-down"></span></button><br class="spacer25">');
+      var parentElement = selection.first().parent();
+      // insert button after the parent element in selection
+      buttonHTML.insertAfter(parentElement);
+      // hide the selection
+      selection.addClass('hide');
+      parentElement.next().click(function(event) {
+
+          var $this = $(this),
+            flag = $this.data("clickflag") || false;
+          if (!flag) {
+            $this.html('Display Less <span class="glyphicon glyphicon-chevron-up"></span>');
+            selection.removeClass('hide').addClass('show');
+          } else {
+            selection.removeClass('show').addClass('hide');
+            $('html, body').animate({
+              scrollTop: $(".focus-page-related-news").offset().top-50
+            }, 500);
+            $this.html('Display More <span class="glyphicon glyphicon-chevron-down"></span>');
+          }
+          $this.data("clickflag", !flag);
+      });
+    }
+// end FOCUS
+
   $(document).ready(function() {
+
     $('ul.nav li.dropdown, ul.nav li.dropdown-submenu').hover(function() {
       $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(200);
     }, function() {
@@ -48,26 +77,8 @@
         $(this).parent().width( $(this).width() );
       });
 
-// FOCUS page - displays more stories on click
-    (function() {
-      var selection = $('.focus-page-related-news li').slice(5);
-      selection.addClass('hide');
-      $('.more-news').click(function(event) {
-
-          var $this = $(this),
-            flag = $this.data("clickflag") || false;
-          if (!flag) {
-            $this.html('Display Less <span class="glyphicon glyphicon-chevron-up"></span>');
-            selection.removeClass('hide').addClass('show');
-          } else {
-            selection.removeClass('show').addClass('hide');
-            $('html, body').animate({scrollTop: 0}, 500);
-            $this.html('Display More <span class="glyphicon glyphicon-chevron-down"></span>');
-          }
-          $this.data("clickflag", !flag);
-      });
-    })();
-// end FOCUS
+      iaea_toggable_lists ($('.focus-page-related-news li').slice(5));
+      iaea_toggable_lists ($('.field-focus-resources li').slice(2));
 
   });
 
