@@ -241,6 +241,28 @@ function iaea_content_type_news_story_default_page_manager_handlers() {
     $display->content['new-cc1faa49-3fd4-48d1-a108-d207b8b263da'] = $pane;
     $display->panels['right'][1] = 'new-cc1faa49-3fd4-48d1-a108-d207b8b263da';
     $pane = new stdClass();
+    $pane->pid = 'new-750e96c6-13f8-402f-9812-f62f8b13c9e0';
+    $pane->panel = 'right';
+    $pane->type = 'block';
+    $pane->subtype = 'block-10';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '750e96c6-13f8-402f-9812-f62f8b13c9e0';
+    $display->content['new-750e96c6-13f8-402f-9812-f62f8b13c9e0'] = $pane;
+    $display->panels['right'][2] = 'new-750e96c6-13f8-402f-9812-f62f8b13c9e0';
+    $pane = new stdClass();
     $pane->pid = 'new-59aad254-af4b-4507-9a19-778577141076';
     $pane->panel = 'right';
     $pane->type = 'entity_field';
@@ -304,11 +326,11 @@ function iaea_content_type_news_story_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 2;
+    $pane->position = 3;
     $pane->locks = array();
     $pane->uuid = '59aad254-af4b-4507-9a19-778577141076';
     $display->content['new-59aad254-af4b-4507-9a19-778577141076'] = $pane;
-    $display->panels['right'][2] = 'new-59aad254-af4b-4507-9a19-778577141076';
+    $display->panels['right'][3] = 'new-59aad254-af4b-4507-9a19-778577141076';
     $pane = new stdClass();
     $pane->pid = 'new-26886ad5-37f1-4571-8369-813580ca1bf6';
     $pane->panel = 'top';
@@ -359,7 +381,10 @@ function iaea_content_type_news_story_default_page_manager_pages() {
   $page->admin_title = 'Top Stories and News';
   $page->admin_description = '';
   $page->path = 'newscenter/news';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array();
   $page->arguments = array();
   $page->conf = array(
