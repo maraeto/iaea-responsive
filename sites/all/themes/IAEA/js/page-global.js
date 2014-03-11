@@ -77,8 +77,9 @@
         $(this).parent().width( $(this).width() );
       });
 
+      // call the function that is toggling the list
       iaea_toggable_lists ($('.focus-page-related-news li').slice(5));
-      iaea_toggable_lists ($('.field-focus-resources li').slice(2));
+      // iaea_toggable_lists ($('.field-focus-resources li').slice(2));
 
   });
 
