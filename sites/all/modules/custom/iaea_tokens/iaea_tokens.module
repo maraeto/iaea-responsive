@@ -15,12 +15,39 @@ function iaea_tokens_token_info() {
           'description' => t('Hash prefix based on the file name and size.'),
         ),
       ),
+      'field_collection_item' => array(
+        'host' => array(
+          'name' => t('Field Collection host entity'),
+          'description' => t('Host entity.'),
+          'type' => 'node',
+        ),
+        'root_host' => array(
+          'name' => t('Field Collection root host entity'),
+          'description' => t('Root host entity.'),
+          'type' => 'node',
+        ),
+      ),
     ),
   );
 }
 
+/**
+ * Implements hook_tokens.
+ *
+ * Provides a custom tokens for:
+ * File: hash.
+ * Field collection: host, root_host
+ *
+ * @param type $type
+ * @param type $tokens
+ * @param array $data
+ * @param array $options
+ * @return type
+ */
 function iaea_tokens_tokens($type, $tokens, array $data = array(), array $options = array()) {
   $replacements = array();
+  $sanitize = !empty($options['sanitize']);
+
   // File tokens.
   if ($type == 'file' && !empty($data['file'])) {
     foreach ($tokens as $name => $original) {
@@ -29,7 +56,61 @@ function iaea_tokens_tokens($type, $tokens, array $data = array(), array $option
       }
     }
   }
+
+  if ($type == 'field_collection_item' && !empty($data[$type])) {
+    $item = $data[$type];
+    foreach (array('host', 'root_host') as $token_type){
+      if (($host_entity_tokens = token_find_with_prefix($tokens, $token_type))) {
+        // Get host entity
+        list($host_entity_type, $host_entity) = call_user_func("_iaea_tokens_get_{$token_type}_entity_info", $item);
+        $host_entity_info = entity_get_info($host_entity_type);
+        $host_entity_token_type = isset($host_entity_info['token type']) ? $host_entity_info['token type'] : $host_entity_type;
+        $replacements += token_generate($host_entity_token_type, $host_entity_tokens, array($host_entity_token_type => $host_entity));
+      }
+    }
+  }
+
   return $replacements;
+}
+
+/**
+ * Helper method tho extract the host entity for a given field_collection.
+ *
+ * @param mixed $field_collection_item
+ * @return array(host_entity_type, host_entity)
+ */
+function _iaea_tokens_get_host_entity_info($field_collection_item) {
+  // Safty check.
+  if (!($field_collection_item instanceof FieldCollectionItemEntity)) {
+    $field_collection_item = new FieldCollectionItemEntity((array)$field_collection_item);
+  }
+  // Load field collection item and get host entity and host entity type.
+  $host_entity_type = $field_collection_item->hostEntityType();
+  $host_entity = $field_collection_item->hostEntity();
+
+  // When saving revisions, only $item->original knows the hostEntity.
+  if (!$host_entity && isset($field_collection_item->original)) {
+    $host_entity_type = $field_collection_item->original->hostEntityType();
+    $host_entity = $field_collection_item->original->hostEntity();
+  }
+  return array($host_entity_type, $host_entity);
+}
+
+/**
+ * Helper method to extract the root object for the nested field collections.
+ *
+ * @param FieldCollectionItemEntity $field_collection_item
+ * @return array(host_entity_type, host_entity)
+ */
+function _iaea_tokens_get_root_host_entity_info($field_collection_item) {
+  // Keep original $item.
+  $new_item = $field_collection_item;
+  // Get root host entity.
+  do {
+    list($host_entity_type, $host_entity) = _iaea_tokens_get_host_entity_info($new_item);
+    $new_item = $host_entity;
+  } while ($host_entity_type == 'field_collection_item');
+  return array($host_entity_type, $host_entity);
 }
 
 /**
@@ -37,4 +118,40 @@ function iaea_tokens_tokens($type, $tokens, array $data = array(), array $option
  */
 function iaea_tokens_filefield_paths_field_type_info() {
   return array('document');
+}
+
+/**
+ * Implements hook_field_attach_insert().
+ *
+ * Resave field collections after host entities are created.
+ * This allows features including use of host entity tokens.
+ *
+ * @param string $host_entity_type
+ * @param stdClass $host_entity
+ */
+function iaea_tokens_field_attach_insert($host_entity_type, $host_entity) {
+  $options = array(
+    'default' => FALSE,
+    'deleted' => FALSE,
+    'language' => NULL,
+  );
+  list(, , $bundle) = entity_extract_ids($host_entity_type, $host_entity);
+  $instances = _field_invoke_get_instances($host_entity_type, $bundle, $options);
+  foreach ($instances as $instance) {
+    $field = field_info_field_by_id($instance['field_id']);
+    if ($field['type'] != 'field_collection') {
+      continue;
+    }
+    $field_name = $field['field_name'];
+    $available_languages = field_available_languages($host_entity_type, $field);
+    $languages = _field_language_suggestion($available_languages, $options['language'], $field_name);
+    foreach ($languages as $langcode) {
+      $items = isset($host_entity->{$field_name}[$langcode]) ? $host_entity->{$field_name}[$langcode] : array();
+      foreach ($items as &$item) {
+        if ($entity = field_collection_field_get_entity($item)) {
+          $entity->save(TRUE);
+        }
+      }
+    }
+  }
 }
