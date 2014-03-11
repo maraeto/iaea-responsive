@@ -1,54 +1,57 @@
 <?php
 
+/**
+ * Implements hook_node_update().
+ *
+ * Used to change the created time node property based on the date field value.
+ * TODO: Think of a better solution by inspecting the object for a date field
+ * instead of static mapping to the fields for differenc content types.
+ *
+ * @param stdClass $node
+ */
 function iaea_date_sync_node_update($node) {
+  $node_date = NULL;
+  $lng = $node->language;
 
-    $dat = "";
-    $lng = $node->language;
+  switch ($node->type) {
+    case "news_story":
+      $node_date = $node->field_newsstory_date[$lng][0]["value"];
+      break;
 
-    switch($node->type)
-    {
-        case "news_story":
-            $dat = $node->field_newsstory_date[$lng][0]["value"];
-        break;
+    case "media_advisory":
+      $node_date = $node->field_mediaadvisory_date[$lng][0]["value"];
+      break;
 
-        case "media_advisory":
-            $dat = $node->field_mediaadvisory_date[$lng][0]["value"];
-        break;
+    case "press_release":
+      $node_date = $node->field_pressrelease_date[$lng][0]["value"];
+      break;
 
-        case "press_release":
-            $dat = $node->field_pressrelease_date[$lng][0]["value"];
-        break;
+    case "dg_statement":
+      $node_date = $node->field_dgstatement_date[$lng][0]["value"];
+      break;
 
-        case "dg_statement":
-            $dat = $node->field_dgstatement_date[$lng][0]["value"];
-        break;
+    case "photo_essay":
+      $node_date = $node->field_photoessay_date[$lng][0]["value"];
+      break;
 
-        case "photo_essay":
-            $dat = $node->field_photoessay_date[$lng][0]["value"];
-        break;
+    case "photo_gallery":
+      $node_date = $node->field_photogallery_date[$lng][0]["value"];
+      break;
 
-        case "photo_gallery":
-            $dat = $node->field_photogallery_date[$lng][0]["value"];
-        break;
+    case "information_circular":
+      $node_date = $node->field_infcirc_date[$lng][0]["value"];
+      break;
 
-        case "information_circular":
-            $dat = $node->field_infcirc_date[$lng][0]["value"];
-        break;
+    case "iaea_video":
+      $node_date = $node->field_iaeavideo_date[$lng][0]["value"];
+      break;
+  }
 
-        case "iaea_video":
-            $dat = $node->field_iaeavideo_date[$lng][0]["value"];
-        break;
-    }
-
-    if ($dat != "")
-    {
-        $dateTime = new DateTime($dat);
-
-        db_update('node')
-            ->fields(array('created' => $dateTime->format('U')))
-            ->condition('nid', $node->nid)
-            ->execute();
-    }
+  if ($node_date) {
+    $date_time = new DateTime($node_date);
+    db_update('node')
+      ->fields(array('created' => $date_time->format('U')))
+      ->condition('nid', $node->nid)
+      ->execute();
+  }
 }
-
-?>

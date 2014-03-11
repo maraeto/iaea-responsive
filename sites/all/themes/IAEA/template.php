@@ -102,8 +102,17 @@ function _IAEA_preprocess_field_apply_language(&$variables, $file_field, $langua
       continue;
     }
     foreach($value['entity']['field_collection_item'] as &$data) {
+      if (!isset($data['#entity']->{$language_field}[LANGUAGE_NONE])) {
+        continue;
+      }
       $tid = $data['#entity']->{$language_field}[LANGUAGE_NONE][0]['tid'];
+      if (!$tid) {
+        continue;
+      }
       $term = taxonomy_term_load($tid);
+      if (!$term) {
+        continue;
+      }
       $data[$file_field][0]['#file']->filename = $term->name;
     }
   }
