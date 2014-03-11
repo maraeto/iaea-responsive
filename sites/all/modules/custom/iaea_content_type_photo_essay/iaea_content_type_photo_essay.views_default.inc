@@ -205,6 +205,75 @@ function iaea_content_type_photo_essay_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Photo Essay Publishing Date */
+  $handler->display->display_options['fields']['field_photoessay_date']['id'] = 'field_photoessay_date';
+  $handler->display->display_options['fields']['field_photoessay_date']['table'] = 'field_data_field_photoessay_date';
+  $handler->display->display_options['fields']['field_photoessay_date']['field'] = 'field_photoessay_date';
+  $handler->display->display_options['fields']['field_photoessay_date']['label'] = '';
+  $handler->display->display_options['fields']['field_photoessay_date']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_photoessay_date']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_photoessay_date']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_photoessay_date']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_photoessay_date']['settings'] = array(
+    'format_type' => 'iaea_date_style',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  $handler->display->display_options['fields']['field_photoessay_date']['field_api_classes'] = TRUE;
+  /* Field: Content: Photos */
+  $handler->display->display_options['fields']['field_photoessay_photos']['id'] = 'field_photoessay_photos';
+  $handler->display->display_options['fields']['field_photoessay_photos']['table'] = 'field_data_field_photoessay_photos';
+  $handler->display->display_options['fields']['field_photoessay_photos']['field'] = 'field_photoessay_photos';
+  $handler->display->display_options['fields']['field_photoessay_photos']['label'] = '';
+  $handler->display->display_options['fields']['field_photoessay_photos']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_photoessay_photos']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_photoessay_photos']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_photoessay_photos']['settings'] = array(
+    'image_style' => 'photo_essay_grid_thumb',
+    'image_link' => 'content',
+    'field_formatter_class' => '',
+  );
+  $handler->display->display_options['fields']['field_photoessay_photos']['delta_limit'] = '1';
+  $handler->display->display_options['fields']['field_photoessay_photos']['delta_offset'] = '0';
+  /* Field: Content: Photo Essay Teaser */
+  $handler->display->display_options['fields']['field_photoessay_teaser']['id'] = 'field_photoessay_teaser';
+  $handler->display->display_options['fields']['field_photoessay_teaser']['table'] = 'field_data_field_photoessay_teaser';
+  $handler->display->display_options['fields']['field_photoessay_teaser']['field'] = 'field_photoessay_teaser';
+  $handler->display->display_options['fields']['field_photoessay_teaser']['label'] = '';
+  $handler->display->display_options['fields']['field_photoessay_teaser']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_photoessay_teaser']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_photoessay_teaser']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_photoessay_teaser']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_photoessay_teaser']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_photoessay_teaser']['settings'] = array(
+    'trim_length' => '100',
+  );
+  $handler->display->display_options['fields']['field_photoessay_teaser']['field_api_classes'] = TRUE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'p';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Link */
+  $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['label'] = '';
+  $handler->display->display_options['fields']['view_node']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['view_node']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['view_node']['alter']['link_class'] = 'btn btn-default';
+  $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['view_node']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['view_node']['text'] = 'View Photo Essay &rarr;';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -280,6 +349,7 @@ function iaea_content_type_photo_essay_views_default_views() {
   $handler->display->display_options['fields']['title']['element_type'] = 'p';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Field: Content: Photo Essay Teaser */
   $handler->display->display_options['fields']['field_photoessay_teaser']['id'] = 'field_photoessay_teaser';
   $handler->display->display_options['fields']['field_photoessay_teaser']['table'] = 'field_data_field_photoessay_teaser';
