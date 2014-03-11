@@ -26,7 +26,6 @@ features[variable][] = file_temporary_path
 features[variable][] = image_jpeg_quality
 features[variable][] = image_toolkit
 features[variable][] = imce_settings_textarea
-features[variable][] = linkchecker_cleanup_links_last
 features[variable][] = linkchecker_impersonate_user
 features[variable][] = mail_system
 features[variable][] = mimemail_engine
