@@ -73,7 +73,9 @@ function iaea_views_alter_views_pre_build(&$view) {
 function _iaea_views_alter_views_pre_build_fix_homepage_redirect(&$view) {
   // List of VIEW_NAME => display name list used to select the appropriate views.
   $views_to_fix = array(
-    'news_story_listing' => array('panel_pane_3',),
+    'news_story_listing' => array('all_news_list',),
+    'press_releases' => array('all_press_releases',),
+    'photo_essays_grid' => array('all_photo_essays_grid',),
   );
   if (!isset($views_to_fix[$view->name])) {
     return;

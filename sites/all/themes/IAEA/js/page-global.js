@@ -1,6 +1,6 @@
-(function($){
+(function($) {
 
-  $(document).ready(function(){
+  $(document).ready(function() {
     $('ul.nav li.dropdown, ul.nav li.dropdown-submenu').hover(function() {
       $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(200);
     }, function() {
@@ -44,9 +44,31 @@
       });
   /* Go To Top end */
   /* make the image caption is the same size as parent image */
-      $('.basicpage-image').each(function(){
+      $('.basicpage-image').each(function() {
         $(this).parent().width( $(this).width() );
       });
+
+// FOCUS page - displays more stories on click
+    (function() {
+      var selection = $('.focus-page-related-news li').slice(5);
+      selection.addClass('hide');
+      $('.more-news').click(function(event) {
+
+          var $this = $(this),
+            flag = $this.data("clickflag") || false;
+          if (!flag) {
+            $this.html('Display Less <span class="glyphicon glyphicon-chevron-up"></span>');
+            selection.removeClass('hide').addClass('show');
+          } else {
+            selection.removeClass('show').addClass('hide');
+            $('html, body').animate({scrollTop: 0}, 500);
+            $this.html('Display More <span class="glyphicon glyphicon-chevron-down"></span>');
+          }
+          $this.data("clickflag", !flag);
+      });
+    })();
+// end FOCUS
+
   });
 
 })(jQuery);

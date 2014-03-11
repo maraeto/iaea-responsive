@@ -2281,7 +2281,10 @@ function iaea_panel_pages_default_page_manager_pages() {
   $page->admin_title = 'About the IAEA';
   $page->admin_description = 'About Us Landing Page';
   $page->path = 'about';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array();
   $page->arguments = array();
   $page->conf = array(
@@ -2946,7 +2949,7 @@ function iaea_panel_pages_default_page_manager_pages() {
         'column_size_xs' => '0',
         'column_size_sm' => '0',
         'column_size_md' => '6',
-        'column_size_lg' => '0',
+        'column_size_lg' => '6',
         'offset_size_xs' => '0',
         'offset_size_sm' => '0',
         'offset_size_md' => '0',
@@ -2964,7 +2967,7 @@ function iaea_panel_pages_default_page_manager_pages() {
         'column_size_xs' => '0',
         'column_size_sm' => '0',
         'column_size_md' => '3',
-        'column_size_lg' => '0',
+        'column_size_lg' => '3',
         'offset_size_xs' => '0',
         'offset_size_sm' => '0',
         'offset_size_md' => '0',
@@ -2982,7 +2985,7 @@ function iaea_panel_pages_default_page_manager_pages() {
         'column_size_xs' => '0',
         'column_size_sm' => '0',
         'column_size_md' => '3',
-        'column_size_lg' => '0',
+        'column_size_lg' => '3',
         'offset_size_xs' => '0',
         'offset_size_sm' => '0',
         'offset_size_md' => '0',
@@ -3123,17 +3126,17 @@ function iaea_panel_pages_default_page_manager_pages() {
     $display->content['new-80e4831a-4acc-4b14-ac1e-f4e4e5ff1339'] = $pane;
     $display->panels['middle'][0] = 'new-80e4831a-4acc-4b14-ac1e-f4e4e5ff1339';
     $pane = new stdClass();
-    $pane->pid = 'new-a993d188-d68f-4429-b4d9-77e982052bf8';
+    $pane->pid = 'new-d5c15c0b-8876-4ef5-93ef-67dd14510e68';
     $pane->panel = 'right';
     $pane->type = 'views_panes';
-    $pane->subtype = 'photo_gallery-panel_pane_1';
+    $pane->subtype = 'photo_gallery-last_image_credentials';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
       'link_to_view' => 0,
-      'more_link' => 1,
+      'more_link' => 0,
       'exposed' => array(
-        'field_photogallery_type_tid' => '494',
+        'field_photogallery_type_tid' => 'All',
       ),
       'override_title' => 0,
       'override_title_text' => '',
@@ -3146,9 +3149,9 @@ function iaea_panel_pages_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'a993d188-d68f-4429-b4d9-77e982052bf8';
-    $display->content['new-a993d188-d68f-4429-b4d9-77e982052bf8'] = $pane;
-    $display->panels['right'][0] = 'new-a993d188-d68f-4429-b4d9-77e982052bf8';
+    $pane->uuid = 'd5c15c0b-8876-4ef5-93ef-67dd14510e68';
+    $display->content['new-d5c15c0b-8876-4ef5-93ef-67dd14510e68'] = $pane;
+    $display->panels['right'][0] = 'new-d5c15c0b-8876-4ef5-93ef-67dd14510e68';
     $pane = new stdClass();
     $pane->pid = 'new-e758ae0e-1799-4ed6-92f2-88ba36f9eefb';
     $pane->panel = 'top';
@@ -3185,7 +3188,10 @@ function iaea_panel_pages_default_page_manager_pages() {
   $page->admin_title = 'DG\'s Statements';
   $page->admin_description = '';
   $page->path = 'newscenter/statements';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array(
     'type' => 'normal',
     'title' => 'DG\'s Statements',
@@ -3333,7 +3339,10 @@ function iaea_panel_pages_default_page_manager_pages() {
   $page->admin_title = 'Experiments';
   $page->admin_description = '';
   $page->path = 'experiments';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array();
   $page->arguments = array();
   $page->conf = array(
@@ -3487,7 +3496,10 @@ function iaea_panel_pages_default_page_manager_pages() {
   $page->admin_title = 'Front Page';
   $page->admin_description = '';
   $page->path = 'front';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array();
   $page->arguments = array();
   $page->conf = array(
@@ -3954,7 +3966,10 @@ function iaea_panel_pages_default_page_manager_pages() {
   $page->admin_title = 'IAEA 57th General Conference';
   $page->admin_description = '';
   $page->path = 'about/policy/gc/cg57';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array();
   $page->arguments = array();
   $page->conf = array(
@@ -4075,7 +4090,10 @@ function iaea_panel_pages_default_page_manager_pages() {
   $page->admin_title = 'Media Advisories';
   $page->admin_description = '';
   $page->path = 'newscenter/mediaadvisories';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array(
     'type' => 'normal',
     'title' => 'Media Advisories',
@@ -4273,7 +4291,10 @@ function iaea_panel_pages_default_page_manager_pages() {
   $page->admin_title = 'Multimedia';
   $page->admin_description = '';
   $page->path = 'newscenter/multimedia';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array();
   $page->arguments = array();
   $page->conf = array(
@@ -4731,7 +4752,10 @@ function iaea_panel_pages_default_page_manager_pages() {
   $page->admin_title = 'Newscenter';
   $page->admin_description = '';
   $page->path = 'newscenter/';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array();
   $page->arguments = array();
   $page->conf = array(
@@ -5154,7 +5178,10 @@ function iaea_panel_pages_default_page_manager_pages() {
   $page->admin_title = 'Photo Essays';
   $page->admin_description = '';
   $page->path = 'newscenter/multimedia/photoessays';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array(
     'type' => 'normal',
     'title' => 'Photo Essays',
@@ -5326,7 +5353,10 @@ function iaea_panel_pages_default_page_manager_pages() {
   $page->admin_title = 'Press Releases';
   $page->admin_description = '';
   $page->path = 'newscenter/pressreleases';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array(
     'type' => 'normal',
     'title' => 'Press Releases',
@@ -5504,7 +5534,10 @@ function iaea_panel_pages_default_page_manager_pages() {
   $page->admin_title = 'Topics in Focus';
   $page->admin_description = '';
   $page->path = 'newscenter/focus';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array(
     'type' => 'normal',
     'title' => 'Topics in Focus',
@@ -5682,7 +5715,10 @@ function iaea_panel_pages_default_page_manager_pages() {
   $page->admin_title = 'Videos';
   $page->admin_description = '';
   $page->path = 'newscenter/multimedia/videos';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array(
     'type' => 'normal',
     'title' => 'Videos',
