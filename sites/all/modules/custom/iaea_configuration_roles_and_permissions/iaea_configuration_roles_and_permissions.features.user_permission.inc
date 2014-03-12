@@ -238,42 +238,6 @@ function iaea_configuration_roles_and_permissions_user_default_permissions() {
     'module' => 'workbench',
   );
 
-  // Exported permission: 'admin_classes'.
-  $permissions['admin_classes'] = array(
-    'name' => 'admin_classes',
-    'roles' => array(
-      'Administrator' => 'Administrator',
-    ),
-    'module' => 'ds_ui',
-  );
-
-  // Exported permission: 'admin_display_suite'.
-  $permissions['admin_display_suite'] = array(
-    'name' => 'admin_display_suite',
-    'roles' => array(
-      'Administrator' => 'Administrator',
-    ),
-    'module' => 'ds',
-  );
-
-  // Exported permission: 'admin_fields'.
-  $permissions['admin_fields'] = array(
-    'name' => 'admin_fields',
-    'roles' => array(
-      'Administrator' => 'Administrator',
-    ),
-    'module' => 'ds_ui',
-  );
-
-  // Exported permission: 'admin_view_modes'.
-  $permissions['admin_view_modes'] = array(
-    'name' => 'admin_view_modes',
-    'roles' => array(
-      'Administrator' => 'Administrator',
-    ),
-    'module' => 'ds_ui',
-  );
-
   // Exported permission: 'administer @font-your-face'.
   $permissions['administer @font-your-face'] = array(
     'name' => 'administer @font-your-face',
