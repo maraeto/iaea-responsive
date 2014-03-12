@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the IAEA Content Type Photo Gallery feature.
+ */
+
+include_once 'iaea_content_type_photo_gallery.features.inc';
