@@ -6,6 +6,7 @@ project = iaea_content_type_video
 dependencies[] = filefield_paths
 dependencies[] = iaea_configuration_shared_field_bases
 dependencies[] = mediaelement
+dependencies[] = semanticviews
 dependencies[] = strongarm
 dependencies[] = text
 dependencies[] = views
