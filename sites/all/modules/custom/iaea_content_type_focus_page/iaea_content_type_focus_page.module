@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the IAEA Content Type Focus Page feature.
+ */
+
+include_once 'iaea_content_type_focus_page.features.inc';
