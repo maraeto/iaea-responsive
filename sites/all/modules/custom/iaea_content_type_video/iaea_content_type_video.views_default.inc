@@ -69,17 +69,19 @@ function iaea_content_type_video_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_type'] = 'h4';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Field: Content: IAEA Video Body */
   $handler->display->display_options['fields']['field_iaeavideo_body']['id'] = 'field_iaeavideo_body';
   $handler->display->display_options['fields']['field_iaeavideo_body']['table'] = 'field_data_field_iaeavideo_body';
   $handler->display->display_options['fields']['field_iaeavideo_body']['field'] = 'field_iaeavideo_body';
   $handler->display->display_options['fields']['field_iaeavideo_body']['label'] = '';
-  $handler->display->display_options['fields']['field_iaeavideo_body']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_iaeavideo_body']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_iaeavideo_body']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_iaeavideo_body']['settings'] = array(
+    'field_formatter_class' => '',
+  );
   /* Field: Content: Link */
   $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
@@ -198,11 +200,82 @@ function iaea_content_type_video_views_default_views() {
   $handler->display->display_options['pager']['options']['quantity'] = '9';
 
   /* Display: Last Video */
-  $handler = $view->new_display('panel_pane', 'Last Video', 'panel_pane_3');
+  $handler = $view->new_display('panel_pane', 'Last Video', 'last_one_video');
+  $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '1';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'semanticviews_default';
+  $handler->display->display_options['style_options']['row']['element_type'] = '';
+  $handler->display->display_options['style_options']['row']['first_class'] = '';
+  $handler->display->display_options['style_options']['row']['last_class'] = '';
+  $handler->display->display_options['style_options']['row']['last_every_nth'] = '';
+  $handler->display->display_options['style_options']['row']['striping_classes'] = '';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: IAEA Video Date */
+  $handler->display->display_options['fields']['field_iaeavideo_date']['id'] = 'field_iaeavideo_date';
+  $handler->display->display_options['fields']['field_iaeavideo_date']['table'] = 'field_data_field_iaeavideo_date';
+  $handler->display->display_options['fields']['field_iaeavideo_date']['field'] = 'field_iaeavideo_date';
+  $handler->display->display_options['fields']['field_iaeavideo_date']['label'] = '';
+  $handler->display->display_options['fields']['field_iaeavideo_date']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_iaeavideo_date']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_iaeavideo_date']['settings'] = array(
+    'format_type' => 'iaea_date_style',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Field: Content: IAEA Video Poster */
+  $handler->display->display_options['fields']['field_iaeavideo_poster']['id'] = 'field_iaeavideo_poster';
+  $handler->display->display_options['fields']['field_iaeavideo_poster']['table'] = 'field_data_field_iaeavideo_poster';
+  $handler->display->display_options['fields']['field_iaeavideo_poster']['field'] = 'field_iaeavideo_poster';
+  $handler->display->display_options['fields']['field_iaeavideo_poster']['label'] = '';
+  $handler->display->display_options['fields']['field_iaeavideo_poster']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_iaeavideo_poster']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_iaeavideo_poster']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_iaeavideo_poster']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+    'field_formatter_class' => '',
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: IAEA Video Body */
+  $handler->display->display_options['fields']['field_iaeavideo_body']['id'] = 'field_iaeavideo_body';
+  $handler->display->display_options['fields']['field_iaeavideo_body']['table'] = 'field_data_field_iaeavideo_body';
+  $handler->display->display_options['fields']['field_iaeavideo_body']['field'] = 'field_iaeavideo_body';
+  $handler->display->display_options['fields']['field_iaeavideo_body']['label'] = '';
+  $handler->display->display_options['fields']['field_iaeavideo_body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_iaeavideo_body']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_iaeavideo_body']['settings'] = array(
+    'field_formatter_class' => '',
+  );
+  /* Field: Content: Link */
+  $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['label'] = '';
+  $handler->display->display_options['fields']['view_node']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['view_node']['alter']['link_class'] = 'btn btn-primary btn-lg';
+  $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['view_node']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['view_node']['text'] = 'View Video &rarr;';
   $export['iaea_videos_grid'] = $view;
 
   return $export;

@@ -4448,64 +4448,25 @@ function iaea_panel_pages_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-21402c5a-7cd1-4923-a8e2-8ed7ddd6eb1b';
+    $pane->pid = 'new-92b03840-4f87-4255-8550-198a56319a17';
     $pane->panel = 'hero-banner';
     $pane->type = 'views_panes';
-    $pane->subtype = 'iaea_videos_grid-panel_pane_3';
+    $pane->subtype = 'iaea_videos_grid-last_one_video';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array();
     $pane->cache = array();
     $pane->style = array(
-      'settings' => array(
-        'element_title' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_content' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_wrapper' => array(
-          'type' => 'div',
-          'class_enable' => 1,
-          'class' => 'container',
-          'attributes' => array(),
-          'attributes_array' => array(),
-        ),
-        'add_default_classes' => 0,
-      ),
-      'style' => 'semantic_panels',
+      'style' => 'default',
+      'settings' => NULL,
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '21402c5a-7cd1-4923-a8e2-8ed7ddd6eb1b';
-    $display->content['new-21402c5a-7cd1-4923-a8e2-8ed7ddd6eb1b'] = $pane;
-    $display->panels['hero-banner'][0] = 'new-21402c5a-7cd1-4923-a8e2-8ed7ddd6eb1b';
+    $pane->uuid = '92b03840-4f87-4255-8550-198a56319a17';
+    $display->content['new-92b03840-4f87-4255-8550-198a56319a17'] = $pane;
+    $display->panels['hero-banner'][0] = 'new-92b03840-4f87-4255-8550-198a56319a17';
     $pane = new stdClass();
     $pane->pid = 'new-50808907-2b75-4a25-8051-21efef76214f';
     $pane->panel = 'left';
