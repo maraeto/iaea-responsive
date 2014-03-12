@@ -1,4 +1,4 @@
-name = iaea_common_taxonomies
+name = IAEA Common Taxonomies
 description = Collection of taxonomies shared between the content types.
 core = 7.x
 package = Features
@@ -12,3 +12,6 @@ features[taxonomy][] = language
 features[taxonomy][] = story_resource_type
 features[taxonomy][] = tags
 features[taxonomy][] = site_section
+features[taxonomy][] = bulletin_authors
+features[taxonomy][] = bulletin_issue
+features[taxonomy][] = infcirc_category

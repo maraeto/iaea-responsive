@@ -15,6 +15,7 @@ dependencies[] = list
 dependencies[] = number
 dependencies[] = taxonomy
 dependencies[] = text
+dependencies[] = entityreference
 features[features_api][] = api:2
 features[field_base][] = field_basic_pagesection_body
 features[field_base][] = field_basicpage_resources
