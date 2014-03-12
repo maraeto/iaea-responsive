@@ -8,7 +8,6 @@ dependencies[] = features
 dependencies[] = field_collection
 dependencies[] = field_group
 dependencies[] = filefield_paths
-dependencies[] = iaea_content_type_photo_essay
 dependencies[] = iaea_extensions
 dependencies[] = image
 dependencies[] = iaea_configuration_shared_field_bases
