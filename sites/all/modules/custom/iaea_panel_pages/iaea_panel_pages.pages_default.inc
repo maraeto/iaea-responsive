@@ -2344,7 +2344,7 @@ function iaea_panel_pages_default_page_manager_pages() {
         'column_size_xs' => '0',
         'column_size_sm' => '0',
         'column_size_md' => '12',
-        'column_size_lg' => '12',
+        'column_size_lg' => '0',
         'offset_size_xs' => '0',
         'offset_size_sm' => '0',
         'offset_size_md' => '1',
@@ -2382,6 +2382,7 @@ function iaea_panel_pages_default_page_manager_pages() {
         'offset_type' => 'col-lg-offset',
         'offset_size' => '0',
       ),
+      'hero-banner' => NULL,
     ),
     'top' => array(
       'style' => 'bootstrap_region',
@@ -2397,6 +2398,9 @@ function iaea_panel_pages_default_page_manager_pages() {
     ),
     'bottom' => array(
       'style' => 'bootstrap_region',
+    ),
+    'hero-banner' => array(
+      'style' => 'naked',
     ),
   );
   $display->cache = array();
@@ -2528,6 +2532,68 @@ function iaea_panel_pages_default_page_manager_pages() {
     $pane->uuid = '3527e9f3-d085-43cf-87f1-095084a5d126';
     $display->content['new-3527e9f3-d085-43cf-87f1-095084a5d126'] = $pane;
     $display->panels['bottom'][1] = 'new-3527e9f3-d085-43cf-87f1-095084a5d126';
+    $pane = new stdClass();
+    $pane->pid = 'new-b4c422d8-2b61-4c3d-a994-88cbd64ed1ab';
+    $pane->panel = 'hero-banner';
+    $pane->type = 'block';
+    $pane->subtype = 'bean-about-the-iaea';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'div',
+          'class_enable' => 1,
+          'class' => 'container',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 0,
+      ),
+      'style' => 'semantic_panels',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'b4c422d8-2b61-4c3d-a994-88cbd64ed1ab';
+    $display->content['new-b4c422d8-2b61-4c3d-a994-88cbd64ed1ab'] = $pane;
+    $display->panels['hero-banner'][0] = 'new-b4c422d8-2b61-4c3d-a994-88cbd64ed1ab';
     $pane = new stdClass();
     $pane->pid = 'new-804c8d9a-a49a-4ee5-9fc1-1dd1ec3cae05';
     $pane->panel = 'middle';
@@ -2838,68 +2904,6 @@ function iaea_panel_pages_default_page_manager_pages() {
     $pane->uuid = 'a503bb23-99f6-4e81-9cbb-9f4e004a18d1';
     $display->content['new-a503bb23-99f6-4e81-9cbb-9f4e004a18d1'] = $pane;
     $display->panels['middle'][4] = 'new-a503bb23-99f6-4e81-9cbb-9f4e004a18d1';
-    $pane = new stdClass();
-    $pane->pid = 'new-b4c422d8-2b61-4c3d-a994-88cbd64ed1ab';
-    $pane->panel = 'top';
-    $pane->type = 'block';
-    $pane->subtype = 'bean-about-the-iaea';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 1,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => array(
-        'element_title' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_content' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_wrapper' => array(
-          'type' => 'div',
-          'class_enable' => 1,
-          'class' => 'jumbotron',
-          'attributes' => array(),
-          'attributes_array' => array(),
-        ),
-        'add_default_classes' => 0,
-      ),
-      'style' => 'semantic_panels',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = 'b4c422d8-2b61-4c3d-a994-88cbd64ed1ab';
-    $display->content['new-b4c422d8-2b61-4c3d-a994-88cbd64ed1ab'] = $pane;
-    $display->panels['top'][0] = 'new-b4c422d8-2b61-4c3d-a994-88cbd64ed1ab';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -3290,6 +3294,7 @@ function iaea_panel_pages_default_page_manager_pages() {
         'pull_size_lg' => '0',
       ),
       'bottom' => NULL,
+      'hero-banner' => NULL,
     ),
     'middle' => array(
       'style' => 'bootstrap_region',
@@ -3325,6 +3330,25 @@ function iaea_panel_pages_default_page_manager_pages() {
     $pane->uuid = '7f9a05ef-da02-4537-adad-8bb6ed0a65a4';
     $display->content['new-7f9a05ef-da02-4537-adad-8bb6ed0a65a4'] = $pane;
     $display->panels['middle'][0] = 'new-7f9a05ef-da02-4537-adad-8bb6ed0a65a4';
+    $pane = new stdClass();
+    $pane->pid = 'new-e9bcc9e5-5c2a-4ff3-b17a-2be41a0349ea';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'newscenter_dg_s_statements-all_dgs_statements';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = 'e9bcc9e5-5c2a-4ff3-b17a-2be41a0349ea';
+    $display->content['new-e9bcc9e5-5c2a-4ff3-b17a-2be41a0349ea'] = $pane;
+    $display->panels['middle'][1] = 'new-e9bcc9e5-5c2a-4ff3-b17a-2be41a0349ea';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -4477,6 +4501,7 @@ function iaea_panel_pages_default_page_manager_pages() {
         'pull_size_lg' => '0',
       ),
       'bottom' => NULL,
+      'hero-banner' => NULL,
     ),
     'center' => array(
       'style' => 'semantic_panels',
@@ -4502,6 +4527,65 @@ function iaea_panel_pages_default_page_manager_pages() {
   $display->uuid = '4cd821b5-10ea-4d76-953e-b3c4b2fb9dd0';
   $display->content = array();
   $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-21402c5a-7cd1-4923-a8e2-8ed7ddd6eb1b';
+    $pane->panel = 'hero-banner';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'iaea_videos_grid-panel_pane_3';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'div',
+          'class_enable' => 1,
+          'class' => 'container',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 0,
+      ),
+      'style' => 'semantic_panels',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '21402c5a-7cd1-4923-a8e2-8ed7ddd6eb1b';
+    $display->content['new-21402c5a-7cd1-4923-a8e2-8ed7ddd6eb1b'] = $pane;
+    $display->panels['hero-banner'][0] = 'new-21402c5a-7cd1-4923-a8e2-8ed7ddd6eb1b';
     $pane = new stdClass();
     $pane->pid = 'new-50808907-2b75-4a25-8051-21efef76214f';
     $pane->panel = 'left';
@@ -4679,65 +4763,6 @@ function iaea_panel_pages_default_page_manager_pages() {
     $pane->uuid = '52e8a17e-bbe3-4abc-abdd-efa6618b6b60';
     $display->content['new-52e8a17e-bbe3-4abc-abdd-efa6618b6b60'] = $pane;
     $display->panels['right'][0] = 'new-52e8a17e-bbe3-4abc-abdd-efa6618b6b60';
-    $pane = new stdClass();
-    $pane->pid = 'new-21402c5a-7cd1-4923-a8e2-8ed7ddd6eb1b';
-    $pane->panel = 'top';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'iaea_videos_grid-panel_pane_3';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array();
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => array(
-        'element_title' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_content' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_wrapper' => array(
-          'type' => 'div',
-          'class_enable' => 1,
-          'class' => 'jumbotron',
-          'attributes' => array(),
-          'attributes_array' => array(),
-        ),
-        'add_default_classes' => 0,
-      ),
-      'style' => 'semantic_panels',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '21402c5a-7cd1-4923-a8e2-8ed7ddd6eb1b';
-    $display->content['new-21402c5a-7cd1-4923-a8e2-8ed7ddd6eb1b'] = $pane;
-    $display->panels['top'][0] = 'new-21402c5a-7cd1-4923-a8e2-8ed7ddd6eb1b';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -5795,6 +5820,7 @@ function iaea_panel_pages_default_page_manager_pages() {
         'offset_size' => '0',
       ),
       'bottom' => NULL,
+      'hero-banner' => NULL,
     ),
     'middle' => array(
       'style' => 'bootstrap_region',
@@ -5815,67 +5841,27 @@ function iaea_panel_pages_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-aefce8e4-4610-4d6d-94e1-940e15d2f729';
+    $pane->pid = 'new-1cfe4bb1-15e1-40ce-9af4-62b5ab3ee785';
     $pane->panel = 'left';
     $pane->type = 'block';
-    $pane->subtype = 'menu_block-2';
+    $pane->subtype = 'menu_block-5';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_title' => 0,
+      'override_title' => 1,
       'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => array(
-        'element_title' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_content' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_wrapper' => array(
-          'type' => '',
-          'class_enable' => 1,
-          'class' => 'well',
-          'attributes' => array(),
-          'attributes_array' => array(),
-        ),
-        'add_default_classes' => 0,
-      ),
-      'style' => 'semantic_panels',
+      'settings' => NULL,
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'aefce8e4-4610-4d6d-94e1-940e15d2f729';
-    $display->content['new-aefce8e4-4610-4d6d-94e1-940e15d2f729'] = $pane;
-    $display->panels['left'][0] = 'new-aefce8e4-4610-4d6d-94e1-940e15d2f729';
+    $pane->uuid = '1cfe4bb1-15e1-40ce-9af4-62b5ab3ee785';
+    $display->content['new-1cfe4bb1-15e1-40ce-9af4-62b5ab3ee785'] = $pane;
+    $display->panels['left'][0] = 'new-1cfe4bb1-15e1-40ce-9af4-62b5ab3ee785';
     $pane = new stdClass();
     $pane->pid = 'new-b365a95a-7149-4f3d-b861-a22b98d99ac6';
     $pane->panel = 'middle';
