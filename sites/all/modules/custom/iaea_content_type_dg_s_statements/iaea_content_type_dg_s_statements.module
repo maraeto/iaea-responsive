@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the IAEA Content Type DG's Statements feature.
+ */
+
+include_once 'iaea_content_type_dg_s_statements.features.inc';
