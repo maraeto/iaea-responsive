@@ -3312,25 +3312,6 @@ function iaea_panel_pages_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-7f9a05ef-da02-4537-adad-8bb6ed0a65a4';
-    $pane->panel = 'middle';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'newscenter_dg_s_statements-panel_pane_1';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array();
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '7f9a05ef-da02-4537-adad-8bb6ed0a65a4';
-    $display->content['new-7f9a05ef-da02-4537-adad-8bb6ed0a65a4'] = $pane;
-    $display->panels['middle'][0] = 'new-7f9a05ef-da02-4537-adad-8bb6ed0a65a4';
-    $pane = new stdClass();
     $pane->pid = 'new-e9bcc9e5-5c2a-4ff3-b17a-2be41a0349ea';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
@@ -3344,11 +3325,11 @@ function iaea_panel_pages_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 0;
     $pane->locks = array();
     $pane->uuid = 'e9bcc9e5-5c2a-4ff3-b17a-2be41a0349ea';
     $display->content['new-e9bcc9e5-5c2a-4ff3-b17a-2be41a0349ea'] = $pane;
-    $display->panels['middle'][1] = 'new-e9bcc9e5-5c2a-4ff3-b17a-2be41a0349ea';
+    $display->panels['middle'][0] = 'new-e9bcc9e5-5c2a-4ff3-b17a-2be41a0349ea';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -4162,12 +4143,12 @@ function iaea_panel_pages_default_page_manager_pages() {
       'middle' => array(
         'column_size_xs' => '0',
         'column_size_sm' => '0',
-        'column_size_md' => '0',
-        'column_size_lg' => '9',
+        'column_size_md' => '8',
+        'column_size_lg' => '8',
         'offset_size_xs' => '0',
         'offset_size_sm' => '0',
-        'offset_size_md' => '0',
-        'offset_size_lg' => '0',
+        'offset_size_md' => '2',
+        'offset_size_lg' => '2',
         'push_size_xs' => '0',
         'push_size_sm' => '0',
         'push_size_md' => '0',
@@ -4204,6 +4185,7 @@ function iaea_panel_pages_default_page_manager_pages() {
         'offset_size' => '0',
       ),
       'bottom' => NULL,
+      'hero-banner' => NULL,
     ),
     'middle' => array(
       'style' => 'bootstrap_region',
@@ -4221,72 +4203,10 @@ function iaea_panel_pages_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-f8365327-9cb8-4648-abc5-c862ea4f52ef';
-    $pane->panel = 'left';
-    $pane->type = 'block';
-    $pane->subtype = 'menu_block-1';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 1,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => array(
-        'element_title' => array(
-          'type' => '',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_content' => array(
-          'type' => '',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_wrapper' => array(
-          'type' => '',
-          'class_enable' => 1,
-          'class' => 'well',
-          'attributes' => array(),
-          'attributes_array' => array(),
-        ),
-        'add_default_classes' => 0,
-      ),
-      'style' => 'semantic_panels',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = 'f8365327-9cb8-4648-abc5-c862ea4f52ef';
-    $display->content['new-f8365327-9cb8-4648-abc5-c862ea4f52ef'] = $pane;
-    $display->panels['left'][0] = 'new-f8365327-9cb8-4648-abc5-c862ea4f52ef';
-    $pane = new stdClass();
-    $pane->pid = 'new-0642b8b3-e2ae-404f-bf96-b181f325c3f0';
+    $pane->pid = 'new-771e2468-225e-4c7e-9636-e03a6d0ab807';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
-    $pane->subtype = 'media_advisories-panel_pane_1';
+    $pane->subtype = 'media_advisories-all_media_advisories';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array();
@@ -4298,9 +4218,9 @@ function iaea_panel_pages_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '0642b8b3-e2ae-404f-bf96-b181f325c3f0';
-    $display->content['new-0642b8b3-e2ae-404f-bf96-b181f325c3f0'] = $pane;
-    $display->panels['middle'][0] = 'new-0642b8b3-e2ae-404f-bf96-b181f325c3f0';
+    $pane->uuid = '771e2468-225e-4c7e-9636-e03a6d0ab807';
+    $display->content['new-771e2468-225e-4c7e-9636-e03a6d0ab807'] = $pane;
+    $display->panels['middle'][0] = 'new-771e2468-225e-4c7e-9636-e03a6d0ab807';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -5426,26 +5346,58 @@ function iaea_panel_pages_default_page_manager_pages() {
       'middle' => array(
         'column_size_xs' => '0',
         'column_size_sm' => '0',
-        'column_size_md' => '9',
-        'column_size_lg' => '9',
-        'offset_type' => 'col-lg-offset',
-        'offset_size' => '0',
+        'column_size_md' => '8',
+        'column_size_lg' => '8',
+        'offset_size_xs' => '0',
+        'offset_size_sm' => '0',
+        'offset_size_md' => '2',
+        'offset_size_lg' => '2',
+        'push_size_xs' => '0',
+        'push_size_sm' => '0',
+        'push_size_md' => '0',
+        'push_size_lg' => '0',
+        'pull_size_xs' => '0',
+        'pull_size_sm' => '0',
+        'pull_size_md' => '0',
+        'pull_size_lg' => '0',
       ),
       'default' => NULL,
       'top' => NULL,
       'left' => array(
         'column_size_xs' => '0',
         'column_size_sm' => '0',
-        'column_size_md' => '3',
-        'column_size_lg' => '3',
-        'offset_type' => 'col-lg-offset',
-        'offset_size' => '0',
+        'column_size_md' => '0',
+        'column_size_lg' => '0',
+        'offset_size_xs' => '0',
+        'offset_size_sm' => '0',
+        'offset_size_md' => '0',
+        'offset_size_lg' => '0',
+        'push_size_xs' => '0',
+        'push_size_sm' => '0',
+        'push_size_md' => '0',
+        'push_size_lg' => '0',
+        'pull_size_xs' => '0',
+        'pull_size_sm' => '0',
+        'pull_size_md' => '0',
+        'pull_size_lg' => '0',
       ),
       'right' => array(
-        'column_type' => 'col-lg',
-        'column_size' => '0',
-        'offset_type' => 'col-lg-offset',
-        'offset_size' => '0',
+        'column_size_xs' => '0',
+        'column_size_sm' => '0',
+        'column_size_md' => '0',
+        'column_size_lg' => '0',
+        'offset_size_xs' => '0',
+        'offset_size_sm' => '0',
+        'offset_size_md' => '0',
+        'offset_size_lg' => '0',
+        'push_size_xs' => '0',
+        'push_size_sm' => '0',
+        'push_size_md' => '0',
+        'push_size_lg' => '0',
+        'pull_size_xs' => '0',
+        'pull_size_sm' => '0',
+        'pull_size_md' => '0',
+        'pull_size_lg' => '0',
       ),
       'bottom' => NULL,
       'hero-banner' => NULL,
@@ -5465,68 +5417,6 @@ function iaea_panel_pages_default_page_manager_pages() {
   $display->uuid = '54eac349-bbaa-45c0-8716-26cd5ced55a8';
   $display->content = array();
   $display->panels = array();
-    $pane = new stdClass();
-    $pane->pid = 'new-3c475194-d760-4391-904a-521126bca661';
-    $pane->panel = 'left';
-    $pane->type = 'block';
-    $pane->subtype = 'menu_block-1';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 1,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => array(
-        'element_title' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_content' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_wrapper' => array(
-          'type' => '',
-          'class_enable' => 1,
-          'class' => 'well',
-          'attributes' => array(),
-          'attributes_array' => array(),
-        ),
-        'add_default_classes' => 0,
-      ),
-      'style' => 'semantic_panels',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '3c475194-d760-4391-904a-521126bca661';
-    $display->content['new-3c475194-d760-4391-904a-521126bca661'] = $pane;
-    $display->panels['left'][0] = 'new-3c475194-d760-4391-904a-521126bca661';
     $pane = new stdClass();
     $pane->pid = 'new-72a50ca5-3c50-4dcc-9bd5-fc2d2b8c8c2a';
     $pane->panel = 'middle';
@@ -5608,28 +5498,61 @@ function iaea_panel_pages_default_page_manager_pages() {
       'middle' => array(
         'column_size_xs' => '0',
         'column_size_sm' => '0',
-        'column_size_md' => '9',
-        'column_size_lg' => '9',
-        'offset_type' => 'col-lg-offset',
-        'offset_size' => '0',
+        'column_size_md' => '8',
+        'column_size_lg' => '8',
+        'offset_size_xs' => '0',
+        'offset_size_sm' => '0',
+        'offset_size_md' => '2',
+        'offset_size_lg' => '2',
+        'push_size_xs' => '0',
+        'push_size_sm' => '0',
+        'push_size_md' => '0',
+        'push_size_lg' => '0',
+        'pull_size_xs' => '0',
+        'pull_size_sm' => '0',
+        'pull_size_md' => '0',
+        'pull_size_lg' => '0',
       ),
       'default' => NULL,
       'top' => NULL,
       'left' => array(
         'column_size_xs' => '0',
         'column_size_sm' => '0',
-        'column_size_md' => '3',
-        'column_size_lg' => '3',
-        'offset_type' => 'col-lg-offset',
-        'offset_size' => '0',
+        'column_size_md' => '0',
+        'column_size_lg' => '0',
+        'offset_size_xs' => '0',
+        'offset_size_sm' => '0',
+        'offset_size_md' => '0',
+        'offset_size_lg' => '0',
+        'push_size_xs' => '0',
+        'push_size_sm' => '0',
+        'push_size_md' => '0',
+        'push_size_lg' => '0',
+        'pull_size_xs' => '0',
+        'pull_size_sm' => '0',
+        'pull_size_md' => '0',
+        'pull_size_lg' => '0',
       ),
       'right' => array(
-        'column_type' => 'col-lg',
-        'column_size' => '0',
-        'offset_type' => 'col-lg-offset',
-        'offset_size' => '0',
+        'column_size_xs' => '0',
+        'column_size_sm' => '0',
+        'column_size_md' => '0',
+        'column_size_lg' => '0',
+        'offset_size_xs' => '0',
+        'offset_size_sm' => '0',
+        'offset_size_md' => '0',
+        'offset_size_lg' => '0',
+        'push_size_xs' => '0',
+        'push_size_sm' => '0',
+        'push_size_md' => '0',
+        'push_size_lg' => '0',
+        'pull_size_xs' => '0',
+        'pull_size_sm' => '0',
+        'pull_size_md' => '0',
+        'pull_size_lg' => '0',
       ),
       'bottom' => NULL,
+      'hero-banner' => NULL,
     ),
     'middle' => array(
       'style' => 'bootstrap_region',
@@ -5646,68 +5569,6 @@ function iaea_panel_pages_default_page_manager_pages() {
   $display->uuid = 'd09b56e4-040d-479f-a011-0bd2f44ccf96';
   $display->content = array();
   $display->panels = array();
-    $pane = new stdClass();
-    $pane->pid = 'new-2eb95cc4-e452-48d5-8b0e-390388e86755';
-    $pane->panel = 'left';
-    $pane->type = 'block';
-    $pane->subtype = 'menu_block-1';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 1,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => array(
-        'element_title' => array(
-          'type' => '',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_content' => array(
-          'type' => '',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_wrapper' => array(
-          'type' => '',
-          'class_enable' => 1,
-          'class' => 'well',
-          'attributes' => array(),
-          'attributes_array' => array(),
-        ),
-        'add_default_classes' => 0,
-      ),
-      'style' => 'semantic_panels',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '2eb95cc4-e452-48d5-8b0e-390388e86755';
-    $display->content['new-2eb95cc4-e452-48d5-8b0e-390388e86755'] = $pane;
-    $display->panels['left'][0] = 'new-2eb95cc4-e452-48d5-8b0e-390388e86755';
     $pane = new stdClass();
     $pane->pid = 'new-1c889d24-a53b-4bfa-97a0-f51c3c522c35';
     $pane->panel = 'middle';
