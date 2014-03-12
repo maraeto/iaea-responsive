@@ -78,6 +78,7 @@ function _iaea_views_alter_views_pre_build_fix_homepage_redirect(&$view) {
     'photo_essays_grid' => array('all_photo_essays_grid',),
     'newscenter_dg_s_statements' => array('all_dgs_statements',),
     'media_advisories' => array('all_media_advisories',),
+    'iaea_videos_grid' => array('all_videos_grid',),
   );
   if (!isset($views_to_fix[$view->name])) {
     return;

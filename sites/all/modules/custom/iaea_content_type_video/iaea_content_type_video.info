@@ -3,6 +3,7 @@ core = 7.x
 package = Content Types
 version = 7.x-1.0
 project = iaea_content_type_video
+dependencies[] = colorbox
 dependencies[] = filefield_paths
 dependencies[] = iaea_configuration_shared_field_bases
 dependencies[] = mediaelement

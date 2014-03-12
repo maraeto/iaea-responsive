@@ -5132,8 +5132,8 @@ function iaea_panel_pages_default_page_manager_pages() {
       'middle' => array(
         'column_size_xs' => '0',
         'column_size_sm' => '0',
-        'column_size_md' => '10',
-        'column_size_lg' => '10',
+        'column_size_md' => '9',
+        'column_size_lg' => '9',
         'offset_size_xs' => '0',
         'offset_size_sm' => '0',
         'offset_size_md' => '0',
@@ -5159,8 +5159,8 @@ function iaea_panel_pages_default_page_manager_pages() {
       'left' => array(
         'column_size_xs' => '0',
         'column_size_sm' => '0',
-        'column_size_md' => '2',
-        'column_size_lg' => '2',
+        'column_size_md' => '3',
+        'column_size_lg' => '3',
         'offset_size_xs' => '0',
         'offset_size_sm' => '0',
         'offset_size_md' => '0',
@@ -5685,64 +5685,24 @@ function iaea_panel_pages_default_page_manager_pages() {
     $display->content['new-1cfe4bb1-15e1-40ce-9af4-62b5ab3ee785'] = $pane;
     $display->panels['left'][0] = 'new-1cfe4bb1-15e1-40ce-9af4-62b5ab3ee785';
     $pane = new stdClass();
-    $pane->pid = 'new-b365a95a-7149-4f3d-b861-a22b98d99ac6';
+    $pane->pid = 'new-0043f60e-5106-44c8-8db5-bd828c190e9e';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
-    $pane->subtype = 'iaea_videos_grid-panel_pane_2';
+    $pane->subtype = 'iaea_videos_grid-all_videos_grid';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array();
     $pane->cache = array();
     $pane->style = array(
-      'settings' => array(
-        'element_title' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_content' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'link_enabled' => 0,
-          'link' => array(
-            'path' => '',
-            'class_enable' => 0,
-            'class' => '',
-            'attributes' => array(),
-            'attributes_array' => array(),
-          ),
-          'attributes_array' => array(),
-        ),
-        'element_wrapper' => array(
-          'type' => '0',
-          'class_enable' => 0,
-          'class' => '',
-          'attributes' => array(),
-          'attributes_array' => array(),
-        ),
-        'add_default_classes' => 0,
-      ),
-      'style' => 'semantic_panels',
+      'settings' => NULL,
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'b365a95a-7149-4f3d-b861-a22b98d99ac6';
-    $display->content['new-b365a95a-7149-4f3d-b861-a22b98d99ac6'] = $pane;
-    $display->panels['middle'][0] = 'new-b365a95a-7149-4f3d-b861-a22b98d99ac6';
+    $pane->uuid = '0043f60e-5106-44c8-8db5-bd828c190e9e';
+    $display->content['new-0043f60e-5106-44c8-8db5-bd828c190e9e'] = $pane;
+    $display->panels['middle'][0] = 'new-0043f60e-5106-44c8-8db5-bd828c190e9e';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
