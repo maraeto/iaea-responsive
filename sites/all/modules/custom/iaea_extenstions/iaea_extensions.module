@@ -76,8 +76,20 @@ function theme_iaea_extensions_formatter_date_news_story($vars) {
  * @param &array $form_state
  * @param string $form_id
  */
-function iaea_extensions_form_file_entity_edit_alter(&$form, &$form_state, $form_id) {
+function iaea_extensions_form_file_entity_edit_alter(&$form, &$form_state) {
   if(isset($form['field_folder'])) {
     unset($form['field_folder']);
   }
 }
+
+function iaea_extensions_form_file_entity_add_upload_alter(&$form, &$form_state) {
+  iaea_extensions_form_file_entity_edit_alter($form, $form_state);
+}
+
+function iaea_extensions_form_file_entity_settings_form_alter(&$form, &$form_state, $form_id) {
+  $form['file_entity_default_allowed_extensions']['#maxlength'] = 255;
+}
+
+//function iaea_extensions_form_alter(&$form, &$form_state, $form_id) {
+//  echo '';
+//}
