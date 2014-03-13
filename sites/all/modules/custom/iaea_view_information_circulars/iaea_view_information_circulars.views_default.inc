@@ -105,10 +105,12 @@ function iaea_view_information_circulars_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'information_circular' => 'information_circular',
   );
+  $handler->display->display_options['filters']['type']['group'] = 1;
   /* Filter criterion: Content: Infcirc Category (field_infcirc_category) */
   $handler->display->display_options['filters']['field_infcirc_category_tid']['id'] = 'field_infcirc_category_tid';
   $handler->display->display_options['filters']['field_infcirc_category_tid']['table'] = 'field_data_field_infcirc_category';
   $handler->display->display_options['filters']['field_infcirc_category_tid']['field'] = 'field_infcirc_category_tid';
+  $handler->display->display_options['filters']['field_infcirc_category_tid']['group'] = 1;
   $handler->display->display_options['filters']['field_infcirc_category_tid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_infcirc_category_tid']['expose']['operator_id'] = 'field_infcirc_category_tid_op';
   $handler->display->display_options['filters']['field_infcirc_category_tid']['expose']['label'] = 'By Category';
@@ -127,6 +129,7 @@ function iaea_view_information_circulars_views_default_views() {
   $handler->display->display_options['filters']['field_infcirc_number_value']['table'] = 'field_data_field_infcirc_number';
   $handler->display->display_options['filters']['field_infcirc_number_value']['field'] = 'field_infcirc_number_value';
   $handler->display->display_options['filters']['field_infcirc_number_value']['operator'] = 'contains';
+  $handler->display->display_options['filters']['field_infcirc_number_value']['group'] = 1;
   $handler->display->display_options['filters']['field_infcirc_number_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_infcirc_number_value']['expose']['operator_id'] = 'field_infcirc_number_value_op';
   $handler->display->display_options['filters']['field_infcirc_number_value']['expose']['label'] = 'By Number';
@@ -138,29 +141,12 @@ function iaea_view_information_circulars_views_default_views() {
     3 => 0,
     4 => 0,
   );
-  /* Filter criterion: Content: Infcirc Country (field_infcirc_country) */
-  $handler->display->display_options['filters']['field_infcirc_country_tid']['id'] = 'field_infcirc_country_tid';
-  $handler->display->display_options['filters']['field_infcirc_country_tid']['table'] = 'field_data_field_infcirc_country';
-  $handler->display->display_options['filters']['field_infcirc_country_tid']['field'] = 'field_infcirc_country_tid';
-  $handler->display->display_options['filters']['field_infcirc_country_tid']['value'] = '';
-  $handler->display->display_options['filters']['field_infcirc_country_tid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_infcirc_country_tid']['expose']['operator_id'] = 'field_infcirc_country_tid_op';
-  $handler->display->display_options['filters']['field_infcirc_country_tid']['expose']['label'] = 'By Country';
-  $handler->display->display_options['filters']['field_infcirc_country_tid']['expose']['operator'] = 'field_infcirc_country_tid_op';
-  $handler->display->display_options['filters']['field_infcirc_country_tid']['expose']['identifier'] = 'field_infcirc_country_tid';
-  $handler->display->display_options['filters']['field_infcirc_country_tid']['expose']['multiple'] = TRUE;
-  $handler->display->display_options['filters']['field_infcirc_country_tid']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-    4 => 0,
-  );
-  $handler->display->display_options['filters']['field_infcirc_country_tid']['vocabulary'] = 'country';
   /* Filter criterion: Content: Infcirc Date (field_infcirc_date) */
   $handler->display->display_options['filters']['field_infcirc_date_value']['id'] = 'field_infcirc_date_value';
   $handler->display->display_options['filters']['field_infcirc_date_value']['table'] = 'field_data_field_infcirc_date';
   $handler->display->display_options['filters']['field_infcirc_date_value']['field'] = 'field_infcirc_date_value';
   $handler->display->display_options['filters']['field_infcirc_date_value']['operator'] = 'contains';
+  $handler->display->display_options['filters']['field_infcirc_date_value']['group'] = 1;
   $handler->display->display_options['filters']['field_infcirc_date_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_infcirc_date_value']['expose']['operator_id'] = 'field_infcirc_date_value_op';
   $handler->display->display_options['filters']['field_infcirc_date_value']['expose']['label'] = 'By Year of Issue';
@@ -174,6 +160,25 @@ function iaea_view_information_circulars_views_default_views() {
   );
   $handler->display->display_options['filters']['field_infcirc_date_value']['granularity'] = 'year';
   $handler->display->display_options['filters']['field_infcirc_date_value']['form_type'] = 'date_text';
+  /* Filter criterion: Content: Infcirc Country (field_infcirc_country) */
+  $handler->display->display_options['filters']['field_infcirc_country_tid']['id'] = 'field_infcirc_country_tid';
+  $handler->display->display_options['filters']['field_infcirc_country_tid']['table'] = 'field_data_field_infcirc_country';
+  $handler->display->display_options['filters']['field_infcirc_country_tid']['field'] = 'field_infcirc_country_tid';
+  $handler->display->display_options['filters']['field_infcirc_country_tid']['value'] = '';
+  $handler->display->display_options['filters']['field_infcirc_country_tid']['group'] = 1;
+  $handler->display->display_options['filters']['field_infcirc_country_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_infcirc_country_tid']['expose']['operator_id'] = 'field_infcirc_country_tid_op';
+  $handler->display->display_options['filters']['field_infcirc_country_tid']['expose']['label'] = 'By Country';
+  $handler->display->display_options['filters']['field_infcirc_country_tid']['expose']['operator'] = 'field_infcirc_country_tid_op';
+  $handler->display->display_options['filters']['field_infcirc_country_tid']['expose']['identifier'] = 'field_infcirc_country_tid';
+  $handler->display->display_options['filters']['field_infcirc_country_tid']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['field_infcirc_country_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  $handler->display->display_options['filters']['field_infcirc_country_tid']['vocabulary'] = 'country';
 
   /* Display: Information Circulars */
   $handler = $view->new_display('panel_pane', 'Information Circulars', 'all_information_circulars');
