@@ -32,4 +32,3 @@
 		<?php print $fields['field_infcirc_description']->content; ?>
 	</div>
 </div>
-<hr class="spacer25" />

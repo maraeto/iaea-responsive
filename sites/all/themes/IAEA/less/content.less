@@ -123,9 +123,6 @@ a.symbol:hover { text-decoration: none }
 .field-newsstory-resources > li { padding-bottom: 10px; padding-top: 10px; border-bottom: 1px solid #eee; }
 .field-newsstory-resources > li:first-child { border-top: 1px solid :; }
 
-// News Story Listing
-// --------------------------
-input#edit-field-newsstory-date-value-value-date, input#edit-field-pressrelease-date-value-value-date, input#edit-field-pressrelease-number-value { width:100px }
 
 // Basicpage
 // --------------------------
@@ -155,10 +152,17 @@ input#edit-field-newsstory-date-value-value-date, input#edit-field-pressrelease-
 // Focus Page
 //---------------------------
 
-
 .addthis_toolbox {margin-top: 20px}
 
+// Exposed Filter Forms
+// --------------------------
+#edit-field-infcirc-number-value,
+#edit-field-infcirc-date-value-value-date,
+#edit-field-newsstory-date-value-value-date,
+#edit-field-pressrelease-date-value-value-date,
+#edit-field-pressrelease-number-value { width: 120px }
 
+.form-item-field-infcirc-country-tid { width: 350px }
 // .taxonomy-labels ul, .meta-navigation ul, .footer-nav ul, ul.social-media-icons, .doormat-menu ul { list-style: none; margin-left: 0; padding-left: 0 }
 // .taxonomy-labels ul li, .meta-navigation ul li, .footer-nav ul li, ul.social-media-icons li  { float: left; padding-right: 10px }
 // .doormat-menu li {font-size: 12px}

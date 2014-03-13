@@ -7105,11 +7105,6 @@ a.symbol:hover {
 .field-newsstory-resources > li:first-child {
   border-top: 1px solid :;
 }
-input#edit-field-newsstory-date-value-value-date,
-input#edit-field-pressrelease-date-value-value-date,
-input#edit-field-pressrelease-number-value {
-  width: 100px;
-}
 .basicpage h1 {
   margin-top: 0;
   margin-bottom: 30px;
@@ -7150,4 +7145,14 @@ input#edit-field-pressrelease-number-value {
 }
 .addthis_toolbox {
   margin-top: 20px;
+}
+#edit-field-infcirc-number-value,
+#edit-field-infcirc-date-value-value-date,
+#edit-field-newsstory-date-value-value-date,
+#edit-field-pressrelease-date-value-value-date,
+#edit-field-pressrelease-number-value {
+  width: 120px;
+}
+.form-item-field-infcirc-country-tid {
+  width: 350px;
 }

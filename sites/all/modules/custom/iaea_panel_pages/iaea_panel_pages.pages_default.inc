@@ -165,6 +165,7 @@ function iaea_panel_pages_default_page_manager_handlers() {
     );
     $pane->cache = array();
     $pane->style = array(
+      'style' => 'default',
       'settings' => NULL,
     );
     $pane->css = array();
