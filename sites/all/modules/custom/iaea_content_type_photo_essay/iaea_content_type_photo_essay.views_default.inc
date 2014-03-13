@@ -70,7 +70,7 @@ function iaea_content_type_photo_essay_views_default_views() {
   $handler->display->display_options['fields']['field_photoessay_photos']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_photoessay_photos']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_photoessay_photos']['settings'] = array(
-    'image_style' => 'photo_essay_grid_thumb',
+    'image_style' => '',
     'image_link' => 'content',
     'field_formatter_class' => '',
   );
