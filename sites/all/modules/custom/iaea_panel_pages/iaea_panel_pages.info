@@ -1,6 +1,8 @@
 name = IAEA Panel Pages
 core = 7.x
 package = IAEA
+version = 7.x-1.0
+project = iaea_panel_pages
 dependencies[] = ctools
 dependencies[] = page_manager
 dependencies[] = panels_mini
@@ -20,6 +22,7 @@ features[page_manager_pages][] = dg_statements
 features[page_manager_pages][] = experiments
 features[page_manager_pages][] = front_page_new
 features[page_manager_pages][] = iaea_57th_general_conference
+features[page_manager_pages][] = information_circulars
 features[page_manager_pages][] = media_advisories
 features[page_manager_pages][] = multimedia
 features[page_manager_pages][] = newscenter

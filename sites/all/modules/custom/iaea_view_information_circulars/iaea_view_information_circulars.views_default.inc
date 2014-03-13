@@ -22,11 +22,15 @@ function iaea_view_information_circulars_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
+  $handler->display->display_options['exposed_form']['options']['expose_sort_order'] = FALSE;
   $handler->display->display_options['exposed_form']['options']['autosubmit_hide'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['style_plugin'] = 'default';
@@ -82,11 +86,11 @@ function iaea_view_information_circulars_views_default_views() {
     'field_formatter_class' => '',
   );
   $handler->display->display_options['fields']['field_infcirc_description']['field_api_classes'] = TRUE;
-  /* Sort criterion: Content: Post date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'node';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Sort criterion: Content: Infcirc Date (field_infcirc_date) */
+  $handler->display->display_options['sorts']['field_infcirc_date_value']['id'] = 'field_infcirc_date_value';
+  $handler->display->display_options['sorts']['field_infcirc_date_value']['table'] = 'field_data_field_infcirc_date';
+  $handler->display->display_options['sorts']['field_infcirc_date_value']['field'] = 'field_infcirc_date_value';
+  $handler->display->display_options['sorts']['field_infcirc_date_value']['order'] = 'DESC';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -172,7 +176,7 @@ function iaea_view_information_circulars_views_default_views() {
   $handler->display->display_options['filters']['field_infcirc_date_value']['form_type'] = 'date_text';
 
   /* Display: Information Circulars */
-  $handler = $view->new_display('panel_pane', 'Information Circulars', 'information_circulars_pane');
+  $handler = $view->new_display('panel_pane', 'Information Circulars', 'all_information_circulars');
   $handler->display->display_options['allow']['use_pager'] = 0;
   $handler->display->display_options['allow']['items_per_page'] = 0;
   $handler->display->display_options['allow']['offset'] = 0;
