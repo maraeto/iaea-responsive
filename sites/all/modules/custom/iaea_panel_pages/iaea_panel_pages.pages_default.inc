@@ -2059,18 +2059,29 @@ function iaea_panel_pages_default_page_manager_handlers() {
       'top' => NULL,
       'left' => NULL,
       'middle' => array(
-        'separator' => array(
-          'active' => 0,
-          'element_type' => '',
-          'show_css' => 0,
-          'element_class' => '',
-        ),
+        'column_size_xs' => '0',
+        'column_size_sm' => '0',
+        'column_size_md' => '8',
+        'column_size_lg' => '8',
+        'offset_size_xs' => '0',
+        'offset_size_sm' => '0',
+        'offset_size_md' => '2',
+        'offset_size_lg' => '2',
+        'push_size_xs' => '0',
+        'push_size_sm' => '0',
+        'push_size_md' => '0',
+        'push_size_lg' => '0',
+        'pull_size_xs' => '0',
+        'pull_size_sm' => '0',
+        'pull_size_md' => '0',
+        'pull_size_lg' => '0',
       ),
       'right' => NULL,
       'bottom' => NULL,
+      'hero-banner' => NULL,
     ),
     'middle' => array(
-      'style' => 'semantic_panels',
+      'style' => 'bootstrap_region',
     ),
   );
   $display->cache = array();
@@ -2079,26 +2090,7 @@ function iaea_panel_pages_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-40e92ad9-717b-47be-a117-0af30f037d5c';
-    $pane->panel = 'left';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'bulletin_issues-bulletin_issues_list';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array();
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '40e92ad9-717b-47be-a117-0af30f037d5c';
-    $display->content['new-40e92ad9-717b-47be-a117-0af30f037d5c'] = $pane;
-    $display->panels['left'][0] = 'new-40e92ad9-717b-47be-a117-0af30f037d5c';
-    $pane = new stdClass();
-    $pane->pid = 'new-fafa538f-4696-4d6d-a8fb-254f43bed498';
+    $pane->pid = 'new-f10b90b4-f487-4b4b-9a18-199fd97a594f';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'taxonomy_term-panel_pane_1';
@@ -2109,14 +2101,14 @@ function iaea_panel_pages_default_page_manager_handlers() {
       'pager_id' => '0',
       'items_per_page' => '10',
       'offset' => '0',
-      'override_title' => 1,
+      'override_title' => 0,
       'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
       'settings' => array(
         'element_title' => array(
-          'type' => '',
+          'type' => '0',
           'class_enable' => 0,
           'class' => '',
           'attributes' => array(),
@@ -2131,7 +2123,7 @@ function iaea_panel_pages_default_page_manager_handlers() {
           'attributes_array' => array(),
         ),
         'element_content' => array(
-          'type' => '',
+          'type' => '0',
           'class_enable' => 0,
           'class' => '',
           'attributes' => array(),
@@ -2146,7 +2138,7 @@ function iaea_panel_pages_default_page_manager_handlers() {
           'attributes_array' => array(),
         ),
         'element_wrapper' => array(
-          'type' => '',
+          'type' => '0',
           'class_enable' => 0,
           'class' => '',
           'attributes' => array(),
@@ -2160,9 +2152,9 @@ function iaea_panel_pages_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'fafa538f-4696-4d6d-a8fb-254f43bed498';
-    $display->content['new-fafa538f-4696-4d6d-a8fb-254f43bed498'] = $pane;
-    $display->panels['middle'][0] = 'new-fafa538f-4696-4d6d-a8fb-254f43bed498';
+    $pane->uuid = 'f10b90b4-f487-4b4b-9a18-199fd97a594f';
+    $display->content['new-f10b90b4-f487-4b4b-9a18-199fd97a594f'] = $pane;
+    $display->panels['middle'][0] = 'new-f10b90b4-f487-4b4b-9a18-199fd97a594f';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
