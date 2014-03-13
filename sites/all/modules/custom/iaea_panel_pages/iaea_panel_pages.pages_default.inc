@@ -3339,6 +3339,643 @@ function iaea_panel_pages_default_page_manager_pages() {
   $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
+  $page->name = 'documents';
+  $page->task = 'page';
+  $page->admin_title = 'IAEA Publications';
+  $page->admin_description = 'IAEA Publications Landing Page';
+  $page->path = 'publications';
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
+  $page->menu = array();
+  $page->arguments = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_documents_panel_context';
+  $handler->task = 'page';
+  $handler->subtask = 'documents';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Panel',
+    'no_blocks' => 1,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => 'no-title',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+  );
+  $display = new panels_display();
+  $display->layout = 'bootstrap_threecol_stacked';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'top' => array(
+        'column_type' => 'col-sm',
+        'column_size' => '12',
+        'offset_type' => 'col-lg-offset',
+        'offset_size' => '0',
+      ),
+      'left' => array(
+        'column_size_xs' => '0',
+        'column_size_sm' => '0',
+        'column_size_md' => '0',
+        'column_size_lg' => '0',
+        'offset_size_xs' => '0',
+        'offset_size_sm' => '0',
+        'offset_size_md' => '0',
+        'offset_size_lg' => '0',
+        'push_size_xs' => '0',
+        'push_size_sm' => '0',
+        'push_size_md' => '0',
+        'push_size_lg' => '0',
+        'pull_size_xs' => '0',
+        'pull_size_sm' => '0',
+        'pull_size_md' => '0',
+        'pull_size_lg' => '0',
+      ),
+      'middle' => array(
+        'column_size_xs' => '0',
+        'column_size_sm' => '0',
+        'column_size_md' => '12',
+        'column_size_lg' => '0',
+        'offset_size_xs' => '0',
+        'offset_size_sm' => '0',
+        'offset_size_md' => '1',
+        'offset_size_lg' => '0',
+        'push_size_xs' => '0',
+        'push_size_sm' => '0',
+        'push_size_md' => '0',
+        'push_size_lg' => '0',
+        'pull_size_xs' => '0',
+        'pull_size_sm' => '0',
+        'pull_size_md' => '0',
+        'pull_size_lg' => '0',
+      ),
+      'right' => array(
+        'column_size_xs' => '0',
+        'column_size_sm' => '0',
+        'column_size_md' => '0',
+        'column_size_lg' => '0',
+        'offset_size_xs' => '0',
+        'offset_size_sm' => '0',
+        'offset_size_md' => '0',
+        'offset_size_lg' => '0',
+        'push_size_xs' => '0',
+        'push_size_sm' => '0',
+        'push_size_md' => '0',
+        'push_size_lg' => '0',
+        'pull_size_xs' => '0',
+        'pull_size_sm' => '0',
+        'pull_size_md' => '0',
+        'pull_size_lg' => '0',
+      ),
+      'bottom' => array(
+        'column_type' => 'col-sm',
+        'column_size' => '12',
+        'offset_type' => 'col-lg-offset',
+        'offset_size' => '0',
+      ),
+      'hero-banner' => NULL,
+    ),
+    'top' => array(
+      'style' => 'bootstrap_region',
+    ),
+    'left' => array(
+      'style' => 'bootstrap_region',
+    ),
+    'right' => array(
+      'style' => 'bootstrap_region',
+    ),
+    'middle' => array(
+      'style' => 'bootstrap_region',
+    ),
+    'bottom' => array(
+      'style' => 'bootstrap_region',
+    ),
+    'hero-banner' => array(
+      'style' => 'naked',
+    ),
+  );
+  $display->cache = array();
+  $display->title = 'Atoms for Peace';
+  $display->uuid = 'f70ddf24-475b-4528-bb5d-88cf88a9acbb';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-c141a9d2-f553-4f24-a3b1-a8a8a4e5e76d';
+    $pane->panel = 'bottom';
+    $pane->type = 'block';
+    $pane->subtype = 'bean-about---documents--reports';
+    $pane->shown = FALSE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '',
+          'class_enable' => 1,
+          'class' => 'col-md-4',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 0,
+      ),
+      'style' => 'semantic_panels',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'c141a9d2-f553-4f24-a3b1-a8a8a4e5e76d';
+    $display->content['new-c141a9d2-f553-4f24-a3b1-a8a8a4e5e76d'] = $pane;
+    $display->panels['bottom'][0] = 'new-c141a9d2-f553-4f24-a3b1-a8a8a4e5e76d';
+    $pane = new stdClass();
+    $pane->pid = 'new-3527e9f3-d085-43cf-87f1-095084a5d126';
+    $pane->panel = 'bottom';
+    $pane->type = 'block';
+    $pane->subtype = 'aggregator-feed-2';
+    $pane->shown = FALSE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => '',
+          'class_enable' => 1,
+          'class' => 'col-md-4',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 0,
+      ),
+      'style' => 'semantic_panels',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '3527e9f3-d085-43cf-87f1-095084a5d126';
+    $display->content['new-3527e9f3-d085-43cf-87f1-095084a5d126'] = $pane;
+    $display->panels['bottom'][1] = 'new-3527e9f3-d085-43cf-87f1-095084a5d126';
+    $pane = new stdClass();
+    $pane->pid = 'new-b4c422d8-2b61-4c3d-a994-88cbd64ed1ab';
+    $pane->panel = 'hero-banner';
+    $pane->type = 'block';
+    $pane->subtype = 'bean-about-the-iaea';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'div',
+          'class_enable' => 1,
+          'class' => 'container',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 0,
+      ),
+      'style' => 'semantic_panels',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'b4c422d8-2b61-4c3d-a994-88cbd64ed1ab';
+    $display->content['new-b4c422d8-2b61-4c3d-a994-88cbd64ed1ab'] = $pane;
+    $display->panels['hero-banner'][0] = 'new-b4c422d8-2b61-4c3d-a994-88cbd64ed1ab';
+    $pane = new stdClass();
+    $pane->pid = 'new-804c8d9a-a49a-4ee5-9fc1-1dd1ec3cae05';
+    $pane->panel = 'middle';
+    $pane->type = 'block';
+    $pane->subtype = 'bean-meetings';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'div',
+          'class_enable' => 1,
+          'class' => 'col-md-2',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 0,
+      ),
+      'style' => 'semantic_panels',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '804c8d9a-a49a-4ee5-9fc1-1dd1ec3cae05';
+    $display->content['new-804c8d9a-a49a-4ee5-9fc1-1dd1ec3cae05'] = $pane;
+    $display->panels['middle'][0] = 'new-804c8d9a-a49a-4ee5-9fc1-1dd1ec3cae05';
+    $pane = new stdClass();
+    $pane->pid = 'new-55637f3a-3e1f-43b3-9bd5-05404633c0fc';
+    $pane->panel = 'middle';
+    $pane->type = 'block';
+    $pane->subtype = 'bean-the-secretariat';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'div',
+          'class_enable' => 1,
+          'class' => 'col-md-2',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 0,
+      ),
+      'style' => 'semantic_panels',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '55637f3a-3e1f-43b3-9bd5-05404633c0fc';
+    $display->content['new-55637f3a-3e1f-43b3-9bd5-05404633c0fc'] = $pane;
+    $display->panels['middle'][1] = 'new-55637f3a-3e1f-43b3-9bd5-05404633c0fc';
+    $pane = new stdClass();
+    $pane->pid = 'new-3a4d6561-3b27-4583-9b67-c1cdeb347ed3';
+    $pane->panel = 'middle';
+    $pane->type = 'block';
+    $pane->subtype = 'bean-policy-bodies';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'div',
+          'class_enable' => 1,
+          'class' => 'col-md-2',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 0,
+      ),
+      'style' => 'semantic_panels',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '3a4d6561-3b27-4583-9b67-c1cdeb347ed3';
+    $display->content['new-3a4d6561-3b27-4583-9b67-c1cdeb347ed3'] = $pane;
+    $display->panels['middle'][2] = 'new-3a4d6561-3b27-4583-9b67-c1cdeb347ed3';
+    $pane = new stdClass();
+    $pane->pid = 'new-0010a2be-7eed-4a78-bcf2-4a1f544ae4ab';
+    $pane->panel = 'middle';
+    $pane->type = 'block';
+    $pane->subtype = 'bean-employment';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'div',
+          'class_enable' => 1,
+          'class' => 'col-md-2',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 0,
+      ),
+      'style' => 'semantic_panels',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = '0010a2be-7eed-4a78-bcf2-4a1f544ae4ab';
+    $display->content['new-0010a2be-7eed-4a78-bcf2-4a1f544ae4ab'] = $pane;
+    $display->panels['middle'][3] = 'new-0010a2be-7eed-4a78-bcf2-4a1f544ae4ab';
+    $pane = new stdClass();
+    $pane->pid = 'new-a503bb23-99f6-4e81-9cbb-9f4e004a18d1';
+    $pane->panel = 'middle';
+    $pane->type = 'block';
+    $pane->subtype = 'bean-the-director-general';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => array(
+        'element_title' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_content' => array(
+          'type' => '0',
+          'class_enable' => 0,
+          'class' => '',
+          'attributes' => array(),
+          'link_enabled' => 0,
+          'link' => array(
+            'path' => '',
+            'class_enable' => 0,
+            'class' => '',
+            'attributes' => array(),
+            'attributes_array' => array(),
+          ),
+          'attributes_array' => array(),
+        ),
+        'element_wrapper' => array(
+          'type' => 'div',
+          'class_enable' => 1,
+          'class' => 'col-md-2',
+          'attributes' => array(),
+          'attributes_array' => array(),
+        ),
+        'add_default_classes' => 0,
+      ),
+      'style' => 'semantic_panels',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 4;
+    $pane->locks = array();
+    $pane->uuid = 'a503bb23-99f6-4e81-9cbb-9f4e004a18d1';
+    $display->content['new-a503bb23-99f6-4e81-9cbb-9f4e004a18d1'] = $pane;
+    $display->panels['middle'][4] = 'new-a503bb23-99f6-4e81-9cbb-9f4e004a18d1';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['documents'] = $page;
+
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
   $page->name = 'experiments';
   $page->task = 'page';
   $page->admin_title = 'Experiments';
@@ -4134,7 +4771,7 @@ function iaea_panel_pages_default_page_manager_pages() {
   $page->task = 'page';
   $page->admin_title = 'Information Circulars';
   $page->admin_description = '';
-  $page->path = 'documents/infcircs';
+  $page->path = 'publications/documents/infcircs';
   $page->access = array();
   $page->menu = array();
   $page->arguments = array();

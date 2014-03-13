@@ -19,6 +19,7 @@ features[page_manager_handlers][] = term_view_panel_context_2
 features[page_manager_pages][] = about_the_iaea
 features[page_manager_pages][] = dg_s_corner
 features[page_manager_pages][] = dg_statements
+features[page_manager_pages][] = documents
 features[page_manager_pages][] = experiments
 features[page_manager_pages][] = front_page_new
 features[page_manager_pages][] = iaea_57th_general_conference

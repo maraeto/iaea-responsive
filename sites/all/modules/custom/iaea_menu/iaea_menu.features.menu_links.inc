@@ -147,6 +147,24 @@ function iaea_menu_menu_default_menu_links() {
     'customized' => 1,
     'parent_identifier' => 'main-menu_about-us:about',
   );
+  // Exported menu link: main-menu_documents:node/9202
+  $menu_links['main-menu_documents:node/9202'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'node/9202',
+    'router_path' => 'node/%',
+    'link_title' => 'Documents',
+    'options' => array(
+      'identifier' => 'main-menu_documents:node/9202',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 1,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 0,
+    'parent_identifier' => 'main-menu_publications:publications',
+  );
   // Exported menu link: main-menu_focus-page-menu-position-rule:menu-position/1
   $menu_links['main-menu_focus-page-menu-position-rule:menu-position/1'] = array(
     'menu_name' => 'main-menu',
@@ -230,6 +248,52 @@ function iaea_menu_menu_default_menu_links() {
     'weight' => -45,
     'customized' => 1,
     'parent_identifier' => 'main-menu_about-us:about',
+  );
+  // Exported menu link: main-menu_information-circular-menu-position-rule:menu-position/10
+  $menu_links['main-menu_information-circular-menu-position-rule:menu-position/10'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'menu-position/10',
+    'router_path' => 'menu-position/%',
+    'link_title' => 'Information Circular (menu position rule)',
+    'options' => array(
+      'alter' => TRUE,
+      'attributes' => array(
+        'class' => array(
+          0 => 'menu-position-link',
+        ),
+      ),
+      'identifier' => 'main-menu_information-circular-menu-position-rule:menu-position/10',
+    ),
+    'module' => 'menu_position',
+    'hidden' => 1,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 0,
+    'parent_identifier' => 'main-menu_information-circulars:publications/documents/infcircs',
+  );
+  // Exported menu link: main-menu_information-circulars:publications/documents/infcircs
+  $menu_links['main-menu_information-circulars:publications/documents/infcircs'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'publications/documents/infcircs',
+    'router_path' => 'publications/documents/infcircs',
+    'link_title' => 'Information Circulars',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'alter' => TRUE,
+      'identifier' => 'main-menu_information-circulars:publications/documents/infcircs',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 1,
+    'parent_identifier' => 'main-menu_documents:node/9202',
   );
   // Exported menu link: main-menu_latest-from-iaea:node/12
   $menu_links['main-menu_latest-from-iaea:node/12'] = array(
@@ -560,8 +624,8 @@ function iaea_menu_menu_default_menu_links() {
     'module' => 'menu',
     'hidden' => 0,
     'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
+    'has_children' => 1,
+    'expanded' => 1,
     'weight' => -46,
     'customized' => 1,
   );
@@ -696,10 +760,13 @@ function iaea_menu_menu_default_menu_links() {
   t('DG\'s Statement (menu position rule)');
   t('DG\'s Statements');
   t('DIVIDER');
+  t('Documents');
   t('Focus Page (menu position rule)');
   t('General Conference');
   t('HEADING Multimedia');
   t('IAEA Director General');
+  t('Information Circular (menu position rule)');
+  t('Information Circulars');
   t('Latest From IAEA');
   t('Media Advisories');
   t('Media Advisory (menu position rule)');
