@@ -1585,13 +1585,6 @@ function iaea_configuration_roles_and_permissions_user_default_permissions() {
     'module' => 'taxonomy',
   );
 
-  // Exported permission: 'delete terms in focus_page'.
-  $permissions['delete terms in focus_page'] = array(
-    'name' => 'delete terms in focus_page',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
   // Exported permission: 'delete terms in infcirc_category'.
   $permissions['delete terms in infcirc_category'] = array(
     'name' => 'delete terms in infcirc_category',
@@ -2234,13 +2227,6 @@ function iaea_configuration_roles_and_permissions_user_default_permissions() {
     'roles' => array(
       'authenticated user' => 'authenticated user',
     ),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'edit terms in focus_page'.
-  $permissions['edit terms in focus_page'] = array(
-    'name' => 'edit terms in focus_page',
-    'roles' => array(),
     'module' => 'taxonomy',
   );
 

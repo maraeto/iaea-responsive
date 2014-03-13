@@ -58,7 +58,6 @@ features[variable][] = pathauto_node_press_release_pattern
 features[variable][] = pathauto_punctuation_hyphen
 features[variable][] = pathauto_taxonomy_term_content_type_pattern
 features[variable][] = pathauto_taxonomy_term_country_pattern
-features[variable][] = pathauto_taxonomy_term_focus_page_pattern
 features[variable][] = pathauto_taxonomy_term_infcirc_category_pattern
 features[variable][] = pathauto_taxonomy_term_language_pattern
 features[variable][] = pathauto_taxonomy_term_pattern

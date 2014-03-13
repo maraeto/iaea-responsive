@@ -370,13 +370,6 @@ function iaea_configuration_common_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_taxonomy_term_focus_page_pattern';
-  $strongarm->value = '';
-  $export['pathauto_taxonomy_term_focus_page_pattern'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_taxonomy_term_infcirc_category_pattern';
   $strongarm->value = '';
   $export['pathauto_taxonomy_term_infcirc_category_pattern'] = $strongarm;
