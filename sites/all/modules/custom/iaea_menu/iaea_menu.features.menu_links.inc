@@ -131,7 +131,7 @@ function iaea_menu_menu_default_menu_links() {
     'menu_name' => 'main-menu',
     'link_path' => 'http://#divider',
     'router_path' => '',
-    'link_title' => 'DIVIDER',
+    'link_title' => 'Divider',
     'options' => array(
       'attributes' => array(
         'title' => '',
@@ -139,13 +139,13 @@ function iaea_menu_menu_default_menu_links() {
       'identifier' => 'main-menu_divider:http://#divider',
     ),
     'module' => 'menu',
-    'hidden' => 1,
+    'hidden' => 0,
     'external' => 1,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -49,
+    'weight' => -43,
     'customized' => 1,
-    'parent_identifier' => 'main-menu_about-us:about',
+    'parent_identifier' => 'main-menu_newscenter:newscenter',
   );
   // Exported menu link: main-menu_documents:node/9202
   $menu_links['main-menu_documents:node/9202'] = array(
@@ -730,27 +730,6 @@ function iaea_menu_menu_default_menu_links() {
     'customized' => 1,
     'parent_identifier' => 'main-menu_multimedia:newscenter/multimedia',
   );
-  // Exported menu link: main-menu_who-we-are:about
-  $menu_links['main-menu_who-we-are:about'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'about',
-    'router_path' => 'about',
-    'link_title' => 'Who We Are',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'identifier' => 'main-menu_who-we-are:about',
-    ),
-    'module' => 'menu',
-    'hidden' => 1,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -50,
-    'customized' => 1,
-    'parent_identifier' => 'main-menu_about-us:about',
-  );
   // Translatables
   // Included for use with string extractors like potx.
   t('About Us');
@@ -759,7 +738,7 @@ function iaea_menu_menu_default_menu_links() {
   t('Business Opportunities');
   t('DG\'s Statement (menu position rule)');
   t('DG\'s Statements');
-  t('DIVIDER');
+  t('Divider');
   t('Documents');
   t('Focus Page (menu position rule)');
   t('General Conference');
@@ -788,7 +767,6 @@ function iaea_menu_menu_default_menu_links() {
   t('Topics in Focus');
   t('Video (menu position rule)');
   t('Videos');
-  t('Who We Are');
 
 
   return $menu_links;

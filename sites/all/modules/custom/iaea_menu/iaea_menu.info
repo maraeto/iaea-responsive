@@ -42,4 +42,3 @@ features[menu_links][] = main-menu_top-stories-and-news:newscenter/news
 features[menu_links][] = main-menu_topics-in-focus:newscenter/focus
 features[menu_links][] = main-menu_video-menu-position-rule:menu-position/6
 features[menu_links][] = main-menu_videos:newscenter/multimedia/videos
-features[menu_links][] = main-menu_who-we-are:about
