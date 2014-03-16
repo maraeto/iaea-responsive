@@ -35,6 +35,7 @@ function theme_panels_bootstrap_layouts_style_region_render($vars) {
   $layouts = array(
     'bootstrap_twocol_stacked',
     'bootstrap_threecol_stacked',
+    'bootstrap_threecol_bricks',
   );
 
   if (in_array($display->layout, $layouts) && $panes) {
@@ -220,6 +221,7 @@ function panels_bootstrap_layouts_style_region_settings_form_validate($form, $se
     switch ($pid) {
       case 'top':
       case 'bottom':
+      case 'brick':
         if ($settings['column_size'] + $settings['offset_size'] > 12) {
           form_set_error('column_size', t('Column size + Offset cannot be more than 12!'));
         }
@@ -228,6 +230,9 @@ function panels_bootstrap_layouts_style_region_settings_form_validate($form, $se
       case 'left':
       case 'middle':
       case 'right':
+      case 'left1':
+      case 'middle1':
+      case 'right1':
         $regions = array('left', 'middle', 'right');
         // Delete current region.
         unset($regions[array_search($pid, $regions)]);
@@ -259,6 +264,10 @@ function _panels_bootstrap_layouts_get_default_column_size($layout, $pid) {
   }
 
   if ($layout == 'bootstrap_threecol_stacked') {
+    return 4;
+  }
+
+  if ($layout == 'bootstrap_threecol_bricks') {
     return 4;
   }
 
